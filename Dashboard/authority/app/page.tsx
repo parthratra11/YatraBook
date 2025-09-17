@@ -28,56 +28,56 @@ const Navbar = () => {
             />
           </div>
           <div>
-            <h1 className="text-sm sm:text-lg lg:text-xl font-bold text-gray-900 font-sans tracking-tight">
-              YatraBook Platform
+            <h1 className="text-sm sm:text-xl lg:text-2xl font-bold text-gray-900 font-sans tracking-tight">
+              YatraBook
             </h1>
-            <p className="text-xs sm:text-sm text-orange-600 font-medium font-sans">
+            {/* <p className="text-xs sm:text-sm text-orange-600 font-medium font-sans">
               Integrated Tourism Safety & Travel Management
-            </p>
+            </p> */}
           </div>
         </div>
 
         <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
           <Link
             href="#hero"
-            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm"
+            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-md"
           >
             Home
           </Link>
           <Link
             href="#about"
-            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm"
+            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-md"
           >
             About
           </Link>
           <Link
             href="#services"
-            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm"
+            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-md"
           >
             Features
           </Link>
           <Link
             href="#portal"
-            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm"
+            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-md"
           >
             Dashboard
           </Link>
           <Link
             href="#demo"
-            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm"
+            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-md"
           >
             Demo
           </Link>
           <Link
             href="#contact"
-            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm"
+            className="text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-md"
           >
             Contact
           </Link>
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-orange-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-sm">
+          <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-orange-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-md">
             Login
           </button>
         </div>
@@ -95,24 +95,32 @@ const HeroSlider = () => {
       subtitle: "YatraBook - Complete Travel Solution",
       description:
         "Comprehensive digital platform empowering travelers and tourism authorities with real-time safety features, seamless travel management, and blockchain-secured compliance for Northeast India and beyond.",
+      bgImage: "/bg1.jpg", // Add your background images
+      fgImage: "/LoraWatch.png", // Add your foreground images
     },
     {
       title: "Advanced Emergency Safety System",
       subtitle: "AI-Powered SOS & LoRa Mesh Technology",
       description:
         "Automated emergency response with GPS tracking, multi-channel alerts via app, WhatsApp, and SMS. Extended coverage through LoRa mesh networks for remote areas.",
+      bgImage: "/bg2.jpg",
+      fgImage: "/national_emblem.svg",
     },
     {
       title: "Blockchain-Secured Travel Compliance",
       subtitle: "Tamper-Proof Permit & Trip Management",
       description:
         "Every trip, permit, and emergency event securely logged on blockchain for verifiable audit trails, enhanced trust, and seamless compliance management.",
+      bgImage: "/bg3.jpg",
+      fgImage: "/LoraWatch.png",
     },
     {
       title: "Smart Authority Dashboard",
       subtitle: "Real-time Monitoring & Response Coordination",
       description:
         "Advanced web interface for tourism departments to monitor movements, receive alerts, track permit compliance, and coordinate rapid emergency responses.",
+      bgImage: "/bg4.jpg",
+      fgImage: "/national_emblem.svg",
     },
   ];
 
@@ -127,77 +135,138 @@ const HeroSlider = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  // Determine if current slide should have image on right (even indices) or left (odd indices)
+  const isImageOnRight = currentIndex % 2 === 0;
+
   return (
     <section
       id="hero"
       className="relative h-[calc(100vh-70px)] w-full overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-800/75 to-orange-600/80 z-10"></div>
-
+      {/* Background Images with Blur */}
       {slides.map((slide, index) => (
         <div
-          key={index}
+          key={`bg-${index}`}
           className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="w-full h-full bg-gradient-to-br from-gray-900 to-orange-600"></div>
+          <Image
+            src={slide.bgImage}
+            alt={`Background for ${slide.title}`}
+            fill
+            className="object-cover"
+            priority={index === 0}
+          />
         </div>
       ))}
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <div className="text-white max-w-4xl">
-          <div className="mb-4 sm:mb-6">
-            <p className="text-sm sm:text-lg lg:text-xl text-orange-200 font-medium font-sans tracking-wide">
-              {slides[currentIndex].subtitle}
-            </p>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight font-sans">
-            {slides[currentIndex].title}
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 text-gray-100 leading-relaxed max-w-3xl font-sans font-light">
-            {slides[currentIndex].description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-xl border-2 border-orange-500 text-sm sm:text-base lg:text-lg font-sans">
-              Explore Platform
-            </button>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.yatrabook"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg font-semibold transition-all text-sm sm:text-base lg:text-lg font-sans text-center flex items-center justify-center"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M17.523,7.969c0.154,0.138,0.309,0.277,0.463,0.415c0.771,0.691,1.156,1.729,1.156,2.846c0,1.117-0.385,2.154-1.156,2.846c-0.154,0.138-0.309,0.277-0.463,0.415l-4.477,4.015c-0.844,0.757-2.008,1.171-3.277,1.171s-2.433-0.414-3.277-1.171l-4.477-4.015c-0.154-0.138-0.309-0.277-0.463-0.415C0.378,13.384,0,12.347,0,11.23s0.378-2.154,1.152-2.846c0.154-0.138,0.309-0.277,0.463-0.415l4.477-4.015C7.637,2.979,8.801,2.565,10.07,2.565s2.433,0.414,3.277,1.171L17.523,7.969z M13.269,6.026L10.07,3.75c-0.844-0.757-2.008-1.171-3.277-1.171s-2.433,0.414-3.277,1.171L0.314,6.757C-0.112,7.179-0.112,7.854,0.314,8.276s1.111,0.422,1.537,0l3.277-2.934c0.446-0.4,1.071-0.4,1.517,0s0.446,1.047,0,1.447L4.167,9.576c-0.426,0.382-0.426,1.025,0,1.407s1.111,0.382,1.537,0L8.982,8.05c0.446-0.4,1.071-0.4,1.517,0s0.446,1.047,0,1.447L7.221,12.43c-0.426,0.382-0.426,1.025,0,1.407s1.111,0.382,1.537,0l3.278-2.934c0.446-0.4,1.071-0.4,1.517,0s0.446,1.047,0,1.447l-3.278,2.934c-0.426,0.382-0.426,1.025,0,1.407s1.111,0.382,1.537,0l3.278-2.934c0.844-0.757,1.304-1.795,1.304-2.946s-0.46-2.189-1.304-2.946L13.269,6.026z" />
-                </svg>
-                Download for Android
-              </a>
-              <a
-                href="https://apps.apple.com/app/yatrabook/id123456789"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg font-semibold transition-all text-sm sm:text-base lg:text-lg font-sans text-center flex items-center justify-center"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.09,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-                </svg>
-                Download for iOS
-              </a>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-800/75 to-orange-600/80 z-10"></div>
+
+      {/* Content */}
+      <div className="relative z-20 h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+            {/* Text Content */}
+            <div
+              className={`text-white col-span-2 ${
+                isImageOnRight
+                  ? "order-1 lg:order-1"
+                  : "order-2 lg:order-2 lg:col-start-2"
+              }`}
+            >
+              <div className="mb-4 sm:mb-6">
+                <p className="text-sm sm:text-lg lg:text-xl text-orange-200 font-medium font-sans tracking-wide">
+                  {slides[currentIndex].subtitle}
+                </p>
+              </div>
+              <h1 className="text-3xl sm:text-4xl italic md:text-5xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight font-sans">
+                {slides[currentIndex].title}
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl lg:text-xl mb-8 sm:mb-10 text-gray-100 leading-relaxed font-sans font-light">
+                {slides[currentIndex].description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 lg:px-6 py-1 sm:py-2 lg:py-2 rounded-md font-semibold transition-all transform hover:scale-105 shadow-xl border border-orange-500 text-sm lg:text-lg font-sans">
+                  Explore Platform
+                </button>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.yatrabook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-white hover:bg-white hover:text-gray-900 text-white px-4 sm:px-2 lg:px-3 py-1 sm:py-2 lg:py-2 rounded-full font-semibold transition-all text-xs lg:text-sm font-sans text-center flex items-center justify-center"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M17.523,7.969c0.154,0.138,0.309,0.277,0.463,0.415c0.771,0.691,1.156,1.729,1.156,2.846c0,1.117-0.385,2.154-1.156,2.846c-0.154,0.138-0.309,0.277-0.463,0.415l-4.477,4.015c-0.844,0.757-2.008,1.171-3.277,1.171s-2.433-0.414-3.277-1.171l-4.477-4.015c-0.154-0.138-0.309-0.277-0.463-0.415C0.378,13.384,0,12.347,0,11.23s0.378-2.154,1.152-2.846c0.154-0.138,0.309-0.277,0.463-0.415l4.477-4.015C7.637,2.979,8.801,2.565,10.07,2.565s2.433,0.414,3.277,1.171L17.523,7.969z M13.269,6.026L10.07,3.75c-0.844-0.757-2.008-1.171-3.277-1.171s-2.433,0.414-3.277,1.171L0.314,6.757C-0.112,7.179-0.112,7.854,0.314,8.276s1.111,0.422,1.537,0l3.277-2.934c0.446-0.4,1.071-0.4,1.517,0s0.446,1.047,0,1.447L4.167,9.576c-0.426,0.382-0.426,1.025,0,1.407s1.111,0.382,1.537,0L8.982,8.05c0.446-0.4,1.071-0.4,1.517,0s0.446,1.047,0,1.447L7.221,12.43c-0.426,0.382-0.426,1.025,0,1.407s1.111,0.382,1.537,0l3.278-2.934c0.446-0.4,1.071-0.4,1.517,0s0.446,1.047,0,1.447l-3.278,2.934c-0.426,0.382-0.426,1.025,0,1.407s1.111,0.382,1.537,0l3.278-2.934c0.844-0.757,1.304-1.795,1.304-2.946s-0.46-2.189-1.304-2.946L13.269,6.026z" />
+                    </svg>
+                    Download for Android
+                  </a>
+                  <a
+                    href="https://apps.apple.com/app/yatrabook/id123456789"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-white hover:bg-white hover:text-gray-900 text-white px-4 sm:px-2 lg:px-3 py-1 sm:py-2 lg:py-2 rounded-full font-semibold transition-all text-xs lg:text-sm font-sans text-center flex items-center justify-center"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.09,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
+                    </svg>
+                    Download for iOS
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Foreground Image - Positioned to extend and get cut */}
+        <div
+          className={`absolute w-1/3 h-2/3 top-1/2 overflow-hidden transform -translate-y-1/2 z-30 transition-all duration-1000 ease-in-out ${
+            isImageOnRight
+              ? "right-0 rounded-l-full order-2 lg:order-2 animate-slide-in-right"
+              : "left-0 rounded-r-full order-1 lg:order-1 animate-slide-in-left"
+          }`}
+          key={`image-container-${currentIndex}`}
+        >
+          <div className="relative">
+            {slides.map((slide, index) => (
+              <div
+                key={`fg-${index}`}
+                className={`transition-opacity bg-white duration-1000 overflow-hidden ${
+                  index === currentIndex
+                    ? "opacity-100"
+                    : "opacity-0 absolute inset-0"
+                }`}
+              >
+                <Image
+                  src={slide.fgImage}
+                  alt={`Feature image for ${slide.title}`}
+                  width={700}
+                  height={700}
+                  className="object-contain drop-shadow-2xl"
+                  style={{
+                    transform: isImageOnRight
+                      ? "translateX(0%)"
+                      : "translateX(0%)",
+                  }}
+                  priority={index === 0}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
+      {/* Slide Indicators */}
       <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex space-x-2 sm:space-x-3 z-30">
         {slides.map((_, index) => (
           <button
@@ -783,6 +852,37 @@ const ContactSection = () => {
 export default function Home() {
   return (
     <main className="min-h-screen font-sans antialiased overflow-x-hidden">
+      <style jsx global>{`
+        @keyframes slide-in-left {
+          0% {
+            transform: translateX(-100%) translateY(0%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0%) translateY(0%);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slide-in-right {
+          0% {
+            transform: translateX(100%) translateY(0%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0%) translateY(0%);
+            opacity: 1;
+          }
+        }
+
+        .animate-slide-in-left {
+          animation: slide-in-left 0.8s ease-in-out;
+        }
+
+        .animate-slide-in-right {
+          animation: slide-in-right 0.8s ease-in-out;
+        }
+      `}</style>
       <Navbar />
       <HeroSlider />
       <AboutSection />
