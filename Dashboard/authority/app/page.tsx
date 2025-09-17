@@ -9,15 +9,21 @@ const Navbar = () => {
     <>
       <nav className="w-full py-3 px-4 sm:px-6 flex items-center justify-between bg-white/95 backdrop-blur-sm shadow-lg border-t border-orange-500 sticky top-0 z-50">
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-xs sm:text-sm">YB</span>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center overflow-hidden">
+            <Image
+              src="/Logo.jpg"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="w-full h-full object-contain overflow"
+            />
           </div>
-          <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gray-900 rounded-full flex items-center justify-center overflow-hidden">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 bg-white/95 rounded-full flex items-center justify-center overflow-visible">
             <Image
               src="/national_emblem.svg"
               alt="Logo"
-              width={48}
-              height={48}
+              width={50}
+              height={50}
               className="w-full h-full object-contain"
             />
           </div>
@@ -432,10 +438,14 @@ const ServicesSection = () => {
               </div>
             </div>
             <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
-              <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-lg sm:rounded-xl mb-4 sm:mb-6 flex items-center justify-center">
-                <span className="text-white font-semibold font-sans text-sm sm:text-base">
-                  🌐 LoRa Network Map
-                </span>
+              <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-lg sm:rounded-xl mb-4 sm:mb-6 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/LoraMesh2.png"
+                  alt="LoRa Network Infrastructure Map showing wireless sensors and mesh gateways"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-fit rounded-lg sm:rounded-xl"
+                />
               </div>
               <h4 className="font-bold text-gray-900 text-center font-sans text-base sm:text-lg">
                 Network Visualization
@@ -695,13 +705,13 @@ const ContactSection = () => {
               📧 contact@yatrabook.com
             </p>
             <p className="text-gray-300 mb-1 font-sans text-xs sm:text-sm">
-              📞 +91-YATRA-BOOK
+              📞 +91-99999-99999
             </p>
             <p className="text-gray-300 mb-1 font-sans text-xs sm:text-sm">
-              📞 +91-11-4567-8900
+              📞 +91-99999-99999
             </p>
             <p className="text-gray-300 font-sans text-xs sm:text-sm">
-              🏢 YatraBook Technologies, Innovation District, Guwahati - 781001
+              🏢 YatraBook, New Delhi, India - 000000
             </p>
           </div>
           <div>
@@ -758,7 +768,7 @@ const ContactSection = () => {
 
         <div className="text-center pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-gray-600">
           <p className="text-gray-300 mb-1 font-sans text-xs sm:text-sm">
-            © 2024 YatraBook Technologies Pvt. Ltd. All rights reserved.
+            © 2025 YatraBook. All rights reserved.
           </p>
           <p className="text-xs text-gray-400 font-sans">
             Empowering safe travel through innovative technology | Privacy
