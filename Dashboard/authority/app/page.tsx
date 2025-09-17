@@ -96,7 +96,7 @@ const HeroSlider = () => {
       description:
         "Comprehensive digital platform empowering travelers and tourism authorities with real-time safety features, seamless travel management, and blockchain-secured compliance for Northeast India and beyond.",
       bgImage: "/bg1.jpg", // Add your background images
-      fgImage: "/LoraWatch.png", // Add your foreground images
+      fgImage: "/LoraWatch.jpg", // Add your foreground images
     },
     {
       title: "Advanced Emergency Safety System",
@@ -112,7 +112,7 @@ const HeroSlider = () => {
       description:
         "Every trip, permit, and emergency event securely logged on blockchain for verifiable audit trails, enhanced trust, and seamless compliance management.",
       bgImage: "/bg3.jpg",
-      fgImage: "/LoraWatch.png",
+      fgImage: "/LoraWatch.jpg",
     },
     {
       title: "Smart Authority Dashboard",
