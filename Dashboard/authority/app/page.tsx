@@ -12,10 +12,14 @@ const Navbar = () => {
           <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-xs sm:text-sm">YB</span>
           </div>
-          <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gray-900 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-[8px] sm:text-xs">
-              सत्यमेव जयते
-            </span>
+          <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gray-900 rounded-full flex items-center justify-center overflow-hidden">
+            <Image
+              src="/national_emblem.svg"
+              alt="Logo"
+              width={48}
+              height={48}
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <h1 className="text-sm sm:text-lg lg:text-xl font-bold text-gray-900 font-sans tracking-tight">
