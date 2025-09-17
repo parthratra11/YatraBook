@@ -104,7 +104,7 @@ const HeroSlider = () => {
       description:
         "Automated emergency response with GPS tracking, multi-channel alerts via app, WhatsApp, and SMS. Extended coverage through LoRa mesh networks for remote areas.",
       bgImage: "/bg2.jpg",
-      fgImage: "/national_emblem.svg",
+      fgImage: "/LoraWatch.jpg",
     },
     {
       title: "Blockchain-Secured Travel Compliance",
@@ -120,7 +120,7 @@ const HeroSlider = () => {
       description:
         "Advanced web interface for tourism departments to monitor movements, receive alerts, track permit compliance, and coordinate rapid emergency responses.",
       bgImage: "/bg4.jpg",
-      fgImage: "/national_emblem.svg",
+      fgImage: "/LoraWatch.jpg",
     },
   ];
 
