@@ -350,12 +350,14 @@ const TouristMap = () => (
     </div>
     <div className="flex-1">
       <MapContainer
+        //@ts-ignore
         center={[26.1445, 91.7362]}
         zoom={6}
         scrollWheelZoom={false}
         style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
       >
         <TileLayer
+          //@ts-ignore
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
@@ -384,19 +386,35 @@ const SafeAreaMap = () => (
     </div>
     <div className="flex-1">
       <MapContainer
+        //@ts-ignore
         center={[25.5, 92.5]}
         zoom={6}
         scrollWheelZoom={false}
         style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
       >
         <TileLayer
+          //@ts-ignore
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* Example safe/restricted zones */}
-        <Circle center={[26.1445, 91.7362]} radius={40000} color="green" />
-        <Circle center={[25.5788, 91.8933]} radius={30000} color="red" />
-        <Circle center={[25.6751, 94.1086]} radius={25000} color="yellow" />
+        <Circle
+          center={[26.1445, 91.7362]}
+          //@ts-ignore
+          radius={40000}
+          color="green"
+        />
+        <Circle
+          center={[25.5788, 91.8933]}
+          //@ts-ignore
+          radius={30000}
+          color="red"
+        />
+        <Circle
+          center={[25.6751, 94.1086]}
+          //@ts-ignore
+          radius={25000}
+          color="yellow"
+        />
       </MapContainer>
     </div>
   </div>
@@ -409,30 +427,35 @@ const TouristDensityMap = () => (
     </div>
     <div className="flex-1">
       <MapContainer
+        //@ts-ignore
         center={[25.5, 92.5]}
         zoom={6}
         scrollWheelZoom={false}
         style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
       >
         <TileLayer
+          //@ts-ignore
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {/* Example density circles */}
         <Circle
           center={[26.1445, 91.7362]}
+          //@ts-ignore
           radius={50000}
           color="orange"
           fillOpacity={0.4}
         />
         <Circle
           center={[25.5788, 91.8933]}
+          //@ts-ignore
           radius={30000}
           color="orange"
           fillOpacity={0.3}
         />
         <Circle
           center={[25.6751, 94.1086]}
+          //@ts-ignore
           radius={20000}
           color="orange"
           fillOpacity={0.2}
@@ -464,7 +487,7 @@ const WeatherMap = () => (
     </div>
   </div>
 );
-
+//@ts-ignore
 const StatCard = ({ title, value, icon, color = "bg-white" }) => (
   <div
     className={`border rounded-lg shadow-sm h-full flex flex-col justify-center items-start px-4 py-3 ${color}`}
