@@ -575,17 +575,20 @@ export default function AdminDashboard() {
           </div>
           <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 bg-white/95 rounded-full flex items-center justify-center overflow-visible">
             <Image
-              src="/national_emblem.svg"
+              src="/ASSAM.png"
               alt="Emblem"
               width={50}
               height={50}
               className="w-full h-full object-contain"
             />
           </div>
-          <div>
-            <h1 className="text-sm sm:text-xl lg:text-2xl font-bold text-gray-900 font-sans tracking-tight">
-              YatraBook
+          <div className="flex flex-col">
+            <h1 className="text-md sm:text-xl lg:text-2xl font-bold text-gray-900 font-sans tracking-tight">
+              Assam
             </h1>
+            <h6 className="text-xs md:text-sm font-medium text-gray-900 font-sans tracking-tight">
+              Travel Authority
+            </h6>
           </div>
         </div>
 
