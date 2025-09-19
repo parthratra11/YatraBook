@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import {
   UserGroupIcon,
   ExclamationTriangleIcon,
@@ -27,8 +28,28 @@ import {
   PlusIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
-import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
+
+// Dynamically import Leaflet components to avoid SSR issues
+const DynamicMapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const DynamicTileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const DynamicMarker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+);
+const DynamicPopup = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Popup),
+  { ssr: false }
+);
+const DynamicCircle = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Circle),
+  { ssr: false }
+);
 
 // Mock data
 const mockData = {
@@ -264,17 +285,6 @@ function SOSNotifications() {
               </option>
             ))}
           </select>
-          {/* <select
-            className="border rounded px-2 py-1 text-xs"
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-          >
-            {alertStatus.map((s) => (
-              <option key={s.value} value={s.value}>
-                {s.label}
-              </option>
-            ))}
-          </select> */}
         </div>
       </div>
       <div className="flex-1 overflow-y-auto px-2 py-2">
@@ -342,42 +352,75 @@ function SOSNotifications() {
   );
 }
 
+// Create marker icon function that only runs on client
+const createMarkerIcon = () => {
+  if (typeof window === "undefined") return null;
+
+  const L = require("leaflet");
+  return new L.Icon({
+    iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+    iconRetinaUrl:
+      "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+    shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+};
+
 // --- Map Components ---
-const TouristMap = () => (
-  <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
-    <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
-      Tourist Map
+const TouristMap = () => {
+  const [markerIcon, setMarkerIcon] = useState<any>(null);
+
+  useEffect(() => {
+    const icon = createMarkerIcon();
+    setMarkerIcon(icon);
+  }, []);
+
+  return (
+    <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+      <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+        Tourist Map
+      </div>
+      <div className="flex-1">
+        {typeof window !== "undefined" && (
+          <DynamicMapContainer
+            center={[26.1445, 91.7362] as [number, number]}
+            zoom={6}
+            scrollWheelZoom={false}
+            style={{
+              height: "100%",
+              width: "100%",
+              borderRadius: "0 0 8px 8px",
+            }}
+          >
+            <DynamicTileLayer
+              attribution="&copy; OpenStreetMap contributors"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {markerIcon && (
+              <>
+                <DynamicMarker position={[26.1445, 91.7362]} icon={markerIcon}>
+                  <DynamicPopup>Guwahati</DynamicPopup>
+                </DynamicMarker>
+                <DynamicMarker position={[25.5788, 91.8933]} icon={markerIcon}>
+                  <DynamicPopup>Shillong</DynamicPopup>
+                </DynamicMarker>
+                <DynamicMarker position={[25.6751, 94.1086]} icon={markerIcon}>
+                  <DynamicPopup>Kohima</DynamicPopup>
+                </DynamicMarker>
+                <DynamicMarker position={[23.1645, 92.9376]} icon={markerIcon}>
+                  <DynamicPopup>Agartala</DynamicPopup>
+                </DynamicMarker>
+              </>
+            )}
+          </DynamicMapContainer>
+        )}
+      </div>
     </div>
-    <div className="flex-1">
-      <MapContainer
-        //@ts-ignore
-        center={[26.1445, 91.7362]}
-        zoom={6}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
-      >
-        <TileLayer
-          //@ts-ignore
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {/* Example tourist markers */}
-        <Marker position={[26.1445, 91.7362]}>
-          <Popup>Guwahati</Popup>
-        </Marker>
-        <Marker position={[25.5788, 91.8933]}>
-          <Popup>Shillong</Popup>
-        </Marker>
-        <Marker position={[25.6751, 94.1086]}>
-          <Popup>Kohima</Popup>
-        </Marker>
-        <Marker position={[23.1645, 92.9376]}>
-          <Popup>Agartala</Popup>
-        </Marker>
-      </MapContainer>
-    </div>
-  </div>
-);
+  );
+};
 
 const SafeAreaMap = () => (
   <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
@@ -385,37 +428,34 @@ const SafeAreaMap = () => (
       Safe Area Map
     </div>
     <div className="flex-1">
-      <MapContainer
-        //@ts-ignore
-        center={[25.5, 92.5]}
-        zoom={6}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
-      >
-        <TileLayer
-          //@ts-ignore
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Circle
-          center={[26.1445, 91.7362]}
-          //@ts-ignore
-          radius={40000}
-          color="green"
-        />
-        <Circle
-          center={[25.5788, 91.8933]}
-          //@ts-ignore
-          radius={30000}
-          color="red"
-        />
-        <Circle
-          center={[25.6751, 94.1086]}
-          //@ts-ignore
-          radius={25000}
-          color="yellow"
-        />
-      </MapContainer>
+      {typeof window !== "undefined" && (
+        <DynamicMapContainer
+          center={[25.5, 92.5] as [number, number]}
+          zoom={6}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
+        >
+          <DynamicTileLayer
+            attribution="&copy; OpenStreetMap contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <DynamicCircle
+            center={[26.1445, 91.7362]}
+            radius={40000}
+            color="green"
+          />
+          <DynamicCircle
+            center={[25.5788, 91.8933]}
+            radius={30000}
+            color="red"
+          />
+          <DynamicCircle
+            center={[25.6751, 94.1086]}
+            radius={25000}
+            color="yellow"
+          />
+        </DynamicMapContainer>
+      )}
     </div>
   </div>
 );
@@ -426,41 +466,37 @@ const TouristDensityMap = () => (
       Tourist Density Map
     </div>
     <div className="flex-1">
-      <MapContainer
-        //@ts-ignore
-        center={[25.5, 92.5]}
-        zoom={6}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
-      >
-        <TileLayer
-          //@ts-ignore
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {/* Example density circles */}
-        <Circle
-          center={[26.1445, 91.7362]}
-          //@ts-ignore
-          radius={50000}
-          color="orange"
-          fillOpacity={0.4}
-        />
-        <Circle
-          center={[25.5788, 91.8933]}
-          //@ts-ignore
-          radius={30000}
-          color="orange"
-          fillOpacity={0.3}
-        />
-        <Circle
-          center={[25.6751, 94.1086]}
-          //@ts-ignore
-          radius={20000}
-          color="orange"
-          fillOpacity={0.2}
-        />
-      </MapContainer>
+      {typeof window !== "undefined" && (
+        <DynamicMapContainer
+          center={[25.5, 92.5] as [number, number]}
+          zoom={6}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
+        >
+          <DynamicTileLayer
+            attribution="&copy; OpenStreetMap contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <DynamicCircle
+            center={[26.1445, 91.7362]}
+            radius={50000}
+            color="orange"
+            fillOpacity={0.4}
+          />
+          <DynamicCircle
+            center={[25.5788, 91.8933]}
+            radius={30000}
+            color="orange"
+            fillOpacity={0.3}
+          />
+          <DynamicCircle
+            center={[25.6751, 94.1086]}
+            radius={20000}
+            color="orange"
+            fillOpacity={0.2}
+          />
+        </DynamicMapContainer>
+      )}
     </div>
   </div>
 );
@@ -487,8 +523,20 @@ const WeatherMap = () => (
     </div>
   </div>
 );
-//@ts-ignore
-const StatCard = ({ title, value, icon, color = "bg-white" }) => (
+
+interface StatCardProps {
+  title: string;
+  value: string | number;
+  icon: React.ReactNode;
+  color?: string;
+}
+
+const StatCard = ({
+  title,
+  value,
+  icon,
+  color = "bg-white",
+}: StatCardProps) => (
   <div
     className={`border rounded-lg shadow-sm h-full flex flex-col justify-center items-start px-4 py-3 ${color}`}
   >
@@ -500,18 +548,18 @@ const StatCard = ({ title, value, icon, color = "bg-white" }) => (
   </div>
 );
 
-// Move state for activeMenuItem and showNotifications to the top-level scope
 export default function AdminDashboard() {
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard");
   const [showNotifications, setShowNotifications] = useState(false);
-  const [touristHeatmapData] = useState([
-    { lat: 26.1445, lng: 91.7362, intensity: 85, location: "Guwahati" },
-    { lat: 25.5788, lng: 91.8933, intensity: 62, location: "Shillong" },
-    { lat: 25.6751, lng: 94.1086, intensity: 43, location: "Kohima" },
-    { lat: 23.1645, lng: 92.9376, intensity: 71, location: "Agartala" },
-  ]);
+  const [isClient, setIsClient] = useState(false);
 
-  // Pass activeMenuItem and setActiveMenuItem as props to Navbar
+  useEffect(() => {
+    setIsClient(true);
+
+    // Import leaflet CSS dynamically
+    import("leaflet/dist/leaflet.css");
+  }, []);
+
   const Navbar = () => (
     <>
       <nav className="w-full py-3 px-4 sm:px-6 flex items-center justify-between bg-white/95 backdrop-blur-sm shadow-lg border-t border-orange-500 sticky top-0 z-50">
@@ -553,7 +601,6 @@ export default function AdminDashboard() {
               } flex items-center gap-2`}
               onClick={() => setActiveMenuItem(item.name)}
             >
-              {/* <span>{item.icon}</span> */}
               <span>{item.name}</span>
             </Link>
           ))}
@@ -617,6 +664,14 @@ export default function AdminDashboard() {
     </>
   );
 
+  if (!isClient) {
+    return (
+      <div className="min-h-screen h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-xl font-semibold text-gray-600">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen h-screen bg-gray-50 overflow-hidden">
       <Navbar />
@@ -624,7 +679,6 @@ export default function AdminDashboard() {
         {/* Side Menu */}
         <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40">
           <div className="p-4">
-            {/* <h2 className="text-lg font-bold text-gray-900 mb-4">Navigation</h2> */}
             <nav className="space-y-2">
               {sideMenuItems.map((item) => (
                 <button
