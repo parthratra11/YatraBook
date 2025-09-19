@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import {
   UserGroupIcon,
   ExclamationTriangleIcon,
@@ -27,6 +28,28 @@ import {
   PlusIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
+
+// Dynamically import Leaflet components to avoid SSR issues
+const DynamicMapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const DynamicTileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const DynamicMarker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+);
+const DynamicPopup = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Popup),
+  { ssr: false }
+);
+const DynamicCircle = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Circle),
+  { ssr: false }
+);
 
 // Mock data
 const mockData = {
@@ -120,315 +143,422 @@ const sideMenuItems = [
   },
 ];
 
+// Add dummy data for all alert types
+const sosNotificationsData = [
+  // SOS Alerts
+  {
+    id: 1,
+    type: "SOS",
+    time: "2025-01-09 14:30",
+    location: "Guwahati, Assam",
+    subject: "John Doe",
+    status: "Active",
+    priority: "High",
+    description: "SOS triggered by tourist.",
+  },
+  {
+    id: 2,
+    type: "SOS",
+    time: "2025-01-09 13:15",
+    location: "Shillong, Meghalaya",
+    subject: "Sarah Smith",
+    status: "Resolved",
+    priority: "Medium",
+    description: "SOS resolved by authority.",
+  },
+  // Geo Alerts (Weather)
+  {
+    id: 3,
+    type: "Weather",
+    time: "2025-01-09 12:45",
+    location: "Kohima, Nagaland",
+    subject: "Weather Alert",
+    status: "Active",
+    priority: "High",
+    description: "Heavy rainfall warning issued.",
+  },
+  {
+    id: 4,
+    type: "Weather",
+    time: "2025-01-09 11:30",
+    location: "Agartala, Tripura",
+    subject: "Weather Alert",
+    status: "Resolved",
+    priority: "Low",
+    description: "Rainfall alert cleared.",
+  },
+  // Trespassing
+  {
+    id: 5,
+    type: "Trespassing",
+    time: "2025-01-09 10:20",
+    location: "Border Area, Assam",
+    subject: "Unknown Individual",
+    status: "Active",
+    priority: "High",
+    description: "Trespassing detected in restricted zone.",
+  },
+  {
+    id: 6,
+    type: "Trespassing",
+    time: "2025-01-09 09:50",
+    location: "Protected Forest, Meghalaya",
+    subject: "Tourist Group",
+    status: "Resolved",
+    priority: "Medium",
+    description: "Trespassing incident resolved.",
+  },
+  // E-FIRs
+  {
+    id: 7,
+    type: "E-FIR",
+    time: "2025-01-09 09:30",
+    location: "Police Station, Guwahati",
+    subject: "E-FIR #12345",
+    status: "Filed",
+    priority: "Medium",
+    description: "Lost property reported.",
+  },
+  {
+    id: 8,
+    type: "E-FIR",
+    time: "2025-01-09 08:45",
+    location: "Police Station, Shillong",
+    subject: "E-FIR #12346",
+    status: "Under Investigation",
+    priority: "High",
+    description: "Assault reported.",
+  },
+  // Add more dummy alerts for scrollability
+  ...Array.from({ length: 12 }, (_, i) => ({
+    id: 9 + i,
+    type: ["SOS", "Weather", "Trespassing", "E-FIR"][i % 4],
+    time: `2025-01-09 0${i + 1}:00`,
+    location: ["Guwahati", "Shillong", "Kohima", "Agartala"][i % 4],
+    subject: `Dummy Subject ${i + 1}`,
+    status: ["Active", "Resolved", "Filed", "Under Investigation"][i % 4],
+    priority: ["High", "Medium", "Low", "Medium"][i % 4],
+    description: `Dummy alert description ${i + 1}.`,
+  })),
+];
+
+// Filtering options
+const alertTypes = [
+  { label: "All", value: "All" },
+  { label: "SOS", value: "SOS" },
+  { label: "Weather", value: "Weather" },
+  { label: "Trespassing", value: "Trespassing" },
+  { label: "E-FIR", value: "E-FIR" },
+];
+const alertStatus = [
+  { label: "All", value: "All" },
+  { label: "Active", value: "Active" },
+  { label: "Resolved", value: "Resolved" },
+  { label: "Filed", value: "Filed" },
+  { label: "Under Investigation", value: "Under Investigation" },
+];
+
+// --- SOS Notifications (scrollable, filterable, formal) ---
+function SOSNotifications() {
+  const [typeFilter, setTypeFilter] = useState("All");
+  const [statusFilter, setStatusFilter] = useState("All");
+
+  const filteredAlerts = sosNotificationsData.filter((alert) => {
+    const typeMatch = typeFilter === "All" || alert.type === typeFilter;
+    const statusMatch = statusFilter === "All" || alert.status === statusFilter;
+    return typeMatch && statusMatch;
+  });
+
+  return (
+    <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+      <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm flex items-center justify-between">
+        <span>SOS & Authority Notifications</span>
+        <div className="flex gap-2">
+          <select
+            className="border rounded px-2 py-1 text-xs"
+            value={typeFilter}
+            onChange={(e) => setTypeFilter(e.target.value)}
+          >
+            {alertTypes.map((t) => (
+              <option key={t.value} value={t.value}>
+                {t.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div className="flex-1 overflow-y-auto px-2 py-2">
+        {filteredAlerts.length === 0 ? (
+          <div className="text-center text-gray-500 text-xs mt-8">
+            No alerts found.
+          </div>
+        ) : (
+          filteredAlerts.map((alert) => (
+            <div
+              key={alert.id}
+              className={`p-3 mb-2 rounded border-l-4 transition-colors ${
+                alert.type === "SOS"
+                  ? "border-red-600 bg-red-50"
+                  : alert.type === "Weather"
+                  ? "border-blue-600 bg-blue-50"
+                  : alert.type === "Trespassing"
+                  ? "border-yellow-600 bg-yellow-50"
+                  : "border-gray-600 bg-gray-50"
+              } ${
+                alert.status === "Resolved" ? "opacity-60 grayscale" : ""
+              } cursor-pointer hover:bg-gray-100`}
+            >
+              <div className="flex justify-between items-center mb-1">
+                <span className="font-semibold text-gray-900">
+                  {alert.subject}
+                </span>
+                <span
+                  className={`px-2 py-1 rounded text-xs font-medium ${
+                    alert.status === "Active"
+                      ? "bg-red-100 text-red-800"
+                      : alert.status === "Resolved"
+                      ? "bg-green-100 text-green-800"
+                      : alert.status === "Filed"
+                      ? "bg-blue-100 text-blue-800"
+                      : alert.status === "Under Investigation"
+                      ? "bg-yellow-100 text-yellow-800"
+                      : "bg-gray-100 text-gray-800"
+                  }`}
+                >
+                  {alert.status}
+                </span>
+              </div>
+              <div className="flex items-center text-xs text-gray-700 mb-1 gap-2">
+                <MapPinIcon className="inline w-4 h-4" />
+                {alert.location}
+                <span className="ml-2">
+                  <ClockIcon className="inline w-4 h-4" /> {alert.time}
+                </span>
+              </div>
+              <div className="text-xs text-gray-600 mb-1">
+                <span className="font-semibold">{alert.type}</span>
+                {alert.priority ? (
+                  <span className="ml-2 text-[10px] px-2 py-0.5 rounded bg-gray-200 text-gray-700">
+                    Priority: {alert.priority}
+                  </span>
+                ) : null}
+              </div>
+              <div className="text-xs text-gray-500">{alert.description}</div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Create marker icon function that only runs on client
+const createMarkerIcon = () => {
+  if (typeof window === "undefined") return null;
+
+  const L = require("leaflet");
+  return new L.Icon({
+    iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+    iconRetinaUrl:
+      "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+    shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+};
+
+// --- Map Components ---
+const TouristMap = () => {
+  const [markerIcon, setMarkerIcon] = useState<any>(null);
+
+  useEffect(() => {
+    const icon = createMarkerIcon();
+    setMarkerIcon(icon);
+  }, []);
+
+  return (
+    <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+      <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+        Tourist Map
+      </div>
+      <div className="flex-1">
+        {typeof window !== "undefined" && (
+          <DynamicMapContainer
+            center={[26.1445, 91.7362] as [number, number]}
+            zoom={6}
+            scrollWheelZoom={false}
+            style={{
+              height: "100%",
+              width: "100%",
+              borderRadius: "0 0 8px 8px",
+            }}
+          >
+            <DynamicTileLayer
+              attribution="&copy; OpenStreetMap contributors"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {markerIcon && (
+              <>
+                <DynamicMarker position={[26.1445, 91.7362]} icon={markerIcon}>
+                  <DynamicPopup>Guwahati</DynamicPopup>
+                </DynamicMarker>
+                <DynamicMarker position={[25.5788, 91.8933]} icon={markerIcon}>
+                  <DynamicPopup>Shillong</DynamicPopup>
+                </DynamicMarker>
+                <DynamicMarker position={[25.6751, 94.1086]} icon={markerIcon}>
+                  <DynamicPopup>Kohima</DynamicPopup>
+                </DynamicMarker>
+                <DynamicMarker position={[23.1645, 92.9376]} icon={markerIcon}>
+                  <DynamicPopup>Agartala</DynamicPopup>
+                </DynamicMarker>
+              </>
+            )}
+          </DynamicMapContainer>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const SafeAreaMap = () => (
+  <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+    <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+      Safe Area Map
+    </div>
+    <div className="flex-1">
+      {typeof window !== "undefined" && (
+        <DynamicMapContainer
+          center={[25.5, 92.5] as [number, number]}
+          zoom={6}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
+        >
+          <DynamicTileLayer
+            attribution="&copy; OpenStreetMap contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <DynamicCircle
+            center={[26.1445, 91.7362]}
+            radius={40000}
+            color="green"
+          />
+          <DynamicCircle
+            center={[25.5788, 91.8933]}
+            radius={30000}
+            color="red"
+          />
+          <DynamicCircle
+            center={[25.6751, 94.1086]}
+            radius={25000}
+            color="yellow"
+          />
+        </DynamicMapContainer>
+      )}
+    </div>
+  </div>
+);
+
+const TouristDensityMap = () => (
+  <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+    <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+      Tourist Density Map
+    </div>
+    <div className="flex-1">
+      {typeof window !== "undefined" && (
+        <DynamicMapContainer
+          center={[25.5, 92.5] as [number, number]}
+          zoom={6}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
+        >
+          <DynamicTileLayer
+            attribution="&copy; OpenStreetMap contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <DynamicCircle
+            center={[26.1445, 91.7362]}
+            radius={50000}
+            color="orange"
+            fillOpacity={0.4}
+          />
+          <DynamicCircle
+            center={[25.5788, 91.8933]}
+            radius={30000}
+            color="orange"
+            fillOpacity={0.3}
+          />
+          <DynamicCircle
+            center={[25.6751, 94.1086]}
+            radius={20000}
+            color="orange"
+            fillOpacity={0.2}
+          />
+        </DynamicMapContainer>
+      )}
+    </div>
+  </div>
+);
+
+// --- Weather Map (formal card, not childish) ---
+const WeatherMap = () => (
+  <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+    <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+      Weather Map
+    </div>
+    <div className="flex-1 flex flex-col items-center justify-center">
+      <div className="text-5xl text-blue-500 mb-2">
+        <CloudIcon className="w-12 h-12" />
+      </div>
+      <div className="text-lg font-semibold text-gray-700 mb-1">
+        Northeast India Weather
+      </div>
+      <div className="text-sm text-gray-600">
+        Temperature: 22°C | Humidity: 78% | Wind: 12 km/h SW
+      </div>
+      <div className="mt-2 text-xs text-gray-500">
+        Guwahati: 24°C | Shillong: 18°C | Kohima: 21°C | Agartala: 26°C
+      </div>
+    </div>
+  </div>
+);
+
+interface StatCardProps {
+  title: string;
+  value: string | number;
+  icon: React.ReactNode;
+  color?: string;
+}
+
+const StatCard = ({
+  title,
+  value,
+  icon,
+  color = "bg-white",
+}: StatCardProps) => (
+  <div
+    className={`border rounded-lg shadow-sm h-full flex flex-col justify-center items-start px-4 py-3 ${color}`}
+  >
+    <div className="flex items-center gap-2 mb-1">
+      <span className="text-gray-600">{icon}</span>
+      <span className="text-xs font-medium text-gray-600">{title}</span>
+    </div>
+    <span className="text-2xl font-bold text-gray-900">{value}</span>
+  </div>
+);
+
 export default function AdminDashboard() {
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard");
   const [showNotifications, setShowNotifications] = useState(false);
-  const [touristHeatmapData] = useState([
-    { lat: 26.1445, lng: 91.7362, intensity: 85, location: "Guwahati" },
-    { lat: 25.5788, lng: 91.8933, intensity: 62, location: "Shillong" },
-    { lat: 25.6751, lng: 94.1086, intensity: 43, location: "Kohima" },
-    { lat: 23.1645, lng: 92.9376, intensity: 71, location: "Agartala" },
-  ]);
+  const [isClient, setIsClient] = useState(false);
 
-  const StatCard = ({ title, value, icon, color = "bg-white" }) => (
-    <div
-      className={`${color} rounded-xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300`}
-    >
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
-          <p className="text-3xl font-bold text-gray-900">{value}</p>
-        </div>
-        <div className="text-4xl opacity-80">{icon}</div>
-      </div>
-    </div>
-  );
+  useEffect(() => {
+    setIsClient(true);
 
-  const WeatherMap = () => (
-    <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 h-96">
-      <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <CloudIcon className="w-6 h-6 text-blue-500" />
-        Live Weather Map
-      </h3>
-      <div className="relative w-full h-80 bg-gradient-to-br from-blue-100 to-green-100 rounded-lg overflow-hidden">
-        {/* Mock Weather Map */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <CloudIcon className="w-16 h-16 text-blue-400 mb-4 mx-auto" />
-            <p className="text-gray-700 font-medium">Northeast India Weather</p>
-            <p className="text-sm text-gray-500 mt-2">
-              Temperature: 22°C | Humidity: 78%
-            </p>
-            <p className="text-sm text-gray-500">Wind: 12 km/h SW</p>
-          </div>
-        </div>
-        {/* Mock weather indicators */}
-        <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <MapPinIcon className="w-4 h-4" /> Guwahati: 24°C
-          <CloudIcon className="w-4 h-4 ml-1" />
-        </div>
-        <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <MapPinIcon className="w-4 h-4" /> Shillong: 18°C
-          <CloudIcon className="w-4 h-4 ml-1" />
-        </div>
-        <div className="absolute bottom-4 left-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <MapPinIcon className="w-4 h-4" /> Kohima: 21°C
-          <SunIcon className="w-4 h-4 ml-1" />
-        </div>
-        <div className="absolute bottom-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
-          <MapPinIcon className="w-4 h-4" /> Agartala: 26°C
-          <CloudIcon className="w-4 h-4 ml-1" />
-        </div>
-      </div>
-    </div>
-  );
-
-  const TouristHeatmap = () => (
-    <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 h-96">
-      <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <SignalIcon className="w-6 h-6 text-orange-500" />
-        Tourist Density Heatmap
-      </h3>
-      <div className="relative w-full h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
-        {/* Mock Heatmap */}
-        <svg className="w-full h-full">
-          {/* Background map outline */}
-          <rect width="100%" height="100%" fill="#f3f4f6" />
-
-          {/* Mock heat points */}
-          {touristHeatmapData.map((point, index) => (
-            <g key={index}>
-              <circle
-                cx={`${(point.lng - 88) * 8}%`}
-                cy={`${(28 - point.lat) * 12}%`}
-                r={point.intensity / 3}
-                fill="#e45b33"
-                opacity={point.intensity / 100}
-                className="animate-pulse"
-              />
-              <text
-                x={`${(point.lng - 88) * 8}%`}
-                y={`${(28 - point.lat) * 12 + 8}%`}
-                className="text-xs font-medium fill-gray-700"
-                textAnchor="middle"
-              >
-                {point.location}
-              </text>
-            </g>
-          ))}
-
-          {/* SOS Alert indicators */}
-          <circle
-            cx="25%"
-            cy="40%"
-            r="8"
-            fill="#dc2626"
-            className="animate-ping"
-          />
-          <circle
-            cx="65%"
-            cy="60%"
-            r="8"
-            fill="#dc2626"
-            className="animate-ping"
-          />
-        </svg>
-        <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-3 py-1 rounded text-xs flex items-center gap-2">
-          <ExclamationTriangleIcon className="w-4 h-4 text-red-400" /> SOS
-          Alerts
-          <ArrowTrendingUpIcon className="w-4 h-4 text-orange-400 ml-2" /> High
-          Density
-          <ArrowTrendingUpIcon className="w-4 h-4 text-yellow-400 ml-2" />{" "}
-          Medium Density
-        </div>
-      </div>
-    </div>
-  );
-
-  const SafeAreasMap = () => (
-    <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 h-96">
-      <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <ShieldCheckIcon className="w-6 h-6 text-green-600" />
-        Safe Areas Management
-      </h3>
-      <div className="relative w-full h-80 bg-gradient-to-br from-green-50 to-red-50 rounded-lg overflow-hidden border">
-        {/* Mock Safe Areas Map */}
-        <svg className="w-full h-full">
-          {/* Safe zones (green) */}
-          <rect
-            x="10%"
-            y="20%"
-            width="30%"
-            height="25%"
-            fill="#10b981"
-            fillOpacity="0.3"
-            rx="8"
-          />
-          <rect
-            x="60%"
-            y="40%"
-            width="25%"
-            height="20%"
-            fill="#10b981"
-            fillOpacity="0.3"
-            rx="8"
-          />
-
-          {/* Restricted zones (red) */}
-          <rect
-            x="45%"
-            y="15%"
-            width="20%"
-            height="20%"
-            fill="#dc2626"
-            fillOpacity="0.3"
-            rx="8"
-          />
-          <rect
-            x="15%"
-            y="60%"
-            width="35%"
-            height="15%"
-            fill="#dc2626"
-            fillOpacity="0.3"
-            rx="8"
-          />
-
-          {/* Neutral zones (yellow) */}
-          <rect
-            x="70%"
-            y="70%"
-            width="25%"
-            height="20%"
-            fill="#f59e0b"
-            fillOpacity="0.3"
-            rx="8"
-          />
-
-          {/* Labels */}
-          <text
-            x="25%"
-            y="35%"
-            className="text-xs font-medium fill-green-700"
-            textAnchor="middle"
-          >
-            SAFE
-          </text>
-          <text
-            x="55%"
-            y="28%"
-            className="text-xs font-medium fill-red-700"
-            textAnchor="middle"
-          >
-            RESTRICTED
-          </text>
-          <text
-            x="72%"
-            y="45%"
-            className="text-xs font-medium fill-green-700"
-            textAnchor="middle"
-          >
-            SAFE
-          </text>
-          <text
-            x="32%"
-            y="70%"
-            className="text-xs font-medium fill-red-700"
-            textAnchor="middle"
-          >
-            RESTRICTED
-          </text>
-          <text
-            x="82%"
-            y="82%"
-            className="text-xs font-medium fill-yellow-700"
-            textAnchor="middle"
-          >
-            CAUTION
-          </text>
-        </svg>
-        <div className="absolute top-2 right-2 bg-white border rounded-lg p-2 text-xs">
-          <div className="flex items-center mb-1">
-            <ShieldCheckIcon className="w-3 h-3 text-green-500 mr-2" />
-            Safe Zones
-          </div>
-          <div className="flex items-center mb-1">
-            <XCircleIcon className="w-3 h-3 text-red-500 mr-2" />
-            Restricted
-          </div>
-          <div className="flex items-center">
-            <ExclamationTriangleIcon className="w-3 h-3 text-yellow-500 mr-2" />
-            Caution Areas
-          </div>
-        </div>
-        <div className="absolute bottom-2 left-2">
-          <button className="bg-blue-500 text-white px-3 py-1 rounded text-xs hover:bg-blue-600 transition-colors flex items-center gap-1">
-            <PlusIcon className="w-4 h-4" /> Add Zone
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-
-  const SOSNotifications = () => (
-    <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-      <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <ExclamationTriangleIcon className="w-6 h-6 text-red-600" />
-        SOS Notifications
-      </h3>
-      <div className="space-y-4 max-h-80 overflow-y-auto">
-        {mockData.sosAlerts.map((alert) => (
-          <div
-            key={alert.id}
-            className={`p-4 rounded-lg border-l-4 ${
-              alert.priority === "High"
-                ? "border-red-500 bg-red-50"
-                : "border-yellow-500 bg-yellow-50"
-            }`}
-          >
-            <div className="flex justify-between items-start">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold text-gray-900">
-                    {alert.tourist}
-                  </span>
-                  <span
-                    className={`px-2 py-1 rounded-full text-xs ${
-                      alert.status === "Active"
-                        ? "bg-red-100 text-red-800 flex items-center gap-1"
-                        : alert.status === "Resolved"
-                        ? "bg-green-100 text-green-800 flex items-center gap-1"
-                        : "bg-yellow-100 text-yellow-800 flex items-center gap-1"
-                    }`}
-                  >
-                    {alert.status === "Active" && (
-                      <ExclamationTriangleIcon className="w-3 h-3" />
-                    )}
-                    {alert.status === "Resolved" && (
-                      <CheckCircleIcon className="w-3 h-3" />
-                    )}
-                    {alert.status === "In Progress" && (
-                      <InformationCircleIcon className="w-3 h-3" />
-                    )}
-                    {alert.status}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600 mb-1 flex items-center gap-1">
-                  <MapPinIcon className="w-4 h-4" /> {alert.location}
-                </p>
-                <p className="text-xs text-gray-500 flex items-center gap-1">
-                  <ClockIcon className="w-4 h-4" /> {alert.time}
-                </p>
-              </div>
-              <button className="bg-blue-500 text-white px-3 py-1 rounded text-xs hover:bg-blue-600 transition-colors">
-                View Details
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    // Import leaflet CSS dynamically
+    import("leaflet/dist/leaflet.css");
+  }, []);
 
   const Navbar = () => (
     <>
@@ -471,7 +601,6 @@ export default function AdminDashboard() {
               } flex items-center gap-2`}
               onClick={() => setActiveMenuItem(item.name)}
             >
-              {/* <span>{item.icon}</span> */}
               <span>{item.name}</span>
             </Link>
           ))}
@@ -535,15 +664,21 @@ export default function AdminDashboard() {
     </>
   );
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
+  if (!isClient) {
+    return (
+      <div className="min-h-screen h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-xl font-semibold text-gray-600">Loading...</div>
+      </div>
+    );
+  }
 
-      <div className="flex">
+  return (
+    <div className="min-h-screen h-screen bg-gray-50 overflow-hidden">
+      <Navbar />
+      <div className="flex h-[calc(100vh-80px)]">
         {/* Side Menu */}
-        <div className="w-64 bg-white shadow-lg h-screen fixed top-[80px] left-0 z-40">
+        <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40">
           <div className="p-4">
-            {/* <h2 className="text-lg font-bold text-gray-900 mb-4">Navigation</h2> */}
             <nav className="space-y-2">
               {sideMenuItems.map((item) => (
                 <button
@@ -551,8 +686,8 @@ export default function AdminDashboard() {
                   onClick={() => setActiveMenuItem(item.name)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                     activeMenuItem === item.name
-                      ? "bg-orange-500 text-white shadow-md"
-                      : "text-gray-700 hover:bg-gray-100"
+                      ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
+                      : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"
                   }`}
                 >
                   <span className="text-lg">{item.icon}</span>
@@ -562,57 +697,86 @@ export default function AdminDashboard() {
             </nav>
           </div>
         </div>
+        {/* Main Content */}
+        <div className="flex-1 ml-64 p-4 h-full">
+          <div className="grid grid-cols-6 grid-rows-4 gap-4 h-full">
+            {/* 1st col: Current & International Tourist */}
+            <div className="col-span-1 row-span-1">
+              <StatCard
+                title="Current Tourist Count"
+                value={mockData.touristCount.toLocaleString()}
+                icon={<UserGroupIcon className="w-6 h-6 text-blue-600" />}
+                color="bg-gray-50"
+              />
+            </div>
+            <div className="col-span-1 row-start-2 row-span-1">
+              <StatCard
+                title="International Tourists"
+                value={mockData.internationalTourists}
+                icon={<GlobeAltIcon className="w-6 h-6 text-green-600" />}
+                color="bg-gray-50"
+              />
+            </div>
+            {/* 2nd col: High Priority & Domestic Tourist */}
+            <div className="col-start-2 col-span-1 row-span-1">
+              <StatCard
+                title="High Priority Count"
+                value={mockData.highPriorityCount}
+                icon={
+                  <ExclamationTriangleIcon className="w-6 h-6 text-red-600" />
+                }
+                color="bg-gray-50"
+              />
+            </div>
+            <div className="col-start-2 col-span-1 row-start-2 row-span-1">
+              <StatCard
+                title="Domestic Tourists"
+                value={mockData.domesticTourists}
+                icon={<HomeIcon className="w-6 h-6 text-yellow-600" />}
+                color="bg-gray-50"
+              />
+            </div>
+            {/* Weather Map: col 3-4, spans rows 1-2 */}
+            <div className="col-start-3 col-span-2 row-span-2">
+              <WeatherMap />
+            </div>
+            {/* SOS Notifications: col 5-6, spans rows 1-4 */}
+            <div className="col-span-2 row-start-1 row-span-4 col-start-5">
+              <SOSNotifications />
+            </div>
+            {/* Tourist Map: col 3-4, spans rows 3-4 */}
+            <div className="col-start-3 col-span-2 row-start-3 row-span-2">
+              <TouristMap />
+            </div>
+            {/* Safe Area Map: col 1-2, spans rows 3-4 */}
+            <div className="col-start-1 col-span-2 row-start-3 row-span-2">
+              <SafeAreaMap />
+            </div>
+          </div>
+        </div>
       </div>
-
       <style jsx global>{`
+        .leaflet-container {
+          font-family: "Inter", sans-serif;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        }
         .admin-dashboard {
           font-family: "Inter", sans-serif;
         }
-
-        /* Custom scrollbar for notifications */
         .overflow-y-auto::-webkit-scrollbar {
           width: 6px;
         }
-
         .overflow-y-auto::-webkit-scrollbar-track {
           background: #f1f1f1;
           border-radius: 3px;
         }
-
         .overflow-y-auto::-webkit-scrollbar-thumb {
           background: #c1c1c1;
           border-radius: 3px;
         }
-
         .overflow-y-auto::-webkit-scrollbar-thumb:hover {
           background: #a8a8a8;
-        }
-
-        /* Animation for heat points */
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-
-        @keyframes ping {
-          75%,
-          100% {
-            transform: scale(2);
-            opacity: 0;
-          }
-        }
-
-        .animate-pulse {
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        .animate-ping {
-          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
       `}</style>
     </div>
