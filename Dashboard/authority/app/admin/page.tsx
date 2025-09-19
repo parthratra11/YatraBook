@@ -96,7 +96,10 @@ const navbarMenuItems = [
 
 const sideMenuItems = [
   { name: "Dashboard", icon: <ChartBarIcon className="w-5 h-5" /> },
-  { name: "SOS Notifications", icon: <ChartBarIcon className="w-5 h-5" /> },
+  {
+    name: "SOS Notifications",
+    icon: <ExclamationTriangleIcon className="w-5 h-5" />,
+  },
   { name: "Tourist Analytics", icon: <UserGroupIcon className="w-5 h-5" /> },
   { name: "Guide Data", icon: <MapIcon className="w-5 h-5" /> },
   {
@@ -108,10 +111,13 @@ const sideMenuItems = [
     icon: <DocumentMagnifyingGlassIcon className="w-5 h-5" />,
   },
   { name: "Leaderboard", icon: <TrophyIcon className="w-5 h-5" /> },
-  { name: "Weather Map", icon: <TrophyIcon className="w-5 h-5" /> },
-  { name: "Tourist Density", icon: <TrophyIcon className="w-5 h-5" /> },
-  { name: "Safe Areas", icon: <TrophyIcon className="w-5 h-5" /> },
-  { name: "Alerts Management", icon: <TrophyIcon className="w-5 h-5" /> },
+  { name: "Weather Map", icon: <CloudIcon className="w-5 h-5" /> },
+  { name: "Tourist Density", icon: <SignalIcon className="w-5 h-5" /> },
+  { name: "Safe Areas", icon: <ShieldCheckIcon className="w-5 h-5" /> },
+  {
+    name: "Alerts Management",
+    icon: <ExclamationTriangleIcon className="w-5 h-5" />,
+  },
 ];
 
 export default function AdminDashboard() {
