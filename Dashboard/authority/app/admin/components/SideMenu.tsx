@@ -44,15 +44,16 @@ export default function SideMenu({
       href: "/admin/sos-notifications",
     },
     {
-      name: "Tourist Verification",
-      icon: <DocumentCheckIcon className="w-5 h-5" />,
-      href: "/admin/tourist-verification",
-    },
-    {
       name: "Tourist Analytics",
       icon: <UserGroupIcon className="w-5 h-5" />,
       href: "/admin/tourist-analytics",
     },
+    {
+      name: "Tourist Verification",
+      icon: <DocumentCheckIcon className="w-5 h-5" />,
+      href: "/admin/tourist-verification",
+    },
+
     {
       name: "Guide Data",
       icon: <MapIcon className="w-5 h-5" />,
@@ -79,9 +80,9 @@ export default function SideMenu({
       href: "/admin/weather-map",
     },
     {
-      name: "Tourist Density",
+      name: "Tourist Record",
       icon: <SignalIcon className="w-5 h-5" />,
-      href: "/admin/tourist-density",
+      href: "/admin/tourist-record",
     },
     {
       name: "Safe Areas",
