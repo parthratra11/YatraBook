@@ -27,7 +27,10 @@ import {
   MapPinIcon,
   PlusIcon,
   ClockIcon,
+  DocumentCheckIcon,
 } from "@heroicons/react/24/outline";
+import Navbar from "./components/Navbar";
+import SideMenu from "./components/SideMenu";
 
 // Dynamically import Leaflet components to avoid SSR issues
 const DynamicMapContainer = dynamic(
@@ -105,43 +108,80 @@ const mockData = {
   ],
 };
 
-const navbarMenuItems = [
-  { name: "Dashboard", icon: <ChartBarIcon className="w-5 h-5" /> },
-  { name: "Tourist Analytics", icon: <UserGroupIcon className="w-5 h-5" /> },
-  { name: "Guide Data", icon: <MapIcon className="w-5 h-5" /> },
-  {
-    name: "User Reports",
-    icon: <ClipboardDocumentListIcon className="w-5 h-5" />,
-  },
-  { name: "E-FIRs", icon: <DocumentMagnifyingGlassIcon className="w-5 h-5" /> },
-  { name: "Leaderboard", icon: <TrophyIcon className="w-5 h-5" /> },
-];
+// const navbarMenuItems = [
+//   { name: "Dashboard", icon: <ChartBarIcon className="w-5 h-5" /> },
+//   { name: "Tourist Analytics", icon: <UserGroupIcon className="w-5 h-5" /> },
+//   { name: "Guide Data", icon: <MapIcon className="w-5 h-5" /> },
+//   {
+//     name: "User Reports",
+//     icon: <ClipboardDocumentListIcon className="w-5 h-5" />,
+//   },
+//   { name: "E-FIRs", icon: <DocumentMagnifyingGlassIcon className="w-5 h-5" /> },
+//   { name: "Leaderboard", icon: <TrophyIcon className="w-5 h-5" /> },
+// ];
 
-const sideMenuItems = [
-  { name: "Dashboard", icon: <ChartBarIcon className="w-5 h-5" /> },
-  {
-    name: "SOS Notifications",
-    icon: <ExclamationTriangleIcon className="w-5 h-5" />,
-  },
-  { name: "Tourist Analytics", icon: <UserGroupIcon className="w-5 h-5" /> },
-  { name: "Guide Data", icon: <MapIcon className="w-5 h-5" /> },
-  {
-    name: "User Reports",
-    icon: <ClipboardDocumentListIcon className="w-5 h-5" />,
-  },
-  {
-    name: "E-FIRs",
-    icon: <DocumentMagnifyingGlassIcon className="w-5 h-5" />,
-  },
-  { name: "Leaderboard", icon: <TrophyIcon className="w-5 h-5" /> },
-  { name: "Weather Map", icon: <CloudIcon className="w-5 h-5" /> },
-  { name: "Tourist Density", icon: <SignalIcon className="w-5 h-5" /> },
-  { name: "Safe Areas", icon: <ShieldCheckIcon className="w-5 h-5" /> },
-  {
-    name: "Alerts Management",
-    icon: <ExclamationTriangleIcon className="w-5 h-5" />,
-  },
-];
+// const sideMenuItems = [
+//   {
+//     name: "Dashboard",
+//     icon: <ChartBarIcon className="w-5 h-5" />,
+//     href: "/admin",
+//   },
+//   {
+//     name: "SOS Notifications",
+//     icon: <ExclamationTriangleIcon className="w-5 h-5" />,
+//     href: "/admin/sos-notifications",
+//   },
+//   {
+//     name: "Tourist Verification",
+//     icon: <DocumentCheckIcon className="w-5 h-5" />,
+//     href: "/admin/tourist-verification",
+//   },
+//   {
+//     name: "Tourist Analytics",
+//     icon: <UserGroupIcon className="w-5 h-5" />,
+//     href: "/admin/tourist-analytics",
+//   },
+//   {
+//     name: "Guide Data",
+//     icon: <MapIcon className="w-5 h-5" />,
+//     href: "/admin/guide-data",
+//   },
+//   {
+//     name: "User Reports",
+//     icon: <ClipboardDocumentListIcon className="w-5 h-5" />,
+//     href: "/admin/user-reports",
+//   },
+//   {
+//     name: "E-FIRs",
+//     icon: <DocumentMagnifyingGlassIcon className="w-5 h-5" />,
+//     href: "/admin/e-firs",
+//   },
+//   {
+//     name: "Leaderboard",
+//     icon: <TrophyIcon className="w-5 h-5" />,
+//     href: "/admin/leaderboard",
+//   },
+//   {
+//     name: "Weather Map",
+//     icon: <CloudIcon className="w-5 h-5" />,
+//     href: "/admin/weather-map",
+//   },
+//   {
+//     name: "Tourist Density",
+//     icon: <SignalIcon className="w-5 h-5" />,
+//     href: "/admin/tourist-density",
+//   },
+//   {
+//     name: "Safe Areas",
+//     icon: <ShieldCheckIcon className="w-5 h-5" />,
+//     href: "/admin/safe-areas",
+//   },
+//   {
+//     name: "Alerts Management",
+//     icon: <ExclamationTriangleIcon className="w-5 h-5" />,
+//     href: "/admin/alerts-management",
+//   },
+// ];
 
 // Add dummy data for all alert types
 const sosNotificationsData = [
@@ -550,119 +590,12 @@ const StatCard = ({
 
 export default function AdminDashboard() {
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard");
-  const [showNotifications, setShowNotifications] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-
-    // Import leaflet CSS dynamically
     import("leaflet/dist/leaflet.css");
   }, []);
-
-  const Navbar = () => (
-    <>
-      <nav className="w-full py-3 px-4 sm:px-6 flex items-center justify-between bg-white/95 backdrop-blur-sm shadow-lg border-t border-orange-500 sticky top-0 z-50">
-        <div className="flex items-center space-x-2 sm:space-x-4">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center overflow-hidden">
-            <Image
-              src="/Logo.jpg"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 bg-white/95 rounded-full flex items-center justify-center overflow-visible">
-            <Image
-              src="/national_emblem.svg"
-              alt="Emblem"
-              width={50}
-              height={50}
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <div>
-            <h1 className="text-sm sm:text-xl lg:text-2xl font-bold text-gray-900 font-sans tracking-tight">
-              YatraBook
-            </h1>
-          </div>
-        </div>
-
-        <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
-          {navbarMenuItems.map((item) => (
-            <Link
-              key={item.name}
-              href="#"
-              className={`text-gray-900 hover:text-orange-600 transition-colors mx-3 xl:mx-4 relative after:absolute after:bottom-0 after:left-0 after:bg-orange-600 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 font-medium font-sans text-sm ${
-                activeMenuItem === item.name
-                  ? "text-orange-600 after:w-full"
-                  : ""
-              } flex items-center gap-2`}
-              onClick={() => setActiveMenuItem(item.name)}
-            >
-              <span>{item.name}</span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center space-x-2 sm:space-x-4">
-          <div className="relative">
-            <button
-              className="p-2 text-gray-600 hover:text-orange-600 transition-colors"
-              onClick={() => setShowNotifications(!showNotifications)}
-            >
-              <BellIcon className="w-6 h-6" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {mockData.notifications.length}
-              </span>
-            </button>
-
-            {showNotifications && (
-              <div className="absolute right-0 top-12 w-80 bg-white rounded-lg shadow-xl border z-50">
-                <div className="p-4 border-b">
-                  <h3 className="font-semibold text-gray-900">Notifications</h3>
-                </div>
-                <div className="max-h-80 overflow-y-auto">
-                  {mockData.notifications.map((notif) => (
-                    <div
-                      key={notif.id}
-                      className="p-4 border-b hover:bg-gray-50"
-                    >
-                      <div className="flex items-start gap-3">
-                        <span className="text-lg">
-                          {notif.type === "SOS" ? (
-                            <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
-                          ) : notif.type === "Weather" ? (
-                            <CloudIcon className="w-5 h-5 text-blue-500" />
-                          ) : (
-                            <InformationCircleIcon className="w-5 h-5 text-gray-500" />
-                          )}
-                        </span>
-                        <div className="flex-1">
-                          <p className="text-sm font-medium text-gray-900">
-                            {notif.message}
-                          </p>
-                          <p className="text-xs text-gray-500 mt-1">
-                            {notif.time}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-red-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-md flex items-center gap-2">
-            <ArrowRightOnRectangleIcon className="w-5 h-5" />
-            Logout
-          </button>
-        </div>
-      </nav>
-      <div className="w-full h-[3px] bg-gradient-to-r from-orange-500 via-gray-300 to-gray-900"></div>
-    </>
-  );
 
   if (!isClient) {
     return (
@@ -674,34 +607,20 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen h-screen bg-gray-50 overflow-hidden">
-      <Navbar />
-      <div className="flex h-[calc(100vh-80px)]">
-        {/* Side Menu */}
-        <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40">
-          <div className="p-4">
-            <nav className="space-y-2">
-              {sideMenuItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => setActiveMenuItem(item.name)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                    activeMenuItem === item.name
-                      ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
-                      : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"
-                  }`}
-                >
-                  <span className="text-lg">{item.icon}</span>
-                  <span className="font-medium">{item.name}</span>
-                </button>
-              ))}
-            </nav>
-          </div>
-        </div>
-        {/* Main Content */}
-        <div className="flex-1 ml-64 p-4 h-full">
-          <div className="grid grid-cols-6 grid-rows-4 gap-4 h-full">
-            {/* 1st col: Current & International Tourist */}
-            <div className="col-span-1 row-span-1">
+      <Navbar
+        activeMenuItem={activeMenuItem}
+        setActiveMenuItem={setActiveMenuItem}
+      />
+      <SideMenu
+        activeMenuItem={activeMenuItem}
+        setActiveMenuItem={setActiveMenuItem}
+      />
+      {/* Main grid container: fix height and spacing */}
+      <div className="flex-1 ml-64 p-4 h-[calc(100vh-80px)]">
+        <div className="grid grid-cols-6 grid-rows-4 gap-4 h-full">
+          {/* 1st col: Current & International Tourist */}
+          <div className="col-span-1 row-span-1 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <StatCard
                 title="Current Tourist Count"
                 value={mockData.touristCount.toLocaleString()}
@@ -709,7 +628,9 @@ export default function AdminDashboard() {
                 color="bg-gray-50"
               />
             </div>
-            <div className="col-span-1 row-start-2 row-span-1">
+          </div>
+          <div className="col-span-1 row-start-2 row-span-1 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <StatCard
                 title="International Tourists"
                 value={mockData.internationalTourists}
@@ -717,8 +638,10 @@ export default function AdminDashboard() {
                 color="bg-gray-50"
               />
             </div>
-            {/* 2nd col: High Priority & Domestic Tourist */}
-            <div className="col-start-2 col-span-1 row-span-1">
+          </div>
+          {/* 2nd col: High Priority & Domestic Tourist */}
+          <div className="col-start-2 col-span-1 row-span-1 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <StatCard
                 title="High Priority Count"
                 value={mockData.highPriorityCount}
@@ -728,7 +651,9 @@ export default function AdminDashboard() {
                 color="bg-gray-50"
               />
             </div>
-            <div className="col-start-2 col-span-1 row-start-2 row-span-1">
+          </div>
+          <div className="col-start-2 col-span-1 row-start-2 row-span-1 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <StatCard
                 title="Domestic Tourists"
                 value={mockData.domesticTourists}
@@ -736,20 +661,28 @@ export default function AdminDashboard() {
                 color="bg-gray-50"
               />
             </div>
-            {/* Weather Map: col 3-4, spans rows 1-2 */}
-            <div className="col-start-3 col-span-2 row-span-2">
+          </div>
+          {/* Weather Map: col 3-4, spans rows 1-2 */}
+          <div className="col-start-3 col-span-2 row-span-2 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <WeatherMap />
             </div>
-            {/* SOS Notifications: col 5-6, spans rows 1-4 */}
-            <div className="col-span-2 row-start-1 row-span-4 col-start-5">
+          </div>
+          {/* SOS Notifications: col 5-6, spans rows 1-4 */}
+          <div className="col-span-2 row-start-1 row-span-4 col-start-5 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <SOSNotifications />
             </div>
-            {/* Tourist Map: col 3-4, spans rows 3-4 */}
-            <div className="col-start-3 col-span-2 row-start-3 row-span-2">
+          </div>
+          {/* Tourist Map: col 3-4, spans rows 3-4 */}
+          <div className="col-start-3 col-span-2 row-start-3 row-span-2 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <TouristMap />
             </div>
-            {/* Safe Area Map: col 1-2, spans rows 3-4 */}
-            <div className="col-start-1 col-span-2 row-start-3 row-span-2">
+          </div>
+          {/* Safe Area Map: col 1-2, spans rows 3-4 */}
+          <div className="col-start-1 col-span-2 row-start-3 row-span-2 flex flex-col">
+            <div className="flex-1 flex flex-col justify-center">
               <SafeAreaMap />
             </div>
           </div>
@@ -760,6 +693,7 @@ export default function AdminDashboard() {
           font-family: "Inter", sans-serif;
           border-radius: 8px;
           border: 1px solid #e5e7eb;
+          margin-bottom: 8px;
         }
         .admin-dashboard {
           font-family: "Inter", sans-serif;
@@ -777,6 +711,15 @@ export default function AdminDashboard() {
         }
         .overflow-y-auto::-webkit-scrollbar-thumb:hover {
           background: #a8a8a8;
+        }
+        /* Fix map cut-off by adding padding to grid container */
+        .grid > div > .flex-1 > div,
+        .grid > div > .flex-1 {
+          height: 100%;
+        }
+        /* Fix center anomaly: ensure WeatherMap and TouristMap have padding and don't overflow */
+        .bg-white.border.rounded-lg.shadow-sm.h-full.flex.flex-col {
+          min-height: 0;
         }
       `}</style>
     </div>
