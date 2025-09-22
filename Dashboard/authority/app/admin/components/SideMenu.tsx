@@ -94,6 +94,11 @@ export default function SideMenu({
       icon: <ExclamationTriangleIcon className="w-5 h-5" />,
       href: "/admin/alerts-management",
     },
+    {
+      name: "Amenities Map",
+      icon: <ExclamationTriangleIcon className="w-5 h-5" />,
+      href: "/admin/alerts-management",
+    },
   ];
 
   return (
@@ -104,7 +109,7 @@ export default function SideMenu({
             <Link
               key={item.name}
               href={item.href}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+              className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
                 activeMenuItem === item.name
                   ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
                   : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"

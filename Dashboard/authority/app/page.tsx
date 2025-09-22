@@ -266,8 +266,8 @@ const HeroSlider = () => {
         </div>
       </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex space-x-2 sm:space-x-3 z-30">
+      {/* REMOVE Slide Indicators */}
+      {/* <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex space-x-2 sm:space-x-3 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -277,7 +277,7 @@ const HeroSlider = () => {
             }`}
           />
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };
