@@ -92,11 +92,7 @@ export default function SideMenu({
       icon: <ShieldCheckIcon className="w-5 h-5" />,
       href: "/admin/safe-areas",
     },
-    {
-      name: "Alerts Management",
-      icon: <ExclamationTriangleIcon className="w-5 h-5" />,
-      href: "/admin/alerts-management",
-    },
+
     {
       name: "Amenities Map",
       icon: <BuildingStorefrontIcon className="w-5 h-5" />,
@@ -127,10 +123,32 @@ export default function SideMenu({
           </nav>
         </div>
         <div className="px-4 py-3 border-t bg-gray-50 flex flex-col items-start text-xs">
-          <div className="flex items-center gap-1 mb-1 text-gray-700">
+          <div className="flex items-center gap-1 mb-0 text-gray-700 italic">
+            <span>Logged in as:</span>
+          </div>
+          <div className="flex flex-row gap-1 mb-2">
             <UserIcon className="w-4 h-4" />
-            <span>Logged in as: </span>
-            <span className="font-bold">admin@example.com</span>
+            <span className="font-bold text-md">admin@example.com</span>
+          </div>
+          <div className="flex flex-row gap-2">
+            <button
+              className="flex items-center gap-1 px-1 py-1 rounded bg-gray-200 text-xs text-gray-700 hover:bg-gray-300"
+              style={{ fontSize: "11px" }}
+              onClick={() => alert("Privileges: Full admin access (dummy)")}
+            >
+              <KeyIcon className="w-4 h-4" />
+              View Privileges
+            </button>
+            <button
+              className="flex items-center gap-1 px-1 py-1 rounded bg-gray-200 text-xs text-gray-700 hover:bg-gray-300"
+              style={{ fontSize: "11px" }}
+              onClick={() =>
+                alert("Contact support at support@yatrabook.com (dummy)")
+              }
+            >
+              <BellIcon className="w-4 h-4" />
+              Contact Support
+            </button>
           </div>
         </div>
       </div>
