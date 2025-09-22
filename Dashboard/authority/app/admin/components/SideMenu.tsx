@@ -23,6 +23,9 @@ import {
   PlusIcon,
   ClockIcon,
   DocumentCheckIcon,
+  BuildingStorefrontIcon,
+  UserIcon,
+  KeyIcon,
 } from "@heroicons/react/24/outline";
 
 export default function SideMenu({
@@ -94,29 +97,44 @@ export default function SideMenu({
       icon: <ExclamationTriangleIcon className="w-5 h-5" />,
       href: "/admin/alerts-management",
     },
+    {
+      name: "Amenities Map",
+      icon: <BuildingStorefrontIcon className="w-5 h-5" />,
+      href: "/admin/amenities",
+    },
   ];
 
   return (
-    <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40">
-      <div className="p-4">
-        <nav className="space-y-2">
-          {sideMenuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                activeMenuItem === item.name
-                  ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
-                  : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"
-              }`}
-              onClick={() => setActiveMenuItem(item.name)}
-            >
-              <span className="text-lg">{item.icon}</span>
-              <span className="font-medium text-sm">{item.name}</span>
-            </Link>
-          ))}
-        </nav>
+    <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40 flex flex-col justify-between">
+      <div>
+        <div className="p-4">
+          <nav className="space-y-2">
+            {sideMenuItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                  activeMenuItem === item.name
+                    ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
+                    : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"
+                }`}
+                onClick={() => setActiveMenuItem(item.name)}
+              >
+                <span className="text-lg">{item.icon}</span>
+                <span className="font-medium text-sm">{item.name}</span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <div className="px-4 py-3 border-t bg-gray-50 flex flex-col items-start text-xs">
+          <div className="flex items-center gap-1 mb-1 text-gray-700">
+            <UserIcon className="w-4 h-4" />
+            <span>Logged in as: </span>
+            <span className="font-bold">admin@example.com</span>
+          </div>
+        </div>
       </div>
+      {/* Footer: admin info and privileges, fits in left-out space only */}
     </div>
   );
 }

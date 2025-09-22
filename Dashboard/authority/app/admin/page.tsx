@@ -183,70 +183,72 @@ const mockData = {
 //   },
 // ];
 
-// Add dummy data for all alert types
+// Realistic SOS notifications for Assam, with all types and statuses
 const sosNotificationsData = [
   // SOS Alerts
   {
     id: 1,
     type: "SOS",
     time: "2025-01-09 14:30",
-    location: "Guwahati, Assam",
-    subject: "John Doe",
+    location: "Guwahati City Center, Assam",
+    subject: "Tourist Medical Emergency",
     status: "Active",
     priority: "High",
-    description: "SOS triggered by tourist.",
+    description:
+      "Medical emergency reported at railway station. Ambulance dispatched.",
   },
   {
     id: 2,
     type: "SOS",
     time: "2025-01-09 13:15",
-    location: "Shillong, Meghalaya",
-    subject: "Sarah Smith",
+    location: "Kaziranga National Park, Assam",
+    subject: "Wildlife Encounter",
     status: "Resolved",
     priority: "Medium",
-    description: "SOS resolved by authority.",
+    description:
+      "Tourist group encountered wild elephants. Park rangers intervened.",
   },
-  // Geo Alerts (Weather)
+  // Weather Alerts
   {
     id: 3,
     type: "Weather",
     time: "2025-01-09 12:45",
-    location: "Kohima, Nagaland",
-    subject: "Weather Alert",
+    location: "Majuli Island, Assam",
+    subject: "Heavy Rainfall",
     status: "Active",
     priority: "High",
-    description: "Heavy rainfall warning issued.",
+    description: "Heavy rainfall warning issued for ferry routes.",
   },
   {
     id: 4,
     type: "Weather",
     time: "2025-01-09 11:30",
-    location: "Agartala, Tripura",
-    subject: "Weather Alert",
+    location: "Manas National Park, Assam",
+    subject: "Thunderstorm Warning",
     status: "Resolved",
-    priority: "Low",
-    description: "Rainfall alert cleared.",
+    priority: "Medium",
+    description: "Thunderstorm alert cleared after weather improvement.",
   },
   // Trespassing
   {
     id: 5,
     type: "Trespassing",
     time: "2025-01-09 10:20",
-    location: "Border Area, Assam",
-    subject: "Unknown Individual",
+    location: "Border Area (Assam-Meghalaya)",
+    subject: "Trespassing Detected",
     status: "Active",
     priority: "High",
-    description: "Trespassing detected in restricted zone.",
+    description: "Trespassing detected in restricted border zone.",
   },
   {
     id: 6,
     type: "Trespassing",
     time: "2025-01-09 09:50",
-    location: "Protected Forest, Meghalaya",
-    subject: "Tourist Group",
+    location: "Protected Forest, Assam",
+    subject: "Tourist Group Trespassing",
     status: "Resolved",
     priority: "Medium",
-    description: "Trespassing incident resolved.",
+    description: "Trespassing incident resolved by forest authorities.",
   },
   // E-FIRs
   {
@@ -257,29 +259,119 @@ const sosNotificationsData = [
     subject: "E-FIR #12345",
     status: "Filed",
     priority: "Medium",
-    description: "Lost property reported.",
+    description: "Lost property reported by tourist.",
   },
   {
     id: 8,
     type: "E-FIR",
     time: "2025-01-09 08:45",
-    location: "Police Station, Shillong",
+    location: "Police Station, Sivasagar",
     subject: "E-FIR #12346",
     status: "Under Investigation",
     priority: "High",
-    description: "Assault reported.",
+    description: "Assault reported at heritage site.",
   },
-  // Add more dummy alerts for scrollability
-  ...Array.from({ length: 12 }, (_, i) => ({
-    id: 9 + i,
-    type: ["SOS", "Weather", "Trespassing", "E-FIR"][i % 4],
-    time: `2025-01-09 0${i + 1}:00`,
-    location: ["Guwahati", "Shillong", "Kohima", "Agartala"][i % 4],
-    subject: `Dummy Subject ${i + 1}`,
-    status: ["Active", "Resolved", "Filed", "Under Investigation"][i % 4],
-    priority: ["High", "Medium", "Low", "Medium"][i % 4],
-    description: `Dummy alert description ${i + 1}.`,
-  })),
+  // More realistic alerts for scrollability
+  {
+    id: 9,
+    type: "SOS",
+    time: "2025-01-09 08:30",
+    location: "Jorhat Tea Gardens, Assam",
+    subject: "Lost Tourist",
+    status: "Resolved",
+    priority: "Low",
+    description: "Tourist lost in tea garden, found after 1 hour.",
+  },
+  {
+    id: 10,
+    type: "Weather",
+    time: "2025-01-09 08:00",
+    location: "Barak Valley, Assam",
+    subject: "High Temperature",
+    status: "Active",
+    priority: "High",
+    description: "High temperature warning issued for valley region.",
+  },
+  {
+    id: 11,
+    type: "Trespassing",
+    time: "2025-01-09 07:45",
+    location: "Diphu Eco Zone, Assam",
+    subject: "Wildlife Zone Trespassing",
+    status: "Resolved",
+    priority: "Low",
+    description: "Tourist entered restricted wildlife zone, escorted out.",
+  },
+  {
+    id: 12,
+    type: "E-FIR",
+    time: "2025-01-09 07:30",
+    location: "Police Station, Silchar",
+    subject: "E-FIR #12347",
+    status: "Filed",
+    priority: "Low",
+    description: "Lost wallet reported in market area.",
+  },
+  {
+    id: 13,
+    type: "SOS",
+    time: "2025-01-09 07:15",
+    location: "North Cachar Hills, Assam",
+    subject: "Minor Injury",
+    status: "Active",
+    priority: "Medium",
+    description: "Tourist slipped on trekking trail. Medical help provided.",
+  },
+  {
+    id: 14,
+    type: "Weather",
+    time: "2025-01-09 07:00",
+    location: "Goalpara Wetlands, Assam",
+    subject: "Thunderstorm",
+    status: "Resolved",
+    priority: "Low",
+    description: "Thunderstorm warning cleared after weather improvement.",
+  },
+  {
+    id: 15,
+    type: "Trespassing",
+    time: "2025-01-09 06:45",
+    location: "Tinsukia Eco Park, Assam",
+    subject: "Permit Issue",
+    status: "Filed",
+    priority: "Low",
+    description: "Tourist permit verification delay at entrance.",
+  },
+  {
+    id: 16,
+    type: "E-FIR",
+    time: "2025-01-09 06:30",
+    location: "Police Station, Bongaigaon",
+    subject: "E-FIR #12348",
+    status: "Resolved",
+    priority: "Low",
+    description: "Crowd dispersal after local event. No incidents.",
+  },
+  {
+    id: 17,
+    type: "SOS",
+    time: "2025-01-09 06:15",
+    location: "Dhemaji Riverside, Assam",
+    subject: "Ferry Delay",
+    status: "Active",
+    priority: "Low",
+    description: "Ferry delayed due to technical issue. Tourists waiting.",
+  },
+  {
+    id: 18,
+    type: "E-FIR",
+    time: "2025-01-09 06:00",
+    location: "Police Station, Nagaon",
+    subject: "E-FIR #12349",
+    status: "Under Investigation",
+    priority: "Low",
+    description: "Minor injury at heritage site stairs. First aid provided.",
+  },
 ];
 
 // Filtering options
@@ -409,7 +501,112 @@ const createMarkerIcon = () => {
   });
 };
 
-// --- Map Components ---
+// Dummy data for SafeAreaMap (many safe areas)
+const safeAreas = Array.from({ length: 40 }).map((_, i) => ({
+  lat: 24.5 + Math.random() * 3,
+  lng: 91.5 + Math.random() * 3,
+  name: `Safe Area ${i + 1}`,
+  color: ["green", "blue", "orange", "purple"][i % 4],
+  radius: 15000 + Math.random() * 20000,
+}));
+
+// Tourist heatmap points: more clusters and random spread for density
+const touristHeatmapPoints = [
+  // Cluster 1 (Guwahati)
+  ...Array.from({ length: 60 }).map(() => ({
+    lat: 26.15 + Math.random() * 0.12,
+    lng: 91.75 + Math.random() * 0.12,
+    intensity: 1.5 + Math.random() * 0.7,
+  })),
+  // Cluster 2 (Kaziranga)
+  ...Array.from({ length: 40 }).map(() => ({
+    lat: 26.58 + Math.random() * 0.08,
+    lng: 93.33 + Math.random() * 0.08,
+    intensity: 1.2 + Math.random() * 0.5,
+  })),
+  // Cluster 3 (Silchar)
+  ...Array.from({ length: 30 }).map(() => ({
+    lat: 24.83 + Math.random() * 0.1,
+    lng: 92.78 + Math.random() * 0.1,
+    intensity: 1.0 + Math.random() * 0.4,
+  })),
+  // Cluster 4 (Jorhat)
+  ...Array.from({ length: 25 }).map(() => ({
+    lat: 26.75 + Math.random() * 0.07,
+    lng: 94.22 + Math.random() * 0.07,
+    intensity: 1.1 + Math.random() * 0.3,
+  })),
+  // Cluster 5 (Dibrugarh)
+  ...Array.from({ length: 20 }).map(() => ({
+    lat: 27.48 + Math.random() * 0.06,
+    lng: 94.9 + Math.random() * 0.06,
+    intensity: 1.0 + Math.random() * 0.3,
+  })),
+  // Random spread across Assam
+  ...Array.from({ length: 60 }).map(() => ({
+    lat: 24.5 + Math.random() * 3,
+    lng: 91.5 + Math.random() * 3,
+    intensity: 0.7 + Math.random() * 0.5,
+  })),
+];
+
+// Dummy data for SOS alerts (for markers): more alerts, spread across Assam
+const sosAlerts = [
+  ...Array.from({ length: 15 }).map((_, i) => ({
+    lat: 24.5 + Math.random() * 3,
+    lng: 91.5 + Math.random() * 3,
+    name: `SOS Alert #${i + 1}`,
+  })),
+  // Some fixed locations for realism
+  { lat: 26.18, lng: 91.75, name: "SOS Alert #16" },
+  { lat: 25.58, lng: 91.89, name: "SOS Alert #17" },
+  { lat: 25.68, lng: 94.13, name: "SOS Alert #18" },
+  { lat: 25.9, lng: 93.5, name: "SOS Alert #19" },
+  { lat: 25.2, lng: 92.8, name: "SOS Alert #20" },
+];
+
+// --- Heatmap Layer for Tourist SOS Alerts ---
+import { useMap } from "react-leaflet";
+
+// Custom HeatmapLayer using leaflet.heat
+const HeatmapLayer = ({
+  points,
+  options,
+}: {
+  points: { lat: number; lng: number; intensity: number }[];
+  options?: any;
+}) => {
+  const map = useMap();
+  useEffect(() => {
+    if (!map || typeof window === "undefined") return;
+    import("leaflet.heat").then(() => {
+      // @ts-ignore
+      const heatLayer = window.L.heatLayer(
+        points.map((p) => [p.lat, p.lng, p.intensity]),
+        {
+          radius: options?.radius ?? 55, // large radius for blobs
+          blur: options?.blur ?? 45, // strong blur for smoothness
+          max: options?.max ?? 2.5, // higher max for vivid red
+          gradient: options?.gradient ?? {
+            0.1: "#0000ff", // blue
+            0.3: "#00ffff", // cyan
+            0.5: "#00ff00", // green
+            0.7: "#ffff00", // yellow
+            0.9: "#ff8000", // orange
+            1.0: "#ff0000", // red
+          },
+          ...options,
+        }
+      ).addTo(map);
+      return () => {
+        map.removeLayer(heatLayer);
+      };
+    });
+  }, [map, points, options]);
+  return null;
+};
+
+// --- Tourist Map (Heatmap + SOS Markers) ---
 const TouristMap = () => {
   const [markerIcon, setMarkerIcon] = useState<any>(null);
 
@@ -421,13 +618,13 @@ const TouristMap = () => {
   return (
     <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
       <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
-        Tourist Map
+        Tourist Density & SOS Alerts
       </div>
       <div className="flex-1">
         {typeof window !== "undefined" && (
           <DynamicMapContainer
-            center={[26.1445, 91.7362] as [number, number]}
-            zoom={6}
+            center={[25.8, 92.5] as [number, number]}
+            zoom={7}
             scrollWheelZoom={false}
             style={{
               height: "100%",
@@ -439,22 +636,36 @@ const TouristMap = () => {
               attribution="&copy; OpenStreetMap contributors"
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {markerIcon && (
-              <>
-                <DynamicMarker position={[26.1445, 91.7362]} icon={markerIcon}>
-                  <DynamicPopup>Guwahati</DynamicPopup>
+            {/* Tourist Heatmap Layer */}
+            <HeatmapLayer
+              points={touristHeatmapPoints}
+              options={{
+                radius: 55,
+                blur: 45,
+                max: 2.5,
+                gradient: {
+                  0.1: "#0000ff",
+                  0.3: "#00ffff",
+                  0.5: "#00ff00",
+                  0.7: "#ffff00",
+                  0.9: "#ff8000",
+                  1.0: "#ff0000",
+                },
+              }}
+            />
+            {/* SOS Markers */}
+            {markerIcon &&
+              sosAlerts.map((alert, idx) => (
+                <DynamicMarker
+                  key={idx}
+                  position={[alert.lat, alert.lng]}
+                  icon={markerIcon}
+                >
+                  <DynamicPopup>
+                    <span className="font-bold text-red-600">{alert.name}</span>
+                  </DynamicPopup>
                 </DynamicMarker>
-                <DynamicMarker position={[25.5788, 91.8933]} icon={markerIcon}>
-                  <DynamicPopup>Shillong</DynamicPopup>
-                </DynamicMarker>
-                <DynamicMarker position={[25.6751, 94.1086]} icon={markerIcon}>
-                  <DynamicPopup>Kohima</DynamicPopup>
-                </DynamicMarker>
-                <DynamicMarker position={[23.1645, 92.9376]} icon={markerIcon}>
-                  <DynamicPopup>Agartala</DynamicPopup>
-                </DynamicMarker>
-              </>
-            )}
+              ))}
           </DynamicMapContainer>
         )}
       </div>
@@ -462,6 +673,7 @@ const TouristMap = () => {
   );
 };
 
+// --- Safe Area Map (only dot/circle markers, no pin markers) ---
 const SafeAreaMap = () => (
   <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
     <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
@@ -470,7 +682,7 @@ const SafeAreaMap = () => (
     <div className="flex-1">
       {typeof window !== "undefined" && (
         <DynamicMapContainer
-          center={[25.5, 92.5] as [number, number]}
+          center={[25.8, 92.5] as [number, number]}
           zoom={6}
           scrollWheelZoom={false}
           style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
@@ -479,62 +691,20 @@ const SafeAreaMap = () => (
             attribution="&copy; OpenStreetMap contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <DynamicCircle
-            center={[26.1445, 91.7362]}
-            radius={40000}
-            color="green"
-          />
-          <DynamicCircle
-            center={[25.5788, 91.8933]}
-            radius={30000}
-            color="red"
-          />
-          <DynamicCircle
-            center={[25.6751, 94.1086]}
-            radius={25000}
-            color="yellow"
-          />
-        </DynamicMapContainer>
-      )}
-    </div>
-  </div>
-);
-
-const TouristDensityMap = () => (
-  <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
-    <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
-      Tourist Density Map
-    </div>
-    <div className="flex-1">
-      {typeof window !== "undefined" && (
-        <DynamicMapContainer
-          center={[25.5, 92.5] as [number, number]}
-          zoom={6}
-          scrollWheelZoom={false}
-          style={{ height: "100%", width: "100%", borderRadius: "0 0 8px 8px" }}
-        >
-          <DynamicTileLayer
-            attribution="&copy; OpenStreetMap contributors"
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <DynamicCircle
-            center={[26.1445, 91.7362]}
-            radius={50000}
-            color="orange"
-            fillOpacity={0.4}
-          />
-          <DynamicCircle
-            center={[25.5788, 91.8933]}
-            radius={30000}
-            color="orange"
-            fillOpacity={0.3}
-          />
-          <DynamicCircle
-            center={[25.6751, 94.1086]}
-            radius={20000}
-            color="orange"
-            fillOpacity={0.2}
-          />
+          {/* Only circles for safe areas, no markers */}
+          {safeAreas.map((area, idx) => (
+            <DynamicCircle
+              key={idx}
+              center={[area.lat, area.lng]}
+              radius={area.radius}
+              color={area.color}
+              fillOpacity={0.5}
+            >
+              <DynamicPopup>
+                <span className="font-bold">{area.name}</span>
+              </DynamicPopup>
+            </DynamicCircle>
+          ))}
         </DynamicMapContainer>
       )}
     </div>
@@ -588,6 +758,7 @@ const StatCard = ({
   </div>
 );
 
+/* --- Main Dashboard Component --- */
 export default function AdminDashboard() {
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard");
   const [isClient, setIsClient] = useState(false);
@@ -664,8 +835,23 @@ export default function AdminDashboard() {
           </div>
           {/* Weather Map: col 3-4, spans rows 1-2 */}
           <div className="col-start-3 col-span-2 row-span-2 flex flex-col">
-            <div className="flex-1 flex flex-col justify-center">
-              <WeatherMap />
+            <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+              <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+                Weather Map
+              </div>
+              <div className="flex-1 flex flex-col justify-center">
+                <iframe
+                  src="/map/enhanced_weather_map_assam.html"
+                  title="Weather Map Assam"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    borderRadius: "0 0 8px 8px",
+                    minHeight: 0,
+                  }}
+                />
+              </div>
             </div>
           </div>
           {/* SOS Notifications: col 5-6, spans rows 1-4 */}
@@ -676,14 +862,44 @@ export default function AdminDashboard() {
           </div>
           {/* Tourist Map: col 3-4, spans rows 3-4 */}
           <div className="col-start-3 col-span-2 row-start-3 row-span-2 flex flex-col">
-            <div className="flex-1 flex flex-col justify-center">
-              <TouristMap />
+            <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+              <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+                Tourist Density & SOS Alerts
+              </div>
+              <div className="flex-1 flex flex-col justify-center">
+                <iframe
+                  src="/map/tourist_density_sos_assam.html"
+                  title="Tourist Density & SOS Alerts"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    borderRadius: "0 0 8px 8px",
+                    minHeight: 0,
+                  }}
+                />
+              </div>
             </div>
           </div>
           {/* Safe Area Map: col 1-2, spans rows 3-4 */}
           <div className="col-start-1 col-span-2 row-start-3 row-span-2 flex flex-col">
-            <div className="flex-1 flex flex-col justify-center">
-              <SafeAreaMap />
+            <div className="bg-white border rounded-lg shadow-sm h-full flex flex-col">
+              <div className="px-4 py-2 border-b font-semibold text-gray-800 text-sm">
+                Safe/Unsafe/Restricted Area Map
+              </div>
+              <div className="flex-1 flex flex-col justify-center">
+                <iframe
+                  src="/map/safe_unsafe_area_map_assam.html"
+                  title="Safe/Unsafe/Restricted Area Map Assam"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    borderRadius: "0 0 8px 8px",
+                    minHeight: 0,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
