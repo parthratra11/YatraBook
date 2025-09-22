@@ -696,7 +696,7 @@ export default function TouristAnalyticsPage() {
         activeMenuItem={activeMenuItem}
         setActiveMenuItem={setActiveMenuItem}
       />
-      <div className="flex-1 ml-64 p-8">
+      <div className="flex-1 ml-64 p-4">
         {/* Dashboard Grid Layout - same as SOS Notifications */}
         <div className="grid grid-cols-4 grid-rows-3 gap-4 mb-4">
           {/* r1c1: Total Tourists */}
