@@ -401,13 +401,13 @@ const TouristPastRecords = () => {
         setActiveMenuItem={setActiveMenuItem}
       />
       <div className="flex-1 ml-64 p-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+        {/* <h1 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
           <UserGroupIcon className="w-7 h-7 text-orange-500" />
           Tourist Past Records
         </h1>
         <p className="text-gray-700 mb-6">
           Historical and current data, analytics of tourists who visited Assam.
-        </p>
+        </p> */}
         {/* Analytics */}
         <div className="grid grid-cols-5 gap-6 mb-8">
           <div className="bg-white border rounded-lg shadow flex flex-col items-center justify-center p-6">
