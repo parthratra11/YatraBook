@@ -8,7 +8,7 @@ import {
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import SideMenu from "../components/SideMenu";
 import Navbar from "../components/Navbar";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 // Dynamically import Leaflet components for map visualization
@@ -383,7 +383,13 @@ const statusColors: Record<string, string> = {
   Invalid: "bg-gray-100 text-gray-800",
 };
 
-export default function SOSNotificationsPage() {
+export default function SOSNotificationsPage({
+  notificationState,
+  setNotificationState,
+}: {
+  notificationState: Record<string, number>;
+  setNotificationState: (state: Record<string, number>) => void;
+}) {
   const [activeMenuItem, setActiveMenuItem] = useState("SOS Notifications");
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState<keyof (typeof dummySOS)[0]>("time");
@@ -392,10 +398,25 @@ export default function SOSNotificationsPage() {
   const [selectedAlert, setSelectedAlert] = useState<any>(null);
   const [mapFocus, setMapFocus] = useState<[number, number] | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [highlightNew, setHighlightNew] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    if (notificationState?.["SOS Notifications"] > 0) {
+      setHighlightNew(true);
+      setTimeout(() => setHighlightNew(false), 1200);
+      setTimeout(() => {
+        setNotificationState({
+          ...notificationState,
+          ["SOS Notifications"]: 0,
+        });
+      }, 400);
+    }
+    // eslint-disable-next-line
+  }, [activeMenuItem]);
 
   // Metrics
   const totalReports = dummySOS.length;
@@ -440,6 +461,8 @@ export default function SOSNotificationsPage() {
       <SideMenu
         activeMenuItem={activeMenuItem}
         setActiveMenuItem={setActiveMenuItem}
+        notificationState={notificationState}
+        setNotificationState={setNotificationState}
       />
       <div className="flex-1 ml-64 p-4">
         {/* <h1 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
@@ -592,10 +615,15 @@ export default function SOSNotificationsPage() {
               </tr>
             </thead>
             <tbody>
-              {filteredAlerts.map((alert) => (
+              {filteredAlerts.map((alert, idx) => (
                 <tr
                   key={alert.id}
-                  className="border-b cursor-pointer hover:bg-orange-50"
+                  className={`border-b cursor-pointer hover:bg-orange-50 ${
+                    highlightNew &&
+                    idx < (notificationState?.["SOS Notifications"] || 0)
+                      ? "bg-yellow-100 animate-pulse"
+                      : ""
+                  }`}
                   onClick={() => setSelectedAlert(alert)}
                 >
                   <td className="p-2 font-semibold">{alert.subject}</td>
