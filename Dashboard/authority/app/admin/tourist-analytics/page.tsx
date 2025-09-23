@@ -9,6 +9,26 @@ import SideMenu from "../components/SideMenu";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 // Dynamically import Leaflet components for map visualization
 const DynamicMapContainer = dynamic(
@@ -27,6 +47,43 @@ const DynamicPopup = dynamic(
   () => import("react-leaflet").then((mod) => mod.Popup),
   { ssr: false }
 );
+
+// Dummy trend data for graph
+const trendDataSets = {
+  week: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    total: [1200, 1250, 1300, 1280, 1320, 1340, 1350],
+    international: [340, 345, 350, 348, 355, 360, 362],
+    domestic: [860, 905, 950, 932, 965, 980, 988],
+  },
+  month: {
+    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+    total: [1100, 1200, 1300, 1350],
+    international: [320, 340, 355, 362],
+    domestic: [780, 860, 945, 988],
+  },
+  year: {
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    total: [
+      900, 950, 1000, 1100, 1200, 1300, 1350, 1400, 1380, 1360, 1340, 1320,
+    ],
+    international: [250, 270, 300, 320, 340, 355, 362, 370, 368, 365, 360, 355],
+    domestic: [650, 680, 700, 780, 860, 945, 988, 1030, 1012, 995, 980, 965],
+  },
+};
 
 // Use the same zones as leaderboard, but with more and accurate data
 const zones = [
@@ -625,6 +682,9 @@ export default function TouristAnalyticsPage() {
   // Modal search/filter for tourists
   const [touristSearch, setTouristSearch] = useState("");
   const [touristNationality, setTouristNationality] = useState("All");
+  const [trendPeriod, setTrendPeriod] = useState<"week" | "month" | "year">(
+    "week"
+  );
 
   useEffect(() => {
     setIsClient(true);
@@ -686,6 +746,45 @@ export default function TouristAnalyticsPage() {
     ? Array.from(new Set(selectedZone.tourists.map((t: any) => t.nationality)))
     : [];
 
+  // Prepare chart data
+  const chartData = {
+    labels: trendDataSets[trendPeriod].labels,
+    datasets: [
+      {
+        label: "Total Tourists",
+        data: trendDataSets[trendPeriod].total,
+        borderColor: "#2563eb",
+        backgroundColor: "rgba(37,99,235,0.1)",
+        tension: 0.3,
+      },
+      {
+        label: "International Tourists",
+        data: trendDataSets[trendPeriod].international,
+        borderColor: "#059669",
+        backgroundColor: "rgba(5,150,105,0.1)",
+        tension: 0.3,
+      },
+      {
+        label: "Domestic Tourists",
+        data: trendDataSets[trendPeriod].domestic,
+        borderColor: "#f59e42",
+        backgroundColor: "rgba(245,158,66,0.1)",
+        tension: 0.3,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { position: "top" as const },
+      title: { display: true, text: "Tourist Trends" },
+    },
+    scales: {
+      y: { beginAtZero: true },
+    },
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar
@@ -698,7 +797,7 @@ export default function TouristAnalyticsPage() {
       />
       <div className="flex-1 ml-64 p-4">
         {/* Dashboard Grid Layout - same as SOS Notifications */}
-        <div className="grid grid-cols-4 grid-rows-3 gap-4 mb-4">
+        <div className="grid grid-cols-4 grid-rows-4 gap-4 mb-4">
           {/* r1c1: Total Tourists */}
           <div className="row-start-1 row-end-1 col-start-1 col-end-1 bg-white border rounded-lg shadow flex flex-col items-center justify-center p-6">
             <span className="text-xs text-gray-500 mb-1">Total Tourists</span>
@@ -732,7 +831,7 @@ export default function TouristAnalyticsPage() {
             </span>
           </div>
           {/* r3c1-2: Table Controls */}
-          <div className="row-start-3 row-end-3 col-span-2 bg-white border rounded-lg shadow flex flex-col items-center justify-center p-6">
+          <div className="row-start-4 row-end-4 col-start-3 col-end-5 bg-white border rounded-lg shadow flex flex-col items-center justify-center p-6">
             <div className="w-full flex flex-col gap-4">
               <input
                 type="text"
@@ -764,7 +863,7 @@ export default function TouristAnalyticsPage() {
             </div>
           </div>
           {/* r1-3 c3-4: Map Visualization */}
-          <div className="row-span-3 col-span-2 col-start-3 col-end-5 bg-white border rounded-lg shadow flex flex-col items-center justify-center p-6">
+          <div className="row-start-1 row-end-4 col-start-3 col-end-5 bg-white border rounded-lg shadow flex flex-col items-center justify-center p-6">
             <div className="flex items-center gap-2 mb-2">
               <MapPinIcon className="w-6 h-6 text-blue-600" />
               <span className="text-sm font-medium text-gray-700">
@@ -816,6 +915,27 @@ export default function TouristAnalyticsPage() {
             </div>
             <div className="mt-4 text-xs text-gray-500 text-center">
               Click on any cluster for details.
+            </div>
+          </div>
+          {/* r1-3 c1-2: Add graph above table controls */}
+          <div className="row-span-3 col-span-2 col-start-1 col-end-3 flex flex-col gap-4">
+            {/* r1-3 c1-2: Trends Graph */}
+            <div className="row-start-3 row-end-4 col-start-1 col-end-3 bg-white border rounded-lg shadow p-4 mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-semibold text-gray-900">
+                  Tourist Trends
+                </span>
+                <select
+                  className="border px-2 py-1 rounded text-xs"
+                  value={trendPeriod}
+                  onChange={(e) => setTrendPeriod(e.target.value as any)}
+                >
+                  <option value="week">Past Week</option>
+                  <option value="month">Past Month</option>
+                  <option value="year">Past Year</option>
+                </select>
+              </div>
+              <Line data={chartData} options={chartOptions} height={180} />
             </div>
           </div>
         </div>
