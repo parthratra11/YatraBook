@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import SideMenu from "../components/SideMenu";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Dummy data for tourists (more realistic and detailed)
 const dummyTourists = [
@@ -314,11 +314,32 @@ const statusSummary = [
   },
 ];
 
-export default function TouristVerificationPage() {
+export default function TouristVerificationPage({
+  notificationState,
+  setNotificationState,
+}: {
+  notificationState: Record<string, number>;
+  setNotificationState: (state: Record<string, number>) => void;
+}) {
   const [activeMenuItem, setActiveMenuItem] = useState("Tourist Verification");
   const [search, setSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [selectedTourist, setSelectedTourist] = useState<any>(null);
+  const [highlightNew, setHighlightNew] = useState(false);
+
+  useEffect(() => {
+    if (notificationState?.["Tourist Verification"] > 0) {
+      setHighlightNew(true);
+      setTimeout(() => setHighlightNew(false), 1200);
+      setTimeout(() => {
+        setNotificationState({
+          ...notificationState,
+          ["Tourist Verification"]: 0,
+        });
+      }, 400);
+    }
+    // eslint-disable-next-line
+  }, [activeMenuItem]);
 
   // Filter tourists by search and status
   const filteredTourists = dummyTourists.filter((t) => {
@@ -402,7 +423,12 @@ export default function TouristVerificationPage() {
               {filteredTourists.map((t) => (
                 <tr
                   key={t.id}
-                  className="border-b cursor-pointer hover:bg-orange-50"
+                  className={`border-b cursor-pointer hover:bg-orange-50 ${
+                    highlightNew &&
+                    idx < (notificationState?.["Tourist Verification"] || 0)
+                      ? "bg-yellow-100 animate-pulse"
+                      : ""
+                  }`}
                   onClick={() => setSelectedTourist(t)}
                 >
                   <td className="p-2">{t.id}</td>

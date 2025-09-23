@@ -3,7 +3,7 @@
 import { ClipboardDocumentListIcon } from "@heroicons/react/24/outline";
 import SideMenu from "../components/SideMenu";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const dummyReports = [
   {
@@ -32,8 +32,29 @@ const dummyReports = [
   },
 ];
 
-export default function UserReportsPage() {
+export default function UserReportsPage({
+  notificationState,
+  setNotificationState,
+}: {
+  notificationState: Record<string, number>;
+  setNotificationState: (state: Record<string, number>) => void;
+}) {
   const [activeMenuItem, setActiveMenuItem] = useState("User Reports");
+  const [highlightNew, setHighlightNew] = useState(false);
+
+  useEffect(() => {
+    if (notificationState?.["User Reports"] > 0) {
+      setHighlightNew(true);
+      setTimeout(() => setHighlightNew(false), 1200);
+      setTimeout(() => {
+        setNotificationState({
+          ...notificationState,
+          ["User Reports"]: 0,
+        });
+      }, 400);
+    }
+    // eslint-disable-next-line
+  }, [activeMenuItem]);
 
   return (
     <div className="min-h-screen bg-gray-50">

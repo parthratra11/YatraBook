@@ -3,7 +3,7 @@
 import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import SideMenu from "../components/SideMenu";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const dummyEFIRs = [
   {
@@ -32,8 +32,29 @@ const dummyEFIRs = [
   },
 ];
 
-export default function EFIRsPage() {
+export default function EFIRsPage({
+  notificationState,
+  setNotificationState,
+}: {
+  notificationState: Record<string, number>;
+  setNotificationState: (state: Record<string, number>) => void;
+}) {
   const [activeMenuItem, setActiveMenuItem] = useState("E-FIRs");
+  const [highlightNew, setHighlightNew] = useState(false);
+
+  useEffect(() => {
+    if (notificationState?.["E-FIRs"] > 0) {
+      setHighlightNew(true);
+      setTimeout(() => setHighlightNew(false), 1200);
+      setTimeout(() => {
+        setNotificationState({
+          ...notificationState,
+          ["E-FIRs"]: 0,
+        });
+      }, 400);
+    }
+    // eslint-disable-next-line
+  }, [activeMenuItem]);
 
   return (
     <div className="min-h-screen bg-gray-50">

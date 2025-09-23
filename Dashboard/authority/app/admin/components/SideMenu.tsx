@@ -27,13 +27,18 @@ import {
   UserIcon,
   KeyIcon,
 } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
 
 export default function SideMenu({
   activeMenuItem,
   setActiveMenuItem,
+  notificationState,
+  setNotificationState,
 }: {
   activeMenuItem: string;
   setActiveMenuItem: (item: string) => void;
+  notificationState?: Record<string, number>;
+  setNotificationState?: (state: Record<string, number>) => void;
 }) {
   const sideMenuItems = [
     {
@@ -100,26 +105,69 @@ export default function SideMenu({
     },
   ];
 
+  // Always use default counts if notificationState is missing or empty
+  const defaultCounts: Record<string, number> = {
+    "SOS Notifications": 7,
+    "Tourist Verification": 5,
+    "User Reports": 4,
+    "E-FIRs": 2,
+  };
+  const counts =
+    notificationState && Object.keys(notificationState).length > 0
+      ? notificationState
+      : defaultCounts;
+
+  useEffect(() => {
+    if (counts[activeMenuItem] > 0 && setNotificationState) {
+      setTimeout(() => {
+        setNotificationState({
+          ...counts,
+          [activeMenuItem]: 0,
+        });
+      }, 400);
+    }
+    // eslint-disable-next-line
+  }, [activeMenuItem]);
+
   return (
     <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40 flex flex-col justify-between">
       <div>
         <div className="p-4">
           <nav className="space-y-2">
-            {sideMenuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
-                  activeMenuItem === item.name
-                    ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
-                    : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"
-                }`}
-                onClick={() => setActiveMenuItem(item.name)}
-              >
-                <span className="text-lg">{item.icon}</span>
-                <span className="font-medium text-sm">{item.name}</span>
-              </Link>
-            ))}
+            {sideMenuItems.map((item) => {
+              const count = counts[item.name] ?? 0;
+              const showNotification =
+                count > 0 && activeMenuItem !== item.name;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                    activeMenuItem === item.name
+                      ? "bg-orange-500 text-white shadow-md hover:cursor-pointer"
+                      : "text-gray-700 hover:bg-gray-100 hover:cursor-pointer"
+                  }`}
+                  onClick={() => setActiveMenuItem(item.name)}
+                >
+                  <span className="text-lg relative">
+                    {item.icon}
+                    {showNotification && (
+                      <span
+                        className="absolute -top-1 -right-2 bg-red-500 text-white rounded-full px-1 text-[10px] font-bold border border-white"
+                        style={{
+                          minWidth: "16px",
+                          height: "16px",
+                          lineHeight: "16px",
+                        }}
+                      >
+                        {count}
+                      </span>
+                    )}
+                  </span>
+                  <span className="font-medium text-sm">{item.name}</span>
+                </Link>
+              );
+            })}
           </nav>
         </div>
         <div className="px-4 py-3 border-t bg-gray-50 flex flex-col items-start text-xs">

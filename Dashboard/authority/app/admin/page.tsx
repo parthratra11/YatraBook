@@ -763,10 +763,30 @@ export default function AdminDashboard() {
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard");
   const [isClient, setIsClient] = useState(false);
 
+  // Notification state for menu items
+  const [notificationState, setNotificationState] = useState({
+    "SOS Notifications": 7,
+    "Tourist Verification": 5,
+    "User Reports": 4,
+    "E-FIRs": 2,
+  });
+
   useEffect(() => {
     setIsClient(true);
     import("leaflet/dist/leaflet.css");
   }, []);
+
+  // Clear notification count when page is opened
+  useEffect(() => {
+    if (notificationState[activeMenuItem] > 0) {
+      setTimeout(() => {
+        setNotificationState({
+          ...notificationState,
+          [activeMenuItem]: 0,
+        });
+      }, 400);
+    }
+  }, [activeMenuItem]);
 
   if (!isClient) {
     return (
@@ -785,6 +805,8 @@ export default function AdminDashboard() {
       <SideMenu
         activeMenuItem={activeMenuItem}
         setActiveMenuItem={setActiveMenuItem}
+        notificationState={notificationState}
+        setNotificationState={setNotificationState}
       />
       {/* Main grid container: fix height and spacing */}
       <div className="flex-1 ml-64 p-4 h-[calc(100vh-80px)]">
