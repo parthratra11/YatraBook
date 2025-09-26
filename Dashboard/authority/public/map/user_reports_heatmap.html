@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>User Reports Heatmap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <style>
+      html,
+      body,
+      #user-reports-map {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .leaflet-container {
+        font-size: 1rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="user-reports-map"></div>
+    <script>
+      // Extended dummy report locations and ratings (coordinates are approximate for demo)
+      const reports = [
+        {
+          id: "R-001",
+          lat: 25.57,
+          lng: 91.88,
+          type: "Sanitation",
+          location: "Shillong Market",
+          status: "Resolved",
+          safetyRating: 4.5,
+        },
+        {
+          id: "R-002",
+          lat: 26.1,
+          lng: 91.58,
+          type: "Infrastructure",
+          location: "Guwahati Airport",
+          status: "Pending",
+          safetyRating: 3.2,
+        },
+        {
+          id: "R-003",
+          lat: 25.67,
+          lng: 94.11,
+          type: "Safety",
+          location: "Kohima Main Road",
+          status: "Active",
+          safetyRating: 2.8,
+        },
+        {
+          id: "R-004",
+          lat: 26.58,
+          lng: 93.17,
+          type: "Sanitation",
+          location: "Kaziranga National Park",
+          status: "Pending",
+          safetyRating: 3.8,
+        },
+        {
+          id: "R-005",
+          lat: 26.66,
+          lng: 90.94,
+          type: "Safety",
+          location: "Manas National Park",
+          status: "Active",
+          safetyRating: 2.5,
+        },
+        {
+          id: "R-006",
+          lat: 26.98,
+          lng: 94.64,
+          type: "Infrastructure",
+          location: "Sivasagar Heritage Zone",
+          status: "Resolved",
+          safetyRating: 4.2,
+        },
+        {
+          id: "R-007",
+          lat: 24.83,
+          lng: 92.78,
+          type: "Sanitation",
+          location: "Silchar Urban Area",
+          status: "Resolved",
+          safetyRating: 4.7,
+        },
+        {
+          id: "R-008",
+          lat: 25.5,
+          lng: 93.0,
+          type: "Safety",
+          location: "North Cachar Hills",
+          status: "Active",
+          safetyRating: 2.1,
+        },
+        {
+          id: "R-009",
+          lat: 26.18,
+          lng: 90.62,
+          type: "Infrastructure",
+          location: "Goalpara Wetlands",
+          status: "Pending",
+          safetyRating: 3.5,
+        },
+        {
+          id: "R-010",
+          lat: 26.75,
+          lng: 94.22,
+          type: "Sanitation",
+          location: "Jorhat Tea Gardens",
+          status: "Resolved",
+          safetyRating: 4.8,
+        },
+        {
+          id: "R-011",
+          lat: 24.83,
+          lng: 92.83,
+          type: "Safety",
+          location: "Barak Valley",
+          status: "Active",
+          safetyRating: 2.9,
+        },
+        {
+          id: "R-012",
+          lat: 25.84,
+          lng: 93.43,
+          type: "Infrastructure",
+          location: "Diphu Eco Zone",
+          status: "Pending",
+          safetyRating: 3.6,
+        },
+        {
+          id: "R-013",
+          lat: 27.47,
+          lng: 94.91,
+          type: "Sanitation",
+          location: "Dibrugarh Riverside",
+          status: "Resolved",
+          safetyRating: 4.3,
+        },
+        {
+          id: "R-014",
+          lat: 26.63,
+          lng: 92.8,
+          type: "Safety",
+          location: "Tezpur Cultural Zone",
+          status: "Active",
+          safetyRating: 2.7,
+        },
+        {
+          id: "R-015",
+          lat: 25.17,
+          lng: 93.02,
+          type: "Infrastructure",
+          location: "Haflong Hill Station",
+          status: "Pending",
+          safetyRating: 3.9,
+        },
+        {
+          id: "R-016",
+          lat: 26.48,
+          lng: 90.56,
+          type: "Sanitation",
+          location: "Bongaigaon Urban Zone",
+          status: "Resolved",
+          safetyRating: 4.6,
+        },
+        {
+          id: "R-017",
+          lat: 27.49,
+          lng: 95.35,
+          type: "Safety",
+          location: "Tinsukia Eco Park",
+          status: "Active",
+          safetyRating: 2.6,
+        },
+        {
+          id: "R-018",
+          lat: 27.49,
+          lng: 95.36,
+          type: "Infrastructure",
+          location: "Tinsukia Town",
+          status: "Pending",
+          safetyRating: 3.0,
+        },
+        {
+          id: "R-019",
+          lat: 26.95,
+          lng: 94.2,
+          type: "Sanitation",
+          location: "Majuli Island",
+          status: "Resolved",
+          safetyRating: 4.1,
+        },
+        {
+          id: "R-020",
+          lat: 26.35,
+          lng: 92.68,
+          type: "Safety",
+          location: "Nagaon Heritage Zone",
+          status: "Active",
+          safetyRating: 2.4,
+        },
+        {
+          id: "R-021",
+          lat: 26.65,
+          lng: 91.15,
+          type: "Infrastructure",
+          location: "Baksa Forest",
+          status: "Pending",
+          safetyRating: 3.3,
+        },
+        {
+          id: "R-022",
+          lat: 26.25,
+          lng: 92.34,
+          type: "Sanitation",
+          location: "Morigaon Town",
+          status: "Resolved",
+          safetyRating: 4.9,
+        },
+        {
+          id: "R-023",
+          lat: 24.86,
+          lng: 92.36,
+          type: "Safety",
+          location: "Karimganj Border",
+          status: "Active",
+          safetyRating: 2.2,
+        },
+        {
+          id: "R-024",
+          lat: 26.7,
+          lng: 92.9,
+          type: "Infrastructure",
+          location: "Sonitpur Forest Area",
+          status: "Pending",
+          safetyRating: 3.4,
+        },
+        {
+          id: "R-025",
+          lat: 27.1,
+          lng: 94.9,
+          type: "Sanitation",
+          location: "Moranhat",
+          status: "Resolved",
+          safetyRating: 4.4,
+        },
+        {
+          id: "R-026",
+          lat: 27.36,
+          lng: 95.32,
+          type: "Safety",
+          location: "Duliajan",
+          status: "Active",
+          safetyRating: 2.3,
+        },
+        {
+          id: "R-027",
+          lat: 25.97,
+          lng: 91.89,
+          type: "Infrastructure",
+          location: "Jorabat",
+          status: "Pending",
+          safetyRating: 3.1,
+        },
+        {
+          id: "R-028",
+          lat: 26.7,
+          lng: 92.5,
+          type: "Sanitation",
+          location: "Dhekiajuli",
+          status: "Resolved",
+          safetyRating: 4.0,
+        },
+        {
+          id: "R-029",
+          lat: 26.88,
+          lng: 93.63,
+          type: "Safety",
+          location: "Gohpur",
+          status: "Active",
+          safetyRating: 2.0,
+        },
+        {
+          id: "R-030",
+          lat: 26.73,
+          lng: 93.13,
+          type: "Infrastructure",
+          location: "Biswanath Chariali",
+          status: "Pending",
+          safetyRating: 3.0,
+        },
+      ];
+
+      const map = L.map("user-reports-map", {
+        center: [26.2, 92.9],
+        zoom: 7,
+        zoomControl: true,
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      // Heatmap points: [lat, lng, intensity]
+      const heatPoints = reports.map((r) => [
+        r.lat,
+        r.lng,
+        1.0 - r.safetyRating / 5,
+      ]);
+      L.heatLayer(heatPoints, {
+        radius: 40,
+        blur: 30,
+        minOpacity: 0.5,
+        gradient: {
+          0.0: "#FF0000",
+          0.5: "#FFFF00",
+          1.0: "#00FF00",
+        },
+      }).addTo(map);
+
+      // Markers for each report
+      reports.forEach((r) => {
+        const marker = L.circleMarker([r.lat, r.lng], {
+          radius: 12,
+          color:
+            r.safetyRating >= 4
+              ? "green"
+              : r.safetyRating >= 3
+              ? "orange"
+              : "red",
+          fillColor:
+            r.safetyRating >= 4
+              ? "green"
+              : r.safetyRating >= 3
+              ? "orange"
+              : "red",
+          fillOpacity: 0.8,
+          weight: 2,
+        }).addTo(map);
+        marker.bindPopup(
+          `<b>${r.location}</b><br>Type: ${r.type}<br>Status: ${r.status}<br>Safety Rating: ${r.safetyRating}`
+        );
+        marker.bindTooltip(
+          `${r.location} (${r.type}) - Safety: ${r.safetyRating}`,
+          { sticky: true }
+        );
+      });
+    </script>
+  </body>
+</html>
