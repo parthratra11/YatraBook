@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>LoRaMesh Network Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+      html,
+      body,
+      #lora-mesh-map {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .leaflet-container {
+        font-size: 1rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lora-mesh-map"></div>
+    <script>
+      // Dummy nodes
+      const nodes = [
+        {
+          id: "GW-01",
+          type: "Mesh Gateway",
+          lat: 26.15,
+          lng: 91.74,
+          color: "green",
+        },
+        {
+          id: "GW-02",
+          type: "Mesh Gateway",
+          lat: 26.58,
+          lng: 93.17,
+          color: "green",
+        },
+        {
+          id: "BG-01",
+          type: "Border Gateway",
+          lat: 26.98,
+          lng: 94.64,
+          color: "blue",
+        },
+        {
+          id: "BG-02",
+          type: "Border Gateway",
+          lat: 25.17,
+          lng: 93.01,
+          color: "blue",
+        },
+        {
+          id: "SN-01",
+          type: "Sensor",
+          lat: 26.75,
+          lng: 94.21,
+          color: "orange",
+        },
+        {
+          id: "SN-02",
+          type: "Sensor",
+          lat: 27.47,
+          lng: 94.91,
+          color: "orange",
+        },
+      ];
+
+      // Dummy mesh connections (pairs of node indices)
+      const connections = [
+        [0, 1],
+        [1, 2],
+        [2, 4],
+        [1, 4],
+        [0, 3],
+        [3, 5],
+      ];
+
+      const map = L.map("lora-mesh-map", {
+        center: [26.5, 93.2],
+        zoom: 7,
+        zoomControl: true,
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      // Draw connections
+      connections.forEach(([i, j]) => {
+        const n1 = nodes[i];
+        const n2 = nodes[j];
+        L.polyline(
+          [
+            [n1.lat, n1.lng],
+            [n2.lat, n2.lng],
+          ],
+          {
+            color: "#888",
+            weight: 3,
+            opacity: 0.7,
+            dashArray: "6 6",
+          }
+        ).addTo(map);
+      });
+
+      // Draw nodes
+      nodes.forEach((n) => {
+        const marker = L.circleMarker([n.lat, n.lng], {
+          radius: 12,
+          color: n.color,
+          fillColor: n.color,
+          fillOpacity: 0.8,
+          weight: 2,
+        }).addTo(map);
+        marker.bindPopup(
+          `<b>${n.id}</b><br>${n.type}<br>Lat: ${n.lat}, Lng: ${n.lng}`
+        );
+        marker.bindTooltip(`${n.id} (${n.type})`, { sticky: true });
+      });
+    </script>
+  </body>
+</html>
