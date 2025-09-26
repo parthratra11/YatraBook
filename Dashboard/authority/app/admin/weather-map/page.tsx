@@ -14,6 +14,16 @@ const dummyWeather = [
 
 export default function WeatherMapPage() {
   const [activeMenuItem, setActiveMenuItem] = useState("Weather Map");
+  const [filter, setFilter] = useState("All");
+
+  // Unique locations for filter
+  const locations = ["All", ...dummyWeather.map((w) => w.location)];
+
+  // Filtered weather data
+  const filteredWeather =
+    filter === "All"
+      ? dummyWeather
+      : dummyWeather.filter((w) => w.location === filter);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -34,7 +44,49 @@ export default function WeatherMapPage() {
           Live weather, climate, and environmental data for planning and
           response.
         </p>
+        {/* Filter Dropdown */}
+        <div className="mb-4 flex items-center gap-2">
+          <label
+            htmlFor="weather-location"
+            className="text-sm font-medium text-gray-700"
+          >
+            Filter by location:
+          </label>
+          <select
+            id="weather-location"
+            className="border rounded px-2 py-1 text-sm"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            {locations.map((loc) => (
+              <option key={loc} value={loc}>
+                {loc}
+              </option>
+            ))}
+          </select>
+        </div>
+        {/* Weather Map Section */}
+        <div className="bg-white border rounded-lg shadow p-4 mb-6">
+          <div className="w-full h-96 rounded-lg overflow-hidden">
+            <iframe
+              src="/map/enhanced_weather_map_assam.html"
+              title="Weather Map"
+              width="100%"
+              height="100%"
+              style={{
+                border: 0,
+                minHeight: "350px",
+                borderRadius: "8px",
+                width: "100%",
+                height: "100%",
+              }}
+              loading="lazy"
+            />
+          </div>
+        </div>
+        {/* Weather Table */}
         <div className="bg-white border rounded-lg shadow p-6">
+          <h2 className="text-lg font-semibold mb-2">Weather Station Data</h2>
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-gray-100">
@@ -45,7 +97,7 @@ export default function WeatherMapPage() {
               </tr>
             </thead>
             <tbody>
-              {dummyWeather.map((w) => (
+              {filteredWeather.map((w) => (
                 <tr key={w.location} className="border-b">
                   <td className="p-2">{w.location}</td>
                   <td className="p-2">{w.temp}</td>
@@ -57,6 +109,11 @@ export default function WeatherMapPage() {
           </table>
         </div>
       </div>
+      <style jsx global>{`
+        iframe {
+          background: #f3f4f6;
+        }
+      `}</style>
     </div>
   );
 }

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4dedb866710cf9be94c43ab163624fb8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4dedb866710cf9be94c43ab163624fb8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4dedb866710cf9be94c43ab163624fb8 = L.map(
+                "map_4dedb866710cf9be94c43ab163624fb8",
+                {
+                    center: [26.2, 92.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0f9b0c02a647a12692e963a682f0554d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0f9b0c02a647a12692e963a682f0554d.addTo(map_4dedb866710cf9be94c43ab163624fb8);
+        
+    
+            var heat_map_95f6855514a235b3834c3fecec3a37d4 = L.heatLayer(
+                [[26.18, 91.75, 1.5], [26.18, 91.78, 1.5], [26.18, 91.81, 1.5], [26.21, 91.75, 1.5], [26.21, 91.78, 1.5], [26.21, 91.81, 1.5], [26.24, 91.75, 1.5], [26.24, 91.78, 1.5], [26.24, 91.81, 1.5], [26.58, 93.33, 1.2], [26.58, 93.35, 1.2], [26.599999999999998, 93.33, 1.2], [26.599999999999998, 93.35, 1.2], [24.83, 92.78, 1.0], [24.83, 92.8, 1.0], [24.849999999999998, 92.78, 1.0], [24.849999999999998, 92.8, 1.0], [25.5, 92.0, 0.7], [25.5, 92.5, 0.7], [26.0, 92.0, 0.7], [26.0, 92.5, 0.7]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 13,
+  "radius": 35,
+  "blur": 25,
+  "gradient": {
+  0.1: "blue",
+  0.3: "cyan",
+  0.5: "lime",
+  0.7: "yellow",
+  0.9: "orange",
+  1.0: "red",
+},
+}
+            );
+        
+    
+            heat_map_95f6855514a235b3834c3fecec3a37d4.addTo(map_4dedb866710cf9be94c43ab163624fb8);
+        
+    
+            var marker_4e21a7a3a9b63fce3bcb6de66e342455 = L.marker(
+                [26.18, 91.75],
+                {
+}
+            ).addTo(map_4dedb866710cf9be94c43ab163624fb8);
+        
+    
+            var icon_4553e1c616d799ea0d6c32b78fcd70bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b0df634c6cbf27257009610d387d3e5e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_04b42022917b11b484e135f0cd01edee = $(`<div id="html_04b42022917b11b484e135f0cd01edee" style="width: 100.0%; height: 100.0%;">SOS Alert #1</div>`)[0];
+                popup_b0df634c6cbf27257009610d387d3e5e.setContent(html_04b42022917b11b484e135f0cd01edee);
+            
+        
+
+        marker_4e21a7a3a9b63fce3bcb6de66e342455.bindPopup(popup_b0df634c6cbf27257009610d387d3e5e)
+        ;
+
+        
+    
+    
+                marker_4e21a7a3a9b63fce3bcb6de66e342455.setIcon(icon_4553e1c616d799ea0d6c32b78fcd70bb);
+            
+    
+            var marker_81c3abc6389578340c34b41616b17ef1 = L.marker(
+                [26.58, 93.33],
+                {
+}
+            ).addTo(map_4dedb866710cf9be94c43ab163624fb8);
+        
+    
+            var icon_7bf01c7b0c768913de000d1b890ae967 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9715d14f61022f6c9a70f72c3afb77b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c8e8ee4436c7122557be1183e588a95b = $(`<div id="html_c8e8ee4436c7122557be1183e588a95b" style="width: 100.0%; height: 100.0%;">SOS Alert #2</div>`)[0];
+                popup_9715d14f61022f6c9a70f72c3afb77b4.setContent(html_c8e8ee4436c7122557be1183e588a95b);
+            
+        
+
+        marker_81c3abc6389578340c34b41616b17ef1.bindPopup(popup_9715d14f61022f6c9a70f72c3afb77b4)
+        ;
+
+        
+    
+    
+                marker_81c3abc6389578340c34b41616b17ef1.setIcon(icon_7bf01c7b0c768913de000d1b890ae967);
+            
+    
+            var marker_b6e5a1c96d29b9a6437331feffd5f89c = L.marker(
+                [24.83, 92.78],
+                {
+}
+            ).addTo(map_4dedb866710cf9be94c43ab163624fb8);
+        
+    
+            var icon_c7f536a94ebf796af298e24d32eb5adc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56c763f2374579b7a6b58f4f40d09670 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c46dc34106fd02cbd390c5c60dee0e8d = $(`<div id="html_c46dc34106fd02cbd390c5c60dee0e8d" style="width: 100.0%; height: 100.0%;">SOS Alert #3</div>`)[0];
+                popup_56c763f2374579b7a6b58f4f40d09670.setContent(html_c46dc34106fd02cbd390c5c60dee0e8d);
+            
+        
+
+        marker_b6e5a1c96d29b9a6437331feffd5f89c.bindPopup(popup_56c763f2374579b7a6b58f4f40d09670)
+        ;
+
+        
+    
+    
+                marker_b6e5a1c96d29b9a6437331feffd5f89c.setIcon(icon_c7f536a94ebf796af298e24d32eb5adc);
+            
+    
+            var marker_211c3de3efd8ae0e0a119ecf68acccea = L.marker(
+                [25.5, 92.0],
+                {
+}
+            ).addTo(map_4dedb866710cf9be94c43ab163624fb8);
+        
+    
+            var icon_a357e69f39b7d2431cc82fc682554c65 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d99071c4e1c7fb67cbd45cf90abc4c24 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43d49816e49a30831f3df0cad79859a1 = $(`<div id="html_43d49816e49a30831f3df0cad79859a1" style="width: 100.0%; height: 100.0%;">SOS Alert #4</div>`)[0];
+                popup_d99071c4e1c7fb67cbd45cf90abc4c24.setContent(html_43d49816e49a30831f3df0cad79859a1);
+            
+        
+
+        marker_211c3de3efd8ae0e0a119ecf68acccea.bindPopup(popup_d99071c4e1c7fb67cbd45cf90abc4c24)
+        ;
+
+        
+    
+    
+                marker_211c3de3efd8ae0e0a119ecf68acccea.setIcon(icon_a357e69f39b7d2431cc82fc682554c65);
+            
+</script>
+</html>

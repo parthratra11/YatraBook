@@ -1,0 +1,2664 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9664e50edd67b882343ac26a070fedf8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9664e50edd67b882343ac26a070fedf8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9664e50edd67b882343ac26a070fedf8 = L.map(
+                "map_9664e50edd67b882343ac26a070fedf8",
+                {
+                    center: [26.2, 92.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a2e4efa0ea4c38ceef7ea2f1e5a2f9b3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a2e4efa0ea4c38ceef7ea2f1e5a2f9b3.addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var heat_map_ee8056971da5b0fcb3a75a4663a69fb7 = L.heatLayer(
+                [[26.158442679845788, 91.68870107552226, 0.48833919700715717], [26.116821073814883, 91.7598471214164, 0.5686732308179157], [26.183717956770487, 91.69489388326294, 0.5177176972703874], [26.09747972194381, 91.70806379748036, 0.5344043909540058], [26.097153596968386, 91.70608376506866, 0.563310220889238], [26.58199414806032, 93.14314406220406, 0.4845198034418484], [26.608443045667784, 93.12174987596781, 0.5278305170332283], [26.59731393949882, 93.1551250516518, 0.397762566629023], [26.62322130722068, 93.15475945451126, 0.38521583534269627], [26.537171637683347, 93.20584943663474, 0.4874118729400449], [26.985312827327437, 94.22597317866938, 0.4072456182909402], [27.001911576397937, 94.19085343772083, 0.4104081262546454], [26.987540466425298, 94.21485197523643, 0.4723413800621555], [26.962335214525677, 94.22345718362149, 0.30916487673113247], [26.927389827565154, 94.18193879636021, 0.31595839538472553], [26.632579088636106, 90.89920014294097, 0.4222613872886851], [26.67286844442644, 90.925583217897, 0.4407028600900432], [26.630250703077152, 90.9157977822049, 0.5539975842091655], [26.674103538524662, 90.9500131005667, 0.4008943963062861], [26.682212679795036, 90.90544024937618, 0.4425577550181962], [27.03105233506366, 94.65659997598542, 0.5447232820882626], [27.000561425098986, 94.67688519201899, 0.5885333156425823], [26.95500480719641, 94.5958100243904, 0.4964239429451497], [26.958874087597568, 94.61369828435863, 0.6219152762003443], [27.019736762647266, 94.62406778807986, 0.5644210663923093], [25.16016319010607, 93.05905475897406, 0.3251037038508131], [25.147088016649807, 92.9922627507694, 0.3456069601659635], [25.146874160852295, 93.02605859902235, 0.4128979100538287], [25.16054005051404, 92.98953207591573, 0.43284085463235533], [25.171552629367646, 92.97669094121738, 0.24275660841828023], [27.433764913035066, 94.92474460417031, 0.4584158728725929], [27.465015996679966, 94.8683527706152, 0.37632385730130735], [27.52241213802401, 94.91491143450992, 0.49421567552272366], [27.50887797022345, 94.86314810219429, 0.4441443638720389], [27.490971036902657, 94.91569703304089, 0.35336503799050856], [26.64789617985798, 92.76115521735959, 0.5202863834671543], [26.629172370632922, 92.8453815927521, 0.6085039214089721], [26.61013890507511, 92.80005861130503, 0.4690637094393596], [26.675062783934482, 92.83705185698368, 0.4930222916230599], [26.647694949486603, 92.81089702114382, 0.4639011870432603], [26.776251080007516, 94.22063790301196, 0.5223919623927783], [26.753035367219518, 94.1667571896128, 0.4314978780676013], [26.701947674238582, 94.25960986162646, 0.5424110422313035], [26.78316655293612, 94.19745141254027, 0.3782516999655042], [26.787800959920403, 94.2613949445298, 0.38379735708024243], [24.831899046331664, 92.79022125184683, 0.6521204330514463], [24.8598834429307, 92.79613914644997, 0.5950564756197463], [24.838280359349497, 92.80980566289401, 0.6744866082170515], [24.82561379402009, 92.8044798205442, 0.6078592177558917], [24.856293106909, 92.80341510633896, 0.562343258260179], [25.88951493566609, 93.44498780576396, 0.3876200167829008], [25.841757584103558, 93.39210041958684, 0.3449394674063115], [25.823808556214747, 93.43883087184572, 0.3460229465193154], [25.812021738445157, 93.38709930860091, 0.4262205914540198], [25.812894178381114, 93.47054200130061, 0.47192708005074935], [24.790385734988867, 92.7527004634369, 0.633795555659256], [24.804723680737045, 92.74213118487249, 0.6871028481161342], [24.84040430933253, 92.77616710263118, 0.6569238848581507], [24.864049699776665, 92.74794099143618, 0.5193861628457647], [24.82640511824064, 92.77125786230198, 0.5934049336073349], [25.522907584945987, 93.01733645472933, 0.43016637560652654], [25.459841787115195, 92.99026212821023, 0.30119385441232593], [25.53616725363528, 92.97486563339203, 0.2713751150214956], [25.494861354783314, 92.99218816398344, 0.2890423622667214], [25.47498064478821, 93.0423265599276, 0.3219594823440247], [26.21943491047618, 90.62173253124497, 0.3767843325716429], [26.23322824684127, 90.65030275850799, 0.5604659181236169], [26.225936698300814, 90.65156957344142, 0.3999288887874495], [26.18186411254507, 90.58807472991991, 0.4468747251765572], [26.139163539997217, 90.60459731189769, 0.5637284354226119], [27.468720305817214, 95.38210706019485, 0.324335006801162], [27.484500748599018, 95.39943176408597, 0.4324178712318761], [27.497776832340563, 95.37554082752963, 0.2642926983881461], [27.471870782549455, 95.40057093649692, 0.34916939149658455], [27.49641952013743, 95.37849755603791, 0.2447663879148299], [26.4910177594459, 90.56128503829196, 0.5372106450763238], [26.44834327279395, 90.60707789032745, 0.38268895971478406], [26.451182496098074, 90.57050351064501, 0.5017091773874847], [26.456120389500093, 90.52298866139472, 0.5447241294925542], [26.457221534778864, 90.57045191535335, 0.4905429687330873], [27.478022491533586, 94.62506722892911, 0.4045565431063918], [27.529570625773644, 94.58712591994235, 0.443238360157883], [27.459968595261586, 94.60627858467912, 0.43433804459199427], [27.466099707979875, 94.59831771962718, 0.4503728984828804], [27.443354311449315, 94.61252855226185, 0.49969088817088847], [26.39960964478551, 92.64062607210997, 0.4092975291200748], [26.326520041475042, 92.72662593779937, 0.5428395014039546], [26.387927024248455, 92.67025270887389, 0.39821603313811305], [26.383374495463983, 92.70365399250873, 0.4890022198118567], [26.398723306363152, 92.69869763177108, 0.36823128809709826]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 12,
+  "radius": 40,
+  "blur": 30,
+  "gradient": {
+  0.0: "#0000FF",
+  0.3: "#00FFFF",
+  0.5: "#00FF00",
+  0.7: "#FFFF00",
+  0.9: "#FF8000",
+  1.0: "#FF0000",
+},
+}
+            );
+        
+    
+            heat_map_ee8056971da5b0fcb3a75a4663a69fb7.addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var feature_group_a49155ed721feb163f79e9bd7f8a9177 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_7dfda847116a5636d8c4d1a4468a93e0 = L.circle(
+                [26.1445, 91.7362],
+                {"bubblingMouseEvents": true, "color": "#87CEEB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#87CEEB", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_08f77c0d30ea18ba0c7af813b8bf2bad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85e4178c5ed531edc5fd0785dd61d850 = $(`<div id="html_85e4178c5ed531edc5fd0785dd61d850" style="width: 100.0%; height: 100.0%;"><b>Guwahati City Center</b><br>Condition: Partly Cloudy</div>`)[0];
+                popup_08f77c0d30ea18ba0c7af813b8bf2bad.setContent(html_85e4178c5ed531edc5fd0785dd61d850);
+            
+        
+
+        circle_7dfda847116a5636d8c4d1a4468a93e0.bindPopup(popup_08f77c0d30ea18ba0c7af813b8bf2bad)
+        ;
+
+        
+    
+    
+            circle_7dfda847116a5636d8c4d1a4468a93e0.bindTooltip(
+                `<div>
+                     Partly Cloudy Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_036e430c846c0760093e2dfb3d58aafa = L.circle(
+                [26.5775, 93.1711],
+                {"bubblingMouseEvents": true, "color": "#4169E1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4169E1", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_0ee237535a372cc03d1764da740c8ae3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_892eedc9fe1f2683ecc88eea98be5da5 = $(`<div id="html_892eedc9fe1f2683ecc88eea98be5da5" style="width: 100.0%; height: 100.0%;"><b>Kaziranga National Park</b><br>Condition: Rain Showers</div>`)[0];
+                popup_0ee237535a372cc03d1764da740c8ae3.setContent(html_892eedc9fe1f2683ecc88eea98be5da5);
+            
+        
+
+        circle_036e430c846c0760093e2dfb3d58aafa.bindPopup(popup_0ee237535a372cc03d1764da740c8ae3)
+        ;
+
+        
+    
+    
+            circle_036e430c846c0760093e2dfb3d58aafa.bindTooltip(
+                `<div>
+                     Rain Showers Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_dc140684f2d9b13f94e06273472fec8d = L.circle(
+                [26.9546, 94.203],
+                {"bubblingMouseEvents": true, "color": "#B0C4DE", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B0C4DE", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_d3d6657d5e968a03b999c9323f64bb69 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad347ae687cf36711fc93706c4095e82 = $(`<div id="html_ad347ae687cf36711fc93706c4095e82" style="width: 100.0%; height: 100.0%;"><b>Majuli Island</b><br>Condition: Cloudy</div>`)[0];
+                popup_d3d6657d5e968a03b999c9323f64bb69.setContent(html_ad347ae687cf36711fc93706c4095e82);
+            
+        
+
+        circle_dc140684f2d9b13f94e06273472fec8d.bindPopup(popup_d3d6657d5e968a03b999c9323f64bb69)
+        ;
+
+        
+    
+    
+            circle_dc140684f2d9b13f94e06273472fec8d.bindTooltip(
+                `<div>
+                     Cloudy Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3742056e01c6432705a83c69c060ebbc = L.circle(
+                [26.6593, 90.9391],
+                {"bubblingMouseEvents": true, "color": "#8B0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8B0000", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_d7faec87c477e2a190ee62a746730e6b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cedf322f48115c7d73d4ef3a8c85e4f = $(`<div id="html_0cedf322f48115c7d73d4ef3a8c85e4f" style="width: 100.0%; height: 100.0%;"><b>Manas National Park</b><br>Condition: Thunderstorm</div>`)[0];
+                popup_d7faec87c477e2a190ee62a746730e6b.setContent(html_0cedf322f48115c7d73d4ef3a8c85e4f);
+            
+        
+
+        circle_3742056e01c6432705a83c69c060ebbc.bindPopup(popup_d7faec87c477e2a190ee62a746730e6b)
+        ;
+
+        
+    
+    
+            circle_3742056e01c6432705a83c69c060ebbc.bindTooltip(
+                `<div>
+                     Thunderstorm Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3c23fa2027db3af99a0109f68d34e906 = L.circle(
+                [26.9821, 94.6426],
+                {"bubblingMouseEvents": true, "color": "#FFD700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_cc210ddac5c18724f81d9a8173f513c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b48f5145eff82ef04aee65a21f52e57f = $(`<div id="html_b48f5145eff82ef04aee65a21f52e57f" style="width: 100.0%; height: 100.0%;"><b>Sivasagar Heritage Zone</b><br>Condition: Sunny</div>`)[0];
+                popup_cc210ddac5c18724f81d9a8173f513c1.setContent(html_b48f5145eff82ef04aee65a21f52e57f);
+            
+        
+
+        circle_3c23fa2027db3af99a0109f68d34e906.bindPopup(popup_cc210ddac5c18724f81d9a8173f513c1)
+        ;
+
+        
+    
+    
+            circle_3c23fa2027db3af99a0109f68d34e906.bindTooltip(
+                `<div>
+                     Sunny Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_49119e43bc6ee96303db93fddcfc8adf = L.circle(
+                [25.1706, 93.0176],
+                {"bubblingMouseEvents": true, "color": "#4169E1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4169E1", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_2ad897b6107fbfc7edda628e7c560688 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b211bcd75039f4fd1e3669f0212ab22c = $(`<div id="html_b211bcd75039f4fd1e3669f0212ab22c" style="width: 100.0%; height: 100.0%;"><b>Haflong Hill Station</b><br>Condition: Rain Showers</div>`)[0];
+                popup_2ad897b6107fbfc7edda628e7c560688.setContent(html_b211bcd75039f4fd1e3669f0212ab22c);
+            
+        
+
+        circle_49119e43bc6ee96303db93fddcfc8adf.bindPopup(popup_2ad897b6107fbfc7edda628e7c560688)
+        ;
+
+        
+    
+    
+            circle_49119e43bc6ee96303db93fddcfc8adf.bindTooltip(
+                `<div>
+                     Rain Showers Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_a021d96031b26f13f2d5e2f86a0cdbdd = L.circle(
+                [27.4728, 94.912],
+                {"bubblingMouseEvents": true, "color": "#4169E1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4169E1", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_debf11da9fd5b29059b24fa4858db5d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_610ef9a09886104174109953a7c49e01 = $(`<div id="html_610ef9a09886104174109953a7c49e01" style="width: 100.0%; height: 100.0%;"><b>Dibrugarh Riverside</b><br>Condition: Rain Showers</div>`)[0];
+                popup_debf11da9fd5b29059b24fa4858db5d3.setContent(html_610ef9a09886104174109953a7c49e01);
+            
+        
+
+        circle_a021d96031b26f13f2d5e2f86a0cdbdd.bindPopup(popup_debf11da9fd5b29059b24fa4858db5d3)
+        ;
+
+        
+    
+    
+            circle_a021d96031b26f13f2d5e2f86a0cdbdd.bindTooltip(
+                `<div>
+                     Rain Showers Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_06ec71af1b7360046fd09d2c6f1fba79 = L.circle(
+                [26.6338, 92.8],
+                {"bubblingMouseEvents": true, "color": "#8B0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8B0000", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_8bafcbb6ce4d324f73db1718d95c6d7a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2202f837a183eddb623a6e114ff235c0 = $(`<div id="html_2202f837a183eddb623a6e114ff235c0" style="width: 100.0%; height: 100.0%;"><b>Tezpur Cultural Zone</b><br>Condition: Thunderstorm</div>`)[0];
+                popup_8bafcbb6ce4d324f73db1718d95c6d7a.setContent(html_2202f837a183eddb623a6e114ff235c0);
+            
+        
+
+        circle_06ec71af1b7360046fd09d2c6f1fba79.bindPopup(popup_8bafcbb6ce4d324f73db1718d95c6d7a)
+        ;
+
+        
+    
+    
+            circle_06ec71af1b7360046fd09d2c6f1fba79.bindTooltip(
+                `<div>
+                     Thunderstorm Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_393ffa0967d9c63209159ab63231400e = L.circle(
+                [26.75, 94.2167],
+                {"bubblingMouseEvents": true, "color": "#B0C4DE", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B0C4DE", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_4570708981922f264a17de6ccf0e8785 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_613d6ed386c93e94fe35f6ea12c1438f = $(`<div id="html_613d6ed386c93e94fe35f6ea12c1438f" style="width: 100.0%; height: 100.0%;"><b>Jorhat Tea Gardens</b><br>Condition: Cloudy</div>`)[0];
+                popup_4570708981922f264a17de6ccf0e8785.setContent(html_613d6ed386c93e94fe35f6ea12c1438f);
+            
+        
+
+        circle_393ffa0967d9c63209159ab63231400e.bindPopup(popup_4570708981922f264a17de6ccf0e8785)
+        ;
+
+        
+    
+    
+            circle_393ffa0967d9c63209159ab63231400e.bindTooltip(
+                `<div>
+                     Cloudy Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5bee5c1958ddc946f0ca0dab3efa2cb8 = L.circle(
+                [24.8333, 92.8333],
+                {"bubblingMouseEvents": true, "color": "#FFD700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_cda3c6a2dea49e5fddfa148c970ee4fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68040e800cd4a021e376687a7770442a = $(`<div id="html_68040e800cd4a021e376687a7770442a" style="width: 100.0%; height: 100.0%;"><b>Barak Valley</b><br>Condition: Sunny</div>`)[0];
+                popup_cda3c6a2dea49e5fddfa148c970ee4fc.setContent(html_68040e800cd4a021e376687a7770442a);
+            
+        
+
+        circle_5bee5c1958ddc946f0ca0dab3efa2cb8.bindPopup(popup_cda3c6a2dea49e5fddfa148c970ee4fc)
+        ;
+
+        
+    
+    
+            circle_5bee5c1958ddc946f0ca0dab3efa2cb8.bindTooltip(
+                `<div>
+                     Sunny Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_dd7a1419343fe9cee2a09b347f350f6c = L.circle(
+                [25.84, 93.43],
+                {"bubblingMouseEvents": true, "color": "#B0C4DE", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B0C4DE", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_d8da9265b6fdacd7d373f8428a0fe929 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9362866b9b24a6737448886c4a6534cc = $(`<div id="html_9362866b9b24a6737448886c4a6534cc" style="width: 100.0%; height: 100.0%;"><b>Diphu Eco Zone</b><br>Condition: Cloudy</div>`)[0];
+                popup_d8da9265b6fdacd7d373f8428a0fe929.setContent(html_9362866b9b24a6737448886c4a6534cc);
+            
+        
+
+        circle_dd7a1419343fe9cee2a09b347f350f6c.bindPopup(popup_d8da9265b6fdacd7d373f8428a0fe929)
+        ;
+
+        
+    
+    
+            circle_dd7a1419343fe9cee2a09b347f350f6c.bindTooltip(
+                `<div>
+                     Cloudy Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5db58dd0057f4de6b1b9c417eb5e9cfc = L.circle(
+                [24.8333, 92.7789],
+                {"bubblingMouseEvents": true, "color": "#FFD700", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_cd67be1ed4d934bf5a831e3ea8f07fdb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d3ea9d84678c798514e13293f70758d6 = $(`<div id="html_d3ea9d84678c798514e13293f70758d6" style="width: 100.0%; height: 100.0%;"><b>Silchar Urban Area</b><br>Condition: Sunny</div>`)[0];
+                popup_cd67be1ed4d934bf5a831e3ea8f07fdb.setContent(html_d3ea9d84678c798514e13293f70758d6);
+            
+        
+
+        circle_5db58dd0057f4de6b1b9c417eb5e9cfc.bindPopup(popup_cd67be1ed4d934bf5a831e3ea8f07fdb)
+        ;
+
+        
+    
+    
+            circle_5db58dd0057f4de6b1b9c417eb5e9cfc.bindTooltip(
+                `<div>
+                     Sunny Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4c55034bc73fa4f5d0e57fa20c201879 = L.circle(
+                [25.5, 93.0],
+                {"bubblingMouseEvents": true, "color": "#4169E1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4169E1", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_fdae1601021797c608de5b13b9e729a4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84682474b5bcb628c1a294196f7cbe9b = $(`<div id="html_84682474b5bcb628c1a294196f7cbe9b" style="width: 100.0%; height: 100.0%;"><b>North Cachar Hills</b><br>Condition: Rain Showers</div>`)[0];
+                popup_fdae1601021797c608de5b13b9e729a4.setContent(html_84682474b5bcb628c1a294196f7cbe9b);
+            
+        
+
+        circle_4c55034bc73fa4f5d0e57fa20c201879.bindPopup(popup_fdae1601021797c608de5b13b9e729a4)
+        ;
+
+        
+    
+    
+            circle_4c55034bc73fa4f5d0e57fa20c201879.bindTooltip(
+                `<div>
+                     Rain Showers Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_498fdd7d5392640ef45575b1e15cebd4 = L.circle(
+                [26.1833, 90.6167],
+                {"bubblingMouseEvents": true, "color": "#8B0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8B0000", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_50e7d57df016d5937fed1b4cae5c07f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_003847584f38eba13a9e44593d875b60 = $(`<div id="html_003847584f38eba13a9e44593d875b60" style="width: 100.0%; height: 100.0%;"><b>Goalpara Wetlands</b><br>Condition: Thunderstorm</div>`)[0];
+                popup_50e7d57df016d5937fed1b4cae5c07f9.setContent(html_003847584f38eba13a9e44593d875b60);
+            
+        
+
+        circle_498fdd7d5392640ef45575b1e15cebd4.bindPopup(popup_50e7d57df016d5937fed1b4cae5c07f9)
+        ;
+
+        
+    
+    
+            circle_498fdd7d5392640ef45575b1e15cebd4.bindTooltip(
+                `<div>
+                     Thunderstorm Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_92f21725f879e8749665653f8679100d = L.circle(
+                [27.4922, 95.3537],
+                {"bubblingMouseEvents": true, "color": "#4169E1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4169E1", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_183e1262342cc5f97c3a13faf491d2e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_653f15dafeb6db80a93d55e2ef0653e1 = $(`<div id="html_653f15dafeb6db80a93d55e2ef0653e1" style="width: 100.0%; height: 100.0%;"><b>Tinsukia Eco Park</b><br>Condition: Rain Showers</div>`)[0];
+                popup_183e1262342cc5f97c3a13faf491d2e2.setContent(html_653f15dafeb6db80a93d55e2ef0653e1);
+            
+        
+
+        circle_92f21725f879e8749665653f8679100d.bindPopup(popup_183e1262342cc5f97c3a13faf491d2e2)
+        ;
+
+        
+    
+    
+            circle_92f21725f879e8749665653f8679100d.bindTooltip(
+                `<div>
+                     Rain Showers Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_fefc132550f0c5579358553c4cfe6910 = L.circle(
+                [26.4826, 90.561],
+                {"bubblingMouseEvents": true, "color": "#B0C4DE", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B0C4DE", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_880bfd31653d7eae6f90c47773746665 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2c6cf2d82b93d0584aa6b6ede6586b2b = $(`<div id="html_2c6cf2d82b93d0584aa6b6ede6586b2b" style="width: 100.0%; height: 100.0%;"><b>Bongaigaon Urban Zone</b><br>Condition: Cloudy</div>`)[0];
+                popup_880bfd31653d7eae6f90c47773746665.setContent(html_2c6cf2d82b93d0584aa6b6ede6586b2b);
+            
+        
+
+        circle_fefc132550f0c5579358553c4cfe6910.bindPopup(popup_880bfd31653d7eae6f90c47773746665)
+        ;
+
+        
+    
+    
+            circle_fefc132550f0c5579358553c4cfe6910.bindTooltip(
+                `<div>
+                     Cloudy Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b00a7ff7d09d5b369419758ebfd3e4f8 = L.circle(
+                [27.4861, 94.6167],
+                {"bubblingMouseEvents": true, "color": "#4169E1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4169E1", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_2c4279569c347b68f1c1266ee351c7d8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81bd49a1e05857578999991d6cc05916 = $(`<div id="html_81bd49a1e05857578999991d6cc05916" style="width: 100.0%; height: 100.0%;"><b>Dhemaji Riverside</b><br>Condition: Rain Showers</div>`)[0];
+                popup_2c4279569c347b68f1c1266ee351c7d8.setContent(html_81bd49a1e05857578999991d6cc05916);
+            
+        
+
+        circle_b00a7ff7d09d5b369419758ebfd3e4f8.bindPopup(popup_2c4279569c347b68f1c1266ee351c7d8)
+        ;
+
+        
+    
+    
+            circle_b00a7ff7d09d5b369419758ebfd3e4f8.bindTooltip(
+                `<div>
+                     Rain Showers Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_50871e2bba3c245ba8c43b3281a8cb9c = L.circle(
+                [26.35, 92.6833],
+                {"bubblingMouseEvents": true, "color": "#B0C4DE", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B0C4DE", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a49155ed721feb163f79e9bd7f8a9177);
+        
+    
+        var popup_dbfd41a89ad9c9298e58fa3393f77cf8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f7a76a217b750aab2a5ee5ccb7964dc1 = $(`<div id="html_f7a76a217b750aab2a5ee5ccb7964dc1" style="width: 100.0%; height: 100.0%;"><b>Nagaon Heritage Zone</b><br>Condition: Cloudy</div>`)[0];
+                popup_dbfd41a89ad9c9298e58fa3393f77cf8.setContent(html_f7a76a217b750aab2a5ee5ccb7964dc1);
+            
+        
+
+        circle_50871e2bba3c245ba8c43b3281a8cb9c.bindPopup(popup_dbfd41a89ad9c9298e58fa3393f77cf8)
+        ;
+
+        
+    
+    
+            circle_50871e2bba3c245ba8c43b3281a8cb9c.bindTooltip(
+                `<div>
+                     Cloudy Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_a49155ed721feb163f79e9bd7f8a9177.addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var marker_5c49f297a99db52028f67df0a88d675a = L.marker(
+                [26.5775, 93.1711],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_383f7a6f927839b8929c38df2d23cad7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_18d6cf007f3de141f35a4f45c65fe037 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43e5914004012ab40a32cbec1ce7f99c = $(`<div id="html_43e5914004012ab40a32cbec1ce7f99c" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Kaziranga National Park</b><br><br>⚠️ Heavy Rain Advisory<br>⚠️ High Humidity Alert</div>`)[0];
+                popup_18d6cf007f3de141f35a4f45c65fe037.setContent(html_43e5914004012ab40a32cbec1ce7f99c);
+            
+        
+
+        marker_5c49f297a99db52028f67df0a88d675a.bindPopup(popup_18d6cf007f3de141f35a4f45c65fe037)
+        ;
+
+        
+    
+    
+            marker_5c49f297a99db52028f67df0a88d675a.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c49f297a99db52028f67df0a88d675a.setIcon(icon_383f7a6f927839b8929c38df2d23cad7);
+            
+    
+            var marker_3260a52e1dcc28e2b07b4910a94edac7 = L.marker(
+                [26.6593, 90.9391],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_22b1681cc3dfc05fe5b85141c3a2b577 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_37f54538e5064e6fa73fa39f0b968b2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0653107eb79f1f44a03f2753758ce6bd = $(`<div id="html_0653107eb79f1f44a03f2753758ce6bd" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Manas National Park</b><br><br>⚠️ Severe Thunderstorm Warning</div>`)[0];
+                popup_37f54538e5064e6fa73fa39f0b968b2b.setContent(html_0653107eb79f1f44a03f2753758ce6bd);
+            
+        
+
+        marker_3260a52e1dcc28e2b07b4910a94edac7.bindPopup(popup_37f54538e5064e6fa73fa39f0b968b2b)
+        ;
+
+        
+    
+    
+            marker_3260a52e1dcc28e2b07b4910a94edac7.bindTooltip(
+                `<div>
+                     ⚠️ 1 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3260a52e1dcc28e2b07b4910a94edac7.setIcon(icon_22b1681cc3dfc05fe5b85141c3a2b577);
+            
+    
+            var marker_9a8c56768035f39549a63abd25689492 = L.marker(
+                [25.1706, 93.0176],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_0314608e6a3309cc8845a1de61e73468 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2aa2c6741566417a74ae499c459e477e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_438fd3370f1b5727e136d29d32df2914 = $(`<div id="html_438fd3370f1b5727e136d29d32df2914" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Haflong Hill Station</b><br><br>⚠️ Heavy Rain Advisory<br>⚠️ High Humidity Alert</div>`)[0];
+                popup_2aa2c6741566417a74ae499c459e477e.setContent(html_438fd3370f1b5727e136d29d32df2914);
+            
+        
+
+        marker_9a8c56768035f39549a63abd25689492.bindPopup(popup_2aa2c6741566417a74ae499c459e477e)
+        ;
+
+        
+    
+    
+            marker_9a8c56768035f39549a63abd25689492.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9a8c56768035f39549a63abd25689492.setIcon(icon_0314608e6a3309cc8845a1de61e73468);
+            
+    
+            var marker_06d5e0b6966a4aa0b0dbf25cbe4f5b69 = L.marker(
+                [27.4728, 94.912],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_1e250047c0bdcc1676fdf5f666c12463 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3eec7dd12df10530e31285b69d4e6158 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bad52ecb06b9dd713d5395da5482648 = $(`<div id="html_9bad52ecb06b9dd713d5395da5482648" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Dibrugarh Riverside</b><br><br>⚠️ Heavy Rain Advisory<br>⚠️ High Humidity Alert</div>`)[0];
+                popup_3eec7dd12df10530e31285b69d4e6158.setContent(html_9bad52ecb06b9dd713d5395da5482648);
+            
+        
+
+        marker_06d5e0b6966a4aa0b0dbf25cbe4f5b69.bindPopup(popup_3eec7dd12df10530e31285b69d4e6158)
+        ;
+
+        
+    
+    
+            marker_06d5e0b6966a4aa0b0dbf25cbe4f5b69.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_06d5e0b6966a4aa0b0dbf25cbe4f5b69.setIcon(icon_1e250047c0bdcc1676fdf5f666c12463);
+            
+    
+            var marker_c24e07cdebc7842f6d660e53cf1febaf = L.marker(
+                [26.6338, 92.8],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_6dbae51317892c055bfd6fd085809758 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_968e1ecb1513da1e5710070fee42f85f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca9237cf63ccd7a9aeb6ea38ed829c44 = $(`<div id="html_ca9237cf63ccd7a9aeb6ea38ed829c44" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Tezpur Cultural Zone</b><br><br>⚠️ Severe Thunderstorm Warning</div>`)[0];
+                popup_968e1ecb1513da1e5710070fee42f85f.setContent(html_ca9237cf63ccd7a9aeb6ea38ed829c44);
+            
+        
+
+        marker_c24e07cdebc7842f6d660e53cf1febaf.bindPopup(popup_968e1ecb1513da1e5710070fee42f85f)
+        ;
+
+        
+    
+    
+            marker_c24e07cdebc7842f6d660e53cf1febaf.bindTooltip(
+                `<div>
+                     ⚠️ 1 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c24e07cdebc7842f6d660e53cf1febaf.setIcon(icon_6dbae51317892c055bfd6fd085809758);
+            
+    
+            var marker_f8918bd004c428dd8724a811f7796590 = L.marker(
+                [24.8333, 92.8333],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_361577e6280baf2fd676421b11c88a99 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_754857dcad9468cdb83c57fdccc88cdb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5664406546cebb9fc2592f37ac9f9154 = $(`<div id="html_5664406546cebb9fc2592f37ac9f9154" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Barak Valley</b><br><br>⚠️ High Temperature Warning<br>⚠️ Strong Wind Warning</div>`)[0];
+                popup_754857dcad9468cdb83c57fdccc88cdb.setContent(html_5664406546cebb9fc2592f37ac9f9154);
+            
+        
+
+        marker_f8918bd004c428dd8724a811f7796590.bindPopup(popup_754857dcad9468cdb83c57fdccc88cdb)
+        ;
+
+        
+    
+    
+            marker_f8918bd004c428dd8724a811f7796590.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f8918bd004c428dd8724a811f7796590.setIcon(icon_361577e6280baf2fd676421b11c88a99);
+            
+    
+            var marker_756f6ed8a55a8b4bb7bfffe7492798d9 = L.marker(
+                [24.8333, 92.7789],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_65ba6ac74c94df9a3fb2eb11b2780df7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_deb08341b6c937a87984e006a323b620 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a669c212a9196df48d4639e4c531b373 = $(`<div id="html_a669c212a9196df48d4639e4c531b373" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Silchar Urban Area</b><br><br>⚠️ High Temperature Warning<br>⚠️ Strong Wind Warning</div>`)[0];
+                popup_deb08341b6c937a87984e006a323b620.setContent(html_a669c212a9196df48d4639e4c531b373);
+            
+        
+
+        marker_756f6ed8a55a8b4bb7bfffe7492798d9.bindPopup(popup_deb08341b6c937a87984e006a323b620)
+        ;
+
+        
+    
+    
+            marker_756f6ed8a55a8b4bb7bfffe7492798d9.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_756f6ed8a55a8b4bb7bfffe7492798d9.setIcon(icon_65ba6ac74c94df9a3fb2eb11b2780df7);
+            
+    
+            var marker_a532d49b47907a3521cbb49ca809865e = L.marker(
+                [25.5, 93.0],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_34a6a60823f580f3faa7061181432378 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d33b94e94dc4db2a090656e845a99156 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_42122d3e39883f1bfcac51d298261592 = $(`<div id="html_42122d3e39883f1bfcac51d298261592" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - North Cachar Hills</b><br><br>⚠️ Heavy Rain Advisory<br>⚠️ High Humidity Alert</div>`)[0];
+                popup_d33b94e94dc4db2a090656e845a99156.setContent(html_42122d3e39883f1bfcac51d298261592);
+            
+        
+
+        marker_a532d49b47907a3521cbb49ca809865e.bindPopup(popup_d33b94e94dc4db2a090656e845a99156)
+        ;
+
+        
+    
+    
+            marker_a532d49b47907a3521cbb49ca809865e.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a532d49b47907a3521cbb49ca809865e.setIcon(icon_34a6a60823f580f3faa7061181432378);
+            
+    
+            var marker_5fde974ff9115ca328869ce4734ee4b3 = L.marker(
+                [26.1833, 90.6167],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_58125e518be678819ab28bcf6168cd18 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ce498247886c642b7a7d06957732c7fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_336fc126a9801369154168dbfe3c1686 = $(`<div id="html_336fc126a9801369154168dbfe3c1686" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Goalpara Wetlands</b><br><br>⚠️ Severe Thunderstorm Warning</div>`)[0];
+                popup_ce498247886c642b7a7d06957732c7fb.setContent(html_336fc126a9801369154168dbfe3c1686);
+            
+        
+
+        marker_5fde974ff9115ca328869ce4734ee4b3.bindPopup(popup_ce498247886c642b7a7d06957732c7fb)
+        ;
+
+        
+    
+    
+            marker_5fde974ff9115ca328869ce4734ee4b3.bindTooltip(
+                `<div>
+                     ⚠️ 1 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5fde974ff9115ca328869ce4734ee4b3.setIcon(icon_58125e518be678819ab28bcf6168cd18);
+            
+    
+            var marker_c2e67b1decc65bb7e938b83c54058401 = L.marker(
+                [27.4922, 95.3537],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_dd72663e88ee428b69f62ecd2b145d52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f516d52590fe4b6d6a50f205ff5c4547 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb95471c2f810e750aa530cea3bd378a = $(`<div id="html_bb95471c2f810e750aa530cea3bd378a" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Tinsukia Eco Park</b><br><br>⚠️ Heavy Rain Advisory<br>⚠️ High Humidity Alert</div>`)[0];
+                popup_f516d52590fe4b6d6a50f205ff5c4547.setContent(html_bb95471c2f810e750aa530cea3bd378a);
+            
+        
+
+        marker_c2e67b1decc65bb7e938b83c54058401.bindPopup(popup_f516d52590fe4b6d6a50f205ff5c4547)
+        ;
+
+        
+    
+    
+            marker_c2e67b1decc65bb7e938b83c54058401.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c2e67b1decc65bb7e938b83c54058401.setIcon(icon_dd72663e88ee428b69f62ecd2b145d52);
+            
+    
+            var marker_ff8978cef90a05d0253b5af87ea8268b = L.marker(
+                [27.4861, 94.6167],
+                {
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var icon_14e0a45ad6b7e4297b3168420839d6aa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b8acd46ab53ace6542a8d751197b1bf4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_72f7b0b308cadeae5881b9c97df14670 = $(`<div id="html_72f7b0b308cadeae5881b9c97df14670" style="width: 100.0%; height: 100.0%;"><b>Weather Alerts - Dhemaji Riverside</b><br><br>⚠️ Heavy Rain Advisory<br>⚠️ High Humidity Alert</div>`)[0];
+                popup_b8acd46ab53ace6542a8d751197b1bf4.setContent(html_72f7b0b308cadeae5881b9c97df14670);
+            
+        
+
+        marker_ff8978cef90a05d0253b5af87ea8268b.bindPopup(popup_b8acd46ab53ace6542a8d751197b1bf4)
+        ;
+
+        
+    
+    
+            marker_ff8978cef90a05d0253b5af87ea8268b.bindTooltip(
+                `<div>
+                     ⚠️ 2 Weather Alert(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff8978cef90a05d0253b5af87ea8268b.setIcon(icon_14e0a45ad6b7e4297b3168420839d6aa);
+            
+    
+            var feature_group_a4578740d8072bc197f7367084be586e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_27a90f5986644aca90284946ead139dc = L.marker(
+                [26.1445, 91.7362],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_12393e2e6adcd7319450b131a4b1d6ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-sun",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d606270729db14cf70367b9e76cd74f2 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_adfd3ba962e2800f9a616ac3e46ac844 = $(`<div id="html_adfd3ba962e2800f9a616ac3e46ac844" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Guwahati City Center</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Partly Cloudy</td></tr>             <tr><td><b>Temperature:</b></td><td>28°C</td></tr>             <tr><td><b>Humidity:</b></td><td>72%</td></tr>             <tr><td><b>Wind:</b></td><td>10 km/h SW</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.145, 91.736</td></tr>         </table>     </div>     </div>`)[0];
+                popup_d606270729db14cf70367b9e76cd74f2.setContent(html_adfd3ba962e2800f9a616ac3e46ac844);
+            
+        
+
+        marker_27a90f5986644aca90284946ead139dc.bindPopup(popup_d606270729db14cf70367b9e76cd74f2)
+        ;
+
+        
+    
+    
+            marker_27a90f5986644aca90284946ead139dc.bindTooltip(
+                `<div>
+                     Guwahati City Center: Partly Cloudy, 28°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_27a90f5986644aca90284946ead139dc.setIcon(icon_12393e2e6adcd7319450b131a4b1d6ff);
+            
+    
+            var marker_d0b254c934333c613d71c6e7bba44611 = L.marker(
+                [26.5775, 93.1711],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_ea9f91554cfebb32da9d65fe2a2d6abb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-rain",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0094391f524c18247e47d4e8090c4379 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_0c0c18f0acb3869d772ac09a67408f31 = $(`<div id="html_0c0c18f0acb3869d772ac09a67408f31" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Kaziranga National Park</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Rain Showers</td></tr>             <tr><td><b>Temperature:</b></td><td>27°C</td></tr>             <tr><td><b>Humidity:</b></td><td>80%</td></tr>             <tr><td><b>Wind:</b></td><td>8 km/h NE</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.578, 93.171</td></tr>         </table>     </div>     </div>`)[0];
+                popup_0094391f524c18247e47d4e8090c4379.setContent(html_0c0c18f0acb3869d772ac09a67408f31);
+            
+        
+
+        marker_d0b254c934333c613d71c6e7bba44611.bindPopup(popup_0094391f524c18247e47d4e8090c4379)
+        ;
+
+        
+    
+    
+            marker_d0b254c934333c613d71c6e7bba44611.bindTooltip(
+                `<div>
+                     Kaziranga National Park: Rain Showers, 27°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d0b254c934333c613d71c6e7bba44611.setIcon(icon_ea9f91554cfebb32da9d65fe2a2d6abb);
+            
+    
+            var marker_9ffa04a1a7d97d981d8a1ee0840f48d7 = L.marker(
+                [26.9546, 94.203],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_241804458b00f6b29fb0fecf0a285859 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9fbd124ce93ca65954d0d772aaa852b3 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_4f99007a618fb4947ad1fc8fc44b0234 = $(`<div id="html_4f99007a618fb4947ad1fc8fc44b0234" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Majuli Island</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Cloudy</td></tr>             <tr><td><b>Temperature:</b></td><td>26°C</td></tr>             <tr><td><b>Humidity:</b></td><td>78%</td></tr>             <tr><td><b>Wind:</b></td><td>7 km/h N</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.955, 94.203</td></tr>         </table>     </div>     </div>`)[0];
+                popup_9fbd124ce93ca65954d0d772aaa852b3.setContent(html_4f99007a618fb4947ad1fc8fc44b0234);
+            
+        
+
+        marker_9ffa04a1a7d97d981d8a1ee0840f48d7.bindPopup(popup_9fbd124ce93ca65954d0d772aaa852b3)
+        ;
+
+        
+    
+    
+            marker_9ffa04a1a7d97d981d8a1ee0840f48d7.bindTooltip(
+                `<div>
+                     Majuli Island: Cloudy, 26°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9ffa04a1a7d97d981d8a1ee0840f48d7.setIcon(icon_241804458b00f6b29fb0fecf0a285859);
+            
+    
+            var marker_389c7b29c49cfb491fc4673bfbbcc473 = L.marker(
+                [26.6593, 90.9391],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_a478964636fa01c025274b038acc112a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a0305215336b6a624fe131c51ef15c10 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_2e9e80b5bd172b49c6c14afadb3a1451 = $(`<div id="html_2e9e80b5bd172b49c6c14afadb3a1451" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Manas National Park</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Thunderstorm</td></tr>             <tr><td><b>Temperature:</b></td><td>27°C</td></tr>             <tr><td><b>Humidity:</b></td><td>76%</td></tr>             <tr><td><b>Wind:</b></td><td>9 km/h W</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.659, 90.939</td></tr>         </table>     </div>     </div>`)[0];
+                popup_a0305215336b6a624fe131c51ef15c10.setContent(html_2e9e80b5bd172b49c6c14afadb3a1451);
+            
+        
+
+        marker_389c7b29c49cfb491fc4673bfbbcc473.bindPopup(popup_a0305215336b6a624fe131c51ef15c10)
+        ;
+
+        
+    
+    
+            marker_389c7b29c49cfb491fc4673bfbbcc473.bindTooltip(
+                `<div>
+                     Manas National Park: Thunderstorm, 27°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_389c7b29c49cfb491fc4673bfbbcc473.setIcon(icon_a478964636fa01c025274b038acc112a);
+            
+    
+            var marker_71e9c00c377406c8d1db52839a7de6b8 = L.marker(
+                [26.9821, 94.6426],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_23720b818a64fa4fe9177448a7d2759d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "sun",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d1f3ac4acd90e42e7bbe53e9c6ed019b = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_59b9802ef9e98aa7bc7584e749e64bcf = $(`<div id="html_59b9802ef9e98aa7bc7584e749e64bcf" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Sivasagar Heritage Zone</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Sunny</td></tr>             <tr><td><b>Temperature:</b></td><td>28°C</td></tr>             <tr><td><b>Humidity:</b></td><td>74%</td></tr>             <tr><td><b>Wind:</b></td><td>11 km/h E</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.982, 94.643</td></tr>         </table>     </div>     </div>`)[0];
+                popup_d1f3ac4acd90e42e7bbe53e9c6ed019b.setContent(html_59b9802ef9e98aa7bc7584e749e64bcf);
+            
+        
+
+        marker_71e9c00c377406c8d1db52839a7de6b8.bindPopup(popup_d1f3ac4acd90e42e7bbe53e9c6ed019b)
+        ;
+
+        
+    
+    
+            marker_71e9c00c377406c8d1db52839a7de6b8.bindTooltip(
+                `<div>
+                     Sivasagar Heritage Zone: Sunny, 28°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_71e9c00c377406c8d1db52839a7de6b8.setIcon(icon_23720b818a64fa4fe9177448a7d2759d);
+            
+    
+            var marker_cf42dac50b00b412d88198d00ea3f1ba = L.marker(
+                [25.1706, 93.0176],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_28acad99f91e54cc95f4ce5961d1c645 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-rain",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_79dfb60649087d7a761686eefed3d6e0 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_5d94049af245b51c65470153d237f467 = $(`<div id="html_5d94049af245b51c65470153d237f467" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Haflong Hill Station</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Rain Showers</td></tr>             <tr><td><b>Temperature:</b></td><td>25°C</td></tr>             <tr><td><b>Humidity:</b></td><td>82%</td></tr>             <tr><td><b>Wind:</b></td><td>6 km/h SE</td></tr>             <tr><td><b>Coordinates:</b></td><td>25.171, 93.018</td></tr>         </table>     </div>     </div>`)[0];
+                popup_79dfb60649087d7a761686eefed3d6e0.setContent(html_5d94049af245b51c65470153d237f467);
+            
+        
+
+        marker_cf42dac50b00b412d88198d00ea3f1ba.bindPopup(popup_79dfb60649087d7a761686eefed3d6e0)
+        ;
+
+        
+    
+    
+            marker_cf42dac50b00b412d88198d00ea3f1ba.bindTooltip(
+                `<div>
+                     Haflong Hill Station: Rain Showers, 25°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf42dac50b00b412d88198d00ea3f1ba.setIcon(icon_28acad99f91e54cc95f4ce5961d1c645);
+            
+    
+            var marker_1941eb84c52842ec8489ba87531515d3 = L.marker(
+                [27.4728, 94.912],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_33acbfa50ecc76663b96adfc4149d937 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-rain",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db06791d1a1e43893a1806eaa4f06cc7 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_7c621f960fce4d35bff24f7aaf9df20d = $(`<div id="html_7c621f960fce4d35bff24f7aaf9df20d" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Dibrugarh Riverside</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Rain Showers</td></tr>             <tr><td><b>Temperature:</b></td><td>26°C</td></tr>             <tr><td><b>Humidity:</b></td><td>80%</td></tr>             <tr><td><b>Wind:</b></td><td>8 km/h NE</td></tr>             <tr><td><b>Coordinates:</b></td><td>27.473, 94.912</td></tr>         </table>     </div>     </div>`)[0];
+                popup_db06791d1a1e43893a1806eaa4f06cc7.setContent(html_7c621f960fce4d35bff24f7aaf9df20d);
+            
+        
+
+        marker_1941eb84c52842ec8489ba87531515d3.bindPopup(popup_db06791d1a1e43893a1806eaa4f06cc7)
+        ;
+
+        
+    
+    
+            marker_1941eb84c52842ec8489ba87531515d3.bindTooltip(
+                `<div>
+                     Dibrugarh Riverside: Rain Showers, 26°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1941eb84c52842ec8489ba87531515d3.setIcon(icon_33acbfa50ecc76663b96adfc4149d937);
+            
+    
+            var marker_9ed87a5f4e45b2cac86722ee9f403b45 = L.marker(
+                [26.6338, 92.8],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_528df44fda110e78a8549455e188d373 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a1eb1a3e06355a1cd0d3ee11acb8f07 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_ddcf2f5e6ff9668dafbd883a6a228335 = $(`<div id="html_ddcf2f5e6ff9668dafbd883a6a228335" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Tezpur Cultural Zone</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Thunderstorm</td></tr>             <tr><td><b>Temperature:</b></td><td>28°C</td></tr>             <tr><td><b>Humidity:</b></td><td>74%</td></tr>             <tr><td><b>Wind:</b></td><td>11 km/h W</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.634, 92.800</td></tr>         </table>     </div>     </div>`)[0];
+                popup_6a1eb1a3e06355a1cd0d3ee11acb8f07.setContent(html_ddcf2f5e6ff9668dafbd883a6a228335);
+            
+        
+
+        marker_9ed87a5f4e45b2cac86722ee9f403b45.bindPopup(popup_6a1eb1a3e06355a1cd0d3ee11acb8f07)
+        ;
+
+        
+    
+    
+            marker_9ed87a5f4e45b2cac86722ee9f403b45.bindTooltip(
+                `<div>
+                     Tezpur Cultural Zone: Thunderstorm, 28°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9ed87a5f4e45b2cac86722ee9f403b45.setIcon(icon_528df44fda110e78a8549455e188d373);
+            
+    
+            var marker_695d56d7d6b847fd0b00ec079098d756 = L.marker(
+                [26.75, 94.2167],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_25cce41cf1a372cf9f7504223d44b5fd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fd3d574dc1b92f68d0460fa0e6be53b9 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_d3074947203d5e972009ebf2975d5b8f = $(`<div id="html_d3074947203d5e972009ebf2975d5b8f" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Jorhat Tea Gardens</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Cloudy</td></tr>             <tr><td><b>Temperature:</b></td><td>27°C</td></tr>             <tr><td><b>Humidity:</b></td><td>78%</td></tr>             <tr><td><b>Wind:</b></td><td>9 km/h NW</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.750, 94.217</td></tr>         </table>     </div>     </div>`)[0];
+                popup_fd3d574dc1b92f68d0460fa0e6be53b9.setContent(html_d3074947203d5e972009ebf2975d5b8f);
+            
+        
+
+        marker_695d56d7d6b847fd0b00ec079098d756.bindPopup(popup_fd3d574dc1b92f68d0460fa0e6be53b9)
+        ;
+
+        
+    
+    
+            marker_695d56d7d6b847fd0b00ec079098d756.bindTooltip(
+                `<div>
+                     Jorhat Tea Gardens: Cloudy, 27°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_695d56d7d6b847fd0b00ec079098d756.setIcon(icon_25cce41cf1a372cf9f7504223d44b5fd);
+            
+    
+            var marker_d3cbae3cd02103bc1a3350ced7dbe7dd = L.marker(
+                [24.8333, 92.8333],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_63fccc7fd2793e332f209a6b91f61afb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "sun",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f2c16fdb432dd5446b531f1d5bb1604e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_7aab6187563e86a06200c6a0ef275e8e = $(`<div id="html_7aab6187563e86a06200c6a0ef275e8e" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Barak Valley</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Sunny</td></tr>             <tr><td><b>Temperature:</b></td><td>29°C</td></tr>             <tr><td><b>Humidity:</b></td><td>75%</td></tr>             <tr><td><b>Wind:</b></td><td>12 km/h SE</td></tr>             <tr><td><b>Coordinates:</b></td><td>24.833, 92.833</td></tr>         </table>     </div>     </div>`)[0];
+                popup_f2c16fdb432dd5446b531f1d5bb1604e.setContent(html_7aab6187563e86a06200c6a0ef275e8e);
+            
+        
+
+        marker_d3cbae3cd02103bc1a3350ced7dbe7dd.bindPopup(popup_f2c16fdb432dd5446b531f1d5bb1604e)
+        ;
+
+        
+    
+    
+            marker_d3cbae3cd02103bc1a3350ced7dbe7dd.bindTooltip(
+                `<div>
+                     Barak Valley: Sunny, 29°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d3cbae3cd02103bc1a3350ced7dbe7dd.setIcon(icon_63fccc7fd2793e332f209a6b91f61afb);
+            
+    
+            var marker_98c9bd08f3e9447796b15d1fa408478e = L.marker(
+                [25.84, 93.43],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_531eebe04d18ac9c84ed20313e23ca2d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c17ab357db7d1f424af31500471fe6d = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_75c47f4cbcd55a0ceff3b7534400ab43 = $(`<div id="html_75c47f4cbcd55a0ceff3b7534400ab43" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Diphu Eco Zone</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Cloudy</td></tr>             <tr><td><b>Temperature:</b></td><td>26°C</td></tr>             <tr><td><b>Humidity:</b></td><td>79%</td></tr>             <tr><td><b>Wind:</b></td><td>7 km/h S</td></tr>             <tr><td><b>Coordinates:</b></td><td>25.840, 93.430</td></tr>         </table>     </div>     </div>`)[0];
+                popup_2c17ab357db7d1f424af31500471fe6d.setContent(html_75c47f4cbcd55a0ceff3b7534400ab43);
+            
+        
+
+        marker_98c9bd08f3e9447796b15d1fa408478e.bindPopup(popup_2c17ab357db7d1f424af31500471fe6d)
+        ;
+
+        
+    
+    
+            marker_98c9bd08f3e9447796b15d1fa408478e.bindTooltip(
+                `<div>
+                     Diphu Eco Zone: Cloudy, 26°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_98c9bd08f3e9447796b15d1fa408478e.setIcon(icon_531eebe04d18ac9c84ed20313e23ca2d);
+            
+    
+            var marker_cd53a22a04ec99d4706d0378d00b0c27 = L.marker(
+                [24.8333, 92.7789],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_bc29aee183c8d6e7d6492e2bbc3ef1bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "sun",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c1c9d7eddae66babde69313f349cb9ef = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_ff9cef182f5d9bafd6583f3deb22fe51 = $(`<div id="html_ff9cef182f5d9bafd6583f3deb22fe51" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Silchar Urban Area</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Sunny</td></tr>             <tr><td><b>Temperature:</b></td><td>29°C</td></tr>             <tr><td><b>Humidity:</b></td><td>75%</td></tr>             <tr><td><b>Wind:</b></td><td>12 km/h SE</td></tr>             <tr><td><b>Coordinates:</b></td><td>24.833, 92.779</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c1c9d7eddae66babde69313f349cb9ef.setContent(html_ff9cef182f5d9bafd6583f3deb22fe51);
+            
+        
+
+        marker_cd53a22a04ec99d4706d0378d00b0c27.bindPopup(popup_c1c9d7eddae66babde69313f349cb9ef)
+        ;
+
+        
+    
+    
+            marker_cd53a22a04ec99d4706d0378d00b0c27.bindTooltip(
+                `<div>
+                     Silchar Urban Area: Sunny, 29°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cd53a22a04ec99d4706d0378d00b0c27.setIcon(icon_bc29aee183c8d6e7d6492e2bbc3ef1bc);
+            
+    
+            var marker_fc4ad151f0239a2c6248035283aed9db = L.marker(
+                [25.5, 93.0],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_13d7f788275dbb33567d85e2d7ad1f41 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-rain",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e24ec2fd72efbdfeb39f7782979d8a0 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_cbcd6319724de9c396593ed135de4d3b = $(`<div id="html_cbcd6319724de9c396593ed135de4d3b" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">North Cachar Hills</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Rain Showers</td></tr>             <tr><td><b>Temperature:</b></td><td>25°C</td></tr>             <tr><td><b>Humidity:</b></td><td>80%</td></tr>             <tr><td><b>Wind:</b></td><td>8 km/h NE</td></tr>             <tr><td><b>Coordinates:</b></td><td>25.500, 93.000</td></tr>         </table>     </div>     </div>`)[0];
+                popup_3e24ec2fd72efbdfeb39f7782979d8a0.setContent(html_cbcd6319724de9c396593ed135de4d3b);
+            
+        
+
+        marker_fc4ad151f0239a2c6248035283aed9db.bindPopup(popup_3e24ec2fd72efbdfeb39f7782979d8a0)
+        ;
+
+        
+    
+    
+            marker_fc4ad151f0239a2c6248035283aed9db.bindTooltip(
+                `<div>
+                     North Cachar Hills: Rain Showers, 25°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fc4ad151f0239a2c6248035283aed9db.setIcon(icon_13d7f788275dbb33567d85e2d7ad1f41);
+            
+    
+            var marker_952c288d8698568a660f2c6bd7db4daa = L.marker(
+                [26.1833, 90.6167],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_1b12058dae76e914d1d163f14b452d1a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab7dd83229a62cd49f9697efb5552b19 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_5eac1873d260708e54564e2bf6333f39 = $(`<div id="html_5eac1873d260708e54564e2bf6333f39" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Goalpara Wetlands</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Thunderstorm</td></tr>             <tr><td><b>Temperature:</b></td><td>27°C</td></tr>             <tr><td><b>Humidity:</b></td><td>76%</td></tr>             <tr><td><b>Wind:</b></td><td>9 km/h W</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.183, 90.617</td></tr>         </table>     </div>     </div>`)[0];
+                popup_ab7dd83229a62cd49f9697efb5552b19.setContent(html_5eac1873d260708e54564e2bf6333f39);
+            
+        
+
+        marker_952c288d8698568a660f2c6bd7db4daa.bindPopup(popup_ab7dd83229a62cd49f9697efb5552b19)
+        ;
+
+        
+    
+    
+            marker_952c288d8698568a660f2c6bd7db4daa.bindTooltip(
+                `<div>
+                     Goalpara Wetlands: Thunderstorm, 27°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_952c288d8698568a660f2c6bd7db4daa.setIcon(icon_1b12058dae76e914d1d163f14b452d1a);
+            
+    
+            var marker_00d1e69983cbf1d37d97ccb7489a53fe = L.marker(
+                [27.4922, 95.3537],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_9450f90a261aa40bb9927fe53b49a4cd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-rain",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d6325c88ebda85e573324d4877d0088a = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6dfe2c9345a1b9effeba43c0cab17443 = $(`<div id="html_6dfe2c9345a1b9effeba43c0cab17443" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Tinsukia Eco Park</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Rain Showers</td></tr>             <tr><td><b>Temperature:</b></td><td>25°C</td></tr>             <tr><td><b>Humidity:</b></td><td>82%</td></tr>             <tr><td><b>Wind:</b></td><td>6 km/h E</td></tr>             <tr><td><b>Coordinates:</b></td><td>27.492, 95.354</td></tr>         </table>     </div>     </div>`)[0];
+                popup_d6325c88ebda85e573324d4877d0088a.setContent(html_6dfe2c9345a1b9effeba43c0cab17443);
+            
+        
+
+        marker_00d1e69983cbf1d37d97ccb7489a53fe.bindPopup(popup_d6325c88ebda85e573324d4877d0088a)
+        ;
+
+        
+    
+    
+            marker_00d1e69983cbf1d37d97ccb7489a53fe.bindTooltip(
+                `<div>
+                     Tinsukia Eco Park: Rain Showers, 25°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_00d1e69983cbf1d37d97ccb7489a53fe.setIcon(icon_9450f90a261aa40bb9927fe53b49a4cd);
+            
+    
+            var marker_151bbef97ae553a6f3b2d2d201f0e227 = L.marker(
+                [26.4826, 90.561],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_60ef166feafde8504eac601ca3f0dff3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d8134e774e89d7a2be2b9f565f6dd89c = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_4cc1ac1770e02d66cab099c5079eec18 = $(`<div id="html_4cc1ac1770e02d66cab099c5079eec18" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Bongaigaon Urban Zone</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Cloudy</td></tr>             <tr><td><b>Temperature:</b></td><td>27°C</td></tr>             <tr><td><b>Humidity:</b></td><td>77%</td></tr>             <tr><td><b>Wind:</b></td><td>7 km/h S</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.483, 90.561</td></tr>         </table>     </div>     </div>`)[0];
+                popup_d8134e774e89d7a2be2b9f565f6dd89c.setContent(html_4cc1ac1770e02d66cab099c5079eec18);
+            
+        
+
+        marker_151bbef97ae553a6f3b2d2d201f0e227.bindPopup(popup_d8134e774e89d7a2be2b9f565f6dd89c)
+        ;
+
+        
+    
+    
+            marker_151bbef97ae553a6f3b2d2d201f0e227.bindTooltip(
+                `<div>
+                     Bongaigaon Urban Zone: Cloudy, 27°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_151bbef97ae553a6f3b2d2d201f0e227.setIcon(icon_60ef166feafde8504eac601ca3f0dff3);
+            
+    
+            var marker_ea9f9dbf4772e194a78d9d5bdf00f269 = L.marker(
+                [27.4861, 94.6167],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_2bdec7634f25601c436788b150e414ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud-rain",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_55c4ffd46dc7ee90c9a3b1c8ec162f63 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_fb90b87d1c9612665f981ad1356f0a09 = $(`<div id="html_fb90b87d1c9612665f981ad1356f0a09" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Dhemaji Riverside</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Rain Showers</td></tr>             <tr><td><b>Temperature:</b></td><td>26°C</td></tr>             <tr><td><b>Humidity:</b></td><td>80%</td></tr>             <tr><td><b>Wind:</b></td><td>8 km/h NE</td></tr>             <tr><td><b>Coordinates:</b></td><td>27.486, 94.617</td></tr>         </table>     </div>     </div>`)[0];
+                popup_55c4ffd46dc7ee90c9a3b1c8ec162f63.setContent(html_fb90b87d1c9612665f981ad1356f0a09);
+            
+        
+
+        marker_ea9f9dbf4772e194a78d9d5bdf00f269.bindPopup(popup_55c4ffd46dc7ee90c9a3b1c8ec162f63)
+        ;
+
+        
+    
+    
+            marker_ea9f9dbf4772e194a78d9d5bdf00f269.bindTooltip(
+                `<div>
+                     Dhemaji Riverside: Rain Showers, 26°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ea9f9dbf4772e194a78d9d5bdf00f269.setIcon(icon_2bdec7634f25601c436788b150e414ec);
+            
+    
+            var marker_0b2e3e882f442c98c711de72e35fe9fc = L.marker(
+                [26.35, 92.6833],
+                {
+}
+            ).addTo(feature_group_a4578740d8072bc197f7367084be586e);
+        
+    
+            var icon_2f50f467434cd611e707cca00ba85a7a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "cloud",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4cba86eb3807d15bfb8a1892244059cd = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_bb46cfd30f6e552bc53e009fec4ef01b = $(`<div id="html_bb46cfd30f6e552bc53e009fec4ef01b" style="width: 100.0%; height: 100.0%;">     <div style="width: 250px;">         <h4 style="margin: 0 0 10px 0; color: #333;">Nagaon Heritage Zone</h4>         <table style="width: 100%; font-size: 12px;">             <tr><td><b>Condition:</b></td><td>Cloudy</td></tr>             <tr><td><b>Temperature:</b></td><td>27°C</td></tr>             <tr><td><b>Humidity:</b></td><td>77%</td></tr>             <tr><td><b>Wind:</b></td><td>7 km/h S</td></tr>             <tr><td><b>Coordinates:</b></td><td>26.350, 92.683</td></tr>         </table>     </div>     </div>`)[0];
+                popup_4cba86eb3807d15bfb8a1892244059cd.setContent(html_bb46cfd30f6e552bc53e009fec4ef01b);
+            
+        
+
+        marker_0b2e3e882f442c98c711de72e35fe9fc.bindPopup(popup_4cba86eb3807d15bfb8a1892244059cd)
+        ;
+
+        
+    
+    
+            marker_0b2e3e882f442c98c711de72e35fe9fc.bindTooltip(
+                `<div>
+                     Nagaon Heritage Zone: Cloudy, 27°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b2e3e882f442c98c711de72e35fe9fc.setIcon(icon_2f50f467434cd611e707cca00ba85a7a);
+            
+    
+            feature_group_a4578740d8072bc197f7367084be586e.addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var feature_group_da5a47ea230e85c525fb70e2f04758e6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_53386c0839cf01018ebd693c8337efb1 = L.polyline(
+                [[26.1445, 91.7362], [25.98893650813896, 91.58063650813895]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_53386c0839cf01018ebd693c8337efb1.bindTooltip(
+                `<div>
+                     Wind: 10 km/h SW | Speed: 10 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f77c4fec051eccefb425662fe0b0b883 = L.polyline(
+                [[25.98893650813896, 91.58063650813895], [25.969142952244866, 91.57777030070274]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_c57260333723e225e9546553b7dc697f = L.polyline(
+                [[25.98893650813896, 91.58063650813895], [25.986070300702753, 91.56084295224485]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_bdd783f2c2773da5e4fc494fdb86580b = L.polyline(
+                [[26.5775, 93.1711], [26.71892135623731, 93.31252135623731]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_bdd783f2c2773da5e4fc494fdb86580b.bindTooltip(
+                `<div>
+                     Wind: 8 km/h NE | Speed: 8 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0ef2bc4b2df55babf0089c3abce78885 = L.polyline(
+                [[26.71892135623731, 93.31252135623731], [26.738714912131403, 93.31538756367353]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_26d64a24ac137a2d7e95b08aa6b6f277 = L.polyline(
+                [[26.71892135623731, 93.31252135623731], [26.721787563673516, 93.33231491213141]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_8ab1434d156c65751619d51d95c42ed3 = L.polyline(
+                [[26.9546, 94.203], [27.1446, 94.203]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_8ab1434d156c65751619d51d95c42ed3.bindTooltip(
+                `<div>
+                     Wind: 7 km/h N | Speed: 7 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_490ff057ca17a573cbd8097d76e59c36 = L.polyline(
+                [[27.1446, 94.203], [27.160622872310938, 94.19103055711793]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_52ff1a37bad8fba03443bf98d70d26b2 = L.polyline(
+                [[27.1446, 94.203], [27.160622872310938, 94.21496944288208]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_c5afb4c4ccc4df3a741e8481ac71873a = L.polyline(
+                [[26.6593, 90.9391], [26.6593, 90.7291]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_c5afb4c4ccc4df3a741e8481ac71873a.bindTooltip(
+                `<div>
+                     Wind: 9 km/h W | Speed: 9 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_711cb37a6f098a16af6d655cacda985e = L.polyline(
+                [[26.6593, 90.7291], [26.64733055711792, 90.71307712768906]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_8f63c83693270a1bd8ea94049e1313a6 = L.polyline(
+                [[26.6593, 90.7291], [26.671269442882082, 90.71307712768906]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_c90690b36304747f928dcab21fef5fae = L.polyline(
+                [[26.9821, 94.6426], [26.9821, 94.8726]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_c90690b36304747f928dcab21fef5fae.bindTooltip(
+                `<div>
+                     Wind: 11 km/h E | Speed: 11 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fb6d364145f48c9a950d52e0a8a1e2c4 = L.polyline(
+                [[26.9821, 94.8726], [26.99406944288208, 94.88862287231095]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_c5b21257c90c37982a6657d44d868494 = L.polyline(
+                [[26.9821, 94.8726], [26.97013055711792, 94.88862287231095]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_767e6d1b73cb3d94c75cb6c2969dafd3 = L.polyline(
+                [[25.1706, 93.0176], [25.043320779386423, 93.14487922061357]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_767e6d1b73cb3d94c75cb6c2969dafd3.bindTooltip(
+                `<div>
+                     Wind: 6 km/h SE | Speed: 6 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_623b129c26a0ba15c5dce9832a6e955e = L.polyline(
+                [[25.043320779386423, 93.14487922061357], [25.040454571950217, 93.16467277650767]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_17ff764fbfd99cce4d873a82e4b64c99 = L.polyline(
+                [[25.043320779386423, 93.14487922061357], [25.02352722349233, 93.14774542804979]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_d7c1f1fd4e8927fa2979efd736f953e1 = L.polyline(
+                [[27.4728, 94.912], [27.61422135623731, 95.05342135623732]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_d7c1f1fd4e8927fa2979efd736f953e1.bindTooltip(
+                `<div>
+                     Wind: 8 km/h NE | Speed: 8 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_eb9573ec2aff2c71dd44be96ed921b7d = L.polyline(
+                [[27.61422135623731, 95.05342135623732], [27.634014912131402, 95.05628756367354]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_c35f22f463dc1886d2b8920184eeaeca = L.polyline(
+                [[27.61422135623731, 95.05342135623732], [27.617087563673515, 95.07321491213142]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_1365cc43f135fec163f51208cb83635d = L.polyline(
+                [[26.6338, 92.8], [26.6338, 92.57]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_1365cc43f135fec163f51208cb83635d.bindTooltip(
+                `<div>
+                     Wind: 11 km/h W | Speed: 11 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1ad86daedf622cee308ebcfd5bffec6e = L.polyline(
+                [[26.6338, 92.57], [26.62183055711792, 92.55397712768905]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_d1a09d792fbfcf8ae85c0a3347597b6a = L.polyline(
+                [[26.6338, 92.57], [26.64576944288208, 92.55397712768905]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_fcdd6a9ce08fb71bed27a40dbfeeb659 = L.polyline(
+                [[26.75, 94.2167], [26.898492424049174, 94.06820757595082]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_fcdd6a9ce08fb71bed27a40dbfeeb659.bindTooltip(
+                `<div>
+                     Wind: 9 km/h NW | Speed: 9 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0bb2b55e6d59bf685bc3828e1cc26da6 = L.polyline(
+                [[26.898492424049174, 94.06820757595082], [26.90135863148538, 94.04841402005673]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_cdfc96b7e962f0cc592092c2b881a4ee = L.polyline(
+                [[26.898492424049174, 94.06820757595082], [26.918285979943267, 94.06534136851461]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_950bc58257311ca920b8923720d810c8 = L.polyline(
+                [[24.8333, 92.8333], [24.66359437251523, 93.00300562748477]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_950bc58257311ca920b8923720d810c8.bindTooltip(
+                `<div>
+                     Wind: 12 km/h SE | Speed: 12 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cd49bc9432c8ffce4238cd7c56338135 = L.polyline(
+                [[24.66359437251523, 93.00300562748477], [24.660728165079025, 93.02279918337886]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_76208a404a673993b619033d4887973d = L.polyline(
+                [[24.66359437251523, 93.00300562748477], [24.643800816621138, 93.00587183492098]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_3cb4ef4ee9e1931d9b48f35f0bb94c1a = L.polyline(
+                [[25.84, 93.43], [25.65, 93.43]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_3cb4ef4ee9e1931d9b48f35f0bb94c1a.bindTooltip(
+                `<div>
+                     Wind: 7 km/h S | Speed: 7 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3dbd8f5ca22b04087d72dcb178c37761 = L.polyline(
+                [[25.65, 93.43], [25.63397712768906, 93.44196944288208]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_4a4295c18fa73f55055bde39cb419510 = L.polyline(
+                [[25.65, 93.43], [25.63397712768906, 93.41803055711793]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_c7f81fabab2c123b4164bf19cfd15038 = L.polyline(
+                [[24.8333, 92.7789], [24.66359437251523, 92.94860562748477]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_c7f81fabab2c123b4164bf19cfd15038.bindTooltip(
+                `<div>
+                     Wind: 12 km/h SE | Speed: 12 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_404eec68e070aac37ea2eacea256444d = L.polyline(
+                [[24.66359437251523, 92.94860562748477], [24.660728165079025, 92.96839918337886]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_2abecb7363cf47643a0fbc7e3f686079 = L.polyline(
+                [[24.66359437251523, 92.94860562748477], [24.643800816621138, 92.95147183492098]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_6ca095e0c1cf3188e94e32ca93c02f8f = L.polyline(
+                [[25.5, 93.0], [25.64142135623731, 93.14142135623732]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_6ca095e0c1cf3188e94e32ca93c02f8f.bindTooltip(
+                `<div>
+                     Wind: 8 km/h NE | Speed: 8 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d50d3efd8744d589eb0942b218b9ed7e = L.polyline(
+                [[25.64142135623731, 93.14142135623732], [25.661214912131403, 93.14428756367353]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_e96c4f7615c4d38d3ff6a65e8cbdd70c = L.polyline(
+                [[25.64142135623731, 93.14142135623732], [25.644287563673515, 93.16121491213141]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_23555838f94196862cee53383fa4c35f = L.polyline(
+                [[26.1833, 90.6167], [26.1833, 90.4067]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_23555838f94196862cee53383fa4c35f.bindTooltip(
+                `<div>
+                     Wind: 9 km/h W | Speed: 9 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f80fe8bb40b679a227d72657cb001584 = L.polyline(
+                [[26.1833, 90.4067], [26.17133055711792, 90.39067712768906]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_1528f531fbca5704ac438cedd3f51523 = L.polyline(
+                [[26.1833, 90.4067], [26.19526944288208, 90.39067712768906]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_830820b491fe9e755db09c9e0d9c3af6 = L.polyline(
+                [[27.4922, 95.3537], [27.4922, 95.53370000000001]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_830820b491fe9e755db09c9e0d9c3af6.bindTooltip(
+                `<div>
+                     Wind: 6 km/h E | Speed: 6 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5c6c70bed7386208de755b9dd85bbdee = L.polyline(
+                [[27.4922, 95.53370000000001], [27.50416944288208, 95.54972287231095]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_f519d17798d2af6847b21e58a985a28b = L.polyline(
+                [[27.4922, 95.53370000000001], [27.48023055711792, 95.54972287231095]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_7961336f40dd71705176ed77d6db2837 = L.polyline(
+                [[26.4826, 90.561], [26.2926, 90.561]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_7961336f40dd71705176ed77d6db2837.bindTooltip(
+                `<div>
+                     Wind: 7 km/h S | Speed: 7 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_457af2f1349f53d0850b71f9afd37b50 = L.polyline(
+                [[26.2926, 90.561], [26.276577127689063, 90.57296944288208]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_1076638371d29a1ada0549d9bf5bb019 = L.polyline(
+                [[26.2926, 90.561], [26.276577127689063, 90.54903055711793]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_991de1b9310306c17cb9bf6e2b2352f4 = L.polyline(
+                [[27.4861, 94.6167], [27.62752135623731, 94.75812135623731]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_991de1b9310306c17cb9bf6e2b2352f4.bindTooltip(
+                `<div>
+                     Wind: 8 km/h NE | Speed: 8 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ebc2feace1ea461dc22611a7a19075c2 = L.polyline(
+                [[27.62752135623731, 94.75812135623731], [27.647314912131403, 94.76098756367352]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_b95b96ab975eb0c7791c2926e51e14b7 = L.polyline(
+                [[27.62752135623731, 94.75812135623731], [27.630387563673516, 94.77791491213141]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_b06bc44ad0253b6a619abe45868afcef = L.polyline(
+                [[26.35, 92.6833], [26.16, 92.6833]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            poly_line_b06bc44ad0253b6a619abe45868afcef.bindTooltip(
+                `<div>
+                     Wind: 7 km/h S | Speed: 7 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8cb72096033f75d48e8fdfef493f6f70 = L.polyline(
+                [[26.16, 92.6833], [26.143977127689062, 92.69526944288208]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            var poly_line_0a1d62f64acaa74a16495dd185b6c604 = L.polyline(
+                [[26.16, 92.6833], [26.143977127689062, 92.67133055711793]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_da5a47ea230e85c525fb70e2f04758e6);
+        
+    
+            feature_group_da5a47ea230e85c525fb70e2f04758e6.addTo(map_9664e50edd67b882343ac26a070fedf8);
+        
+    
+            var layer_control_5337c43efe05c22ecf618d76c44c6c8d_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_a2e4efa0ea4c38ceef7ea2f1e5a2f9b3,
+                },
+                overlays :  {
+                    "Temperature Zones" : heat_map_ee8056971da5b0fcb3a75a4663a69fb7,
+                    "Weather Condition Zones" : feature_group_a49155ed721feb163f79e9bd7f8a9177,
+                    "Weather Stations" : feature_group_a4578740d8072bc197f7367084be586e,
+                    "Wind Currents" : feature_group_da5a47ea230e85c525fb70e2f04758e6,
+                },
+            };
+            let layer_control_5337c43efe05c22ecf618d76c44c6c8d = L.control.layers(
+                layer_control_5337c43efe05c22ecf618d76c44c6c8d_layers.base_layers,
+                layer_control_5337c43efe05c22ecf618d76c44c6c8d_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_9664e50edd67b882343ac26a070fedf8);
+
+        
+</script>
+</html>
