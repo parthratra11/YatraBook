@@ -104,15 +104,19 @@ export default function Navbar({
     <>
       <nav className="w-full py-3 px-4 sm:px-6 flex items-center justify-between bg-white/95 backdrop-blur-sm shadow-lg border-t border-orange-500 sticky top-0 z-50">
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center overflow-hidden">
-            <Image
-              src="/logoNew.jpg"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="w-full h-full object-contain"
-            />
-          </div>
+          <Link href="/" passHref legacyBehavior>
+            <a>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/logoNew.jpg"
+                  alt="Logo"
+                  width={50}
+                  height={50}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </Link>
           <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 bg-white/95 rounded-full flex items-center justify-center overflow-visible">
             <Image
               src="/ASSAM.png"

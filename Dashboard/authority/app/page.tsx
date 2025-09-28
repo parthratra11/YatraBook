@@ -369,13 +369,18 @@ const AboutSection = () => {
 
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6">
-                <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-gray-200 to-white rounded-lg sm:rounded-xl mb-4 sm:mb-6 flex items-center justify-center">
-                  <span className="text-gray-900 font-semibold text-sm sm:text-base font-sans">
-                    🖥️ Authority Dashboard
-                  </span>
+                <div className="w-full h-52 sm:h-64 lg:h-80 bg-gradient-to-br from-gray-200 to-white rounded-lg sm:rounded-xl mb-4 sm:mb-6 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/dashboard.png"
+                    alt="Authority Dashboard Sample"
+                    width={600}
+                    height={300}
+                    className="object-cover w-full h-full rounded-lg sm:rounded-xl"
+                    priority
+                  />
                 </div>
                 <h4 className="font-bold text-center text-base sm:text-lg font-sans">
-                  Command & Control Center
+                  Admin Dashboard
                 </h4>
                 <p className="text-xs sm:text-sm text-center mt-2 sm:mt-3 opacity-90 font-sans">
                   Real-time monitoring and emergency response coordination
@@ -611,10 +616,15 @@ const PortalSection = () => {
 
           <div className="relative">
             <div className="bg-gray-100 rounded-2xl p-4 sm:p-6 shadow-xl">
-              <div className="w-full h-60 sm:h-72 lg:h-80 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl mb-4 sm:mb-6 flex items-center justify-center">
-                <span className="text-white font-semibold text-base sm:text-lg lg:text-xl font-sans">
-                  📊 Real-time Dashboard
-                </span>
+              <div className="w-full h-60 sm:h-72 lg:h-80 bg-gradient-to-br from-white-500 to-gray-900 rounded-xl mb-4 sm:mb-6 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/loraWatch.png"
+                  alt="LoRa Safety Watch"
+                  width={300}
+                  height={300}
+                  className="object-contain w-auto h-full"
+                  priority
+                />
               </div>
               <h3 className="font-bold text-gray-900 text-center text-lg sm:text-xl font-sans">
                 Comprehensive Monitoring
@@ -763,9 +773,11 @@ const ContactSection = () => {
             our comprehensive platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 border-2 border-orange-500 text-sm sm:text-base font-sans">
-              Get Started
-            </button>
+            <Link href="/login" passHref legacyBehavior>
+              <a className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 border-2 border-orange-500 text-sm sm:text-base font-sans">
+                Get Started
+              </a>
+            </Link>
           </div>
         </div>
 
