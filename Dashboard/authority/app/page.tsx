@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-2 sm:space-x-4">
           <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center overflow-hidden">
             <Image
-              src="/Logo.jpg"
+              src="/logoNew.jpg"
               alt="Logo"
               width={50}
               height={50}
@@ -77,9 +77,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-orange-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-md">
-            Login
-          </button>
+          <Link href="/login" passHref legacyBehavior>
+            <a className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-orange-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-md">
+              Login
+            </a>
+          </Link>
         </div>
       </nav>
 
@@ -188,9 +190,11 @@ const HeroSlider = () => {
                 {slides[currentIndex].description}
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 lg:px-6 py-1 sm:py-2 lg:py-2 rounded-md font-semibold transition-all transform hover:scale-105 shadow-xl border border-orange-500 text-sm lg:text-lg font-sans">
-                  Explore Platform
-                </button>
+                <Link href="/login" passHref legacyBehavior>
+                  <a className="bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 lg:px-6 py-1 sm:py-2 lg:py-2 rounded-md font-semibold transition-all transform hover:scale-105 shadow-xl border border-orange-500 text-sm lg:text-lg font-sans">
+                    Explore Platform
+                  </a>
+                </Link>
                 <div className="flex flex-col sm:flex-row gap-2">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.yatrabook"
