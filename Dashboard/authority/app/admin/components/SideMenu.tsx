@@ -103,6 +103,11 @@ export default function SideMenu({
       icon: <BuildingStorefrontIcon className="w-5 h-5" />,
       href: "/admin/amenities",
     },
+    {
+      name: "LoraMesh Network",
+      icon: <SignalIcon className="w-5 h-5" />,
+      href: "/admin/lora-mesh",
+    },
   ];
 
   // Always use default counts if notificationState is missing or empty
@@ -133,7 +138,7 @@ export default function SideMenu({
     <div className="w-64 bg-white shadow-lg h-full fixed top-[80px] left-0 z-40 flex flex-col justify-between">
       <div>
         <div className="p-4">
-          <nav className="space-y-2">
+          <nav className="space-y-1">
             {sideMenuItems.map((item) => {
               const count = counts[item.name] ?? 0;
               const showNotification =

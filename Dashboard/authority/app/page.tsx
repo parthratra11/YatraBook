@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-2 sm:space-x-4">
           <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-full flex items-center justify-center overflow-hidden">
             <Image
-              src="/Logo.jpg"
+              src="/logoNew.jpg"
               alt="Logo"
               width={50}
               height={50}
@@ -77,9 +77,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-orange-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-md">
-            Login
-          </button>
+          <Link href="/login" passHref legacyBehavior>
+            <a className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg border-2 border-orange-500 font-semibold transition-all transform hover:scale-105 font-sans text-xs sm:text-md">
+              Login
+            </a>
+          </Link>
         </div>
       </nav>
 
@@ -96,7 +98,7 @@ const HeroSlider = () => {
       description:
         "Comprehensive digital platform empowering travelers and tourism authorities with real-time safety features, seamless travel management, and blockchain-secured compliance for Northeast India and beyond.",
       bgImage: "/bg1.jpg", // Add your background images
-      fgImage: "/LoraWatch.jpg", // Add your foreground images
+      fgImage: "/heroSlider/app.png", // Add your foreground images
     },
     {
       title: "Advanced Emergency Safety System",
@@ -104,7 +106,7 @@ const HeroSlider = () => {
       description:
         "Automated emergency response with GPS tracking, multi-channel alerts via app, WhatsApp, and SMS. Extended coverage through LoRa mesh networks for remote areas.",
       bgImage: "/bg2.jpg",
-      fgImage: "/LoraWatch.jpg",
+      fgImage: "/heroSlider/LoraWatch.jpg",
     },
     {
       title: "Blockchain-Secured Travel Compliance",
@@ -112,7 +114,7 @@ const HeroSlider = () => {
       description:
         "Every trip, permit, and emergency event securely logged on blockchain for verifiable audit trails, enhanced trust, and seamless compliance management.",
       bgImage: "/bg3.jpg",
-      fgImage: "/LoraWatch.jpg",
+      fgImage: "/heroSlider/blockchain.jpg",
     },
     {
       title: "Smart Authority Dashboard",
@@ -120,7 +122,7 @@ const HeroSlider = () => {
       description:
         "Advanced web interface for tourism departments to monitor movements, receive alerts, track permit compliance, and coordinate rapid emergency responses.",
       bgImage: "/bg4.jpg",
-      fgImage: "/LoraWatch.jpg",
+      fgImage: "/heroSlider/loraMesh.png",
     },
   ];
 
@@ -188,9 +190,11 @@ const HeroSlider = () => {
                 {slides[currentIndex].description}
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 lg:px-6 py-1 sm:py-2 lg:py-2 rounded-md font-semibold transition-all transform hover:scale-105 shadow-xl border border-orange-500 text-sm lg:text-lg font-sans">
-                  Explore Platform
-                </button>
+                <Link href="/login" passHref legacyBehavior>
+                  <a className="bg-orange-500 hover:bg-orange-600 text-white px-2 sm:px-3 lg:px-6 py-1 sm:py-2 lg:py-2 rounded-md font-semibold transition-all transform hover:scale-105 shadow-xl border border-orange-500 text-sm lg:text-lg font-sans">
+                    Explore Platform
+                  </a>
+                </Link>
                 <div className="flex flex-col sm:flex-row gap-2">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.yatrabook"
@@ -365,13 +369,18 @@ const AboutSection = () => {
 
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6">
-                <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-gray-200 to-white rounded-lg sm:rounded-xl mb-4 sm:mb-6 flex items-center justify-center">
-                  <span className="text-gray-900 font-semibold text-sm sm:text-base font-sans">
-                    🖥️ Authority Dashboard
-                  </span>
+                <div className="w-full h-52 sm:h-64 lg:h-80 bg-gradient-to-br from-gray-200 to-white rounded-lg sm:rounded-xl mb-4 sm:mb-6 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/dashboard.png"
+                    alt="Authority Dashboard Sample"
+                    width={600}
+                    height={300}
+                    className="object-cover w-full h-full rounded-lg sm:rounded-xl"
+                    priority
+                  />
                 </div>
                 <h4 className="font-bold text-center text-base sm:text-lg font-sans">
-                  Command & Control Center
+                  Admin Dashboard
                 </h4>
                 <p className="text-xs sm:text-sm text-center mt-2 sm:mt-3 opacity-90 font-sans">
                   Real-time monitoring and emergency response coordination
@@ -607,10 +616,15 @@ const PortalSection = () => {
 
           <div className="relative">
             <div className="bg-gray-100 rounded-2xl p-4 sm:p-6 shadow-xl">
-              <div className="w-full h-60 sm:h-72 lg:h-80 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl mb-4 sm:mb-6 flex items-center justify-center">
-                <span className="text-white font-semibold text-base sm:text-lg lg:text-xl font-sans">
-                  📊 Real-time Dashboard
-                </span>
+              <div className="w-full h-60 sm:h-72 lg:h-80 bg-gradient-to-br from-white-500 to-gray-900 rounded-xl mb-4 sm:mb-6 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/loraWatch.png"
+                  alt="LoRa Safety Watch"
+                  width={300}
+                  height={300}
+                  className="object-contain w-auto h-full"
+                  priority
+                />
               </div>
               <h3 className="font-bold text-gray-900 text-center text-lg sm:text-xl font-sans">
                 Comprehensive Monitoring
@@ -759,9 +773,11 @@ const ContactSection = () => {
             our comprehensive platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 border-2 border-orange-500 text-sm sm:text-base font-sans">
-              Get Started
-            </button>
+            <Link href="/login" passHref legacyBehavior>
+              <a className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 border-2 border-orange-500 text-sm sm:text-base font-sans">
+                Get Started
+              </a>
+            </Link>
           </div>
         </div>
 

@@ -1,36 +1,10 @@
 "use client";
 
-import {
-  MapIcon,
-  CheckCircleIcon,
-  XCircleIcon,
-  UserIcon,
-  IdentificationIcon,
-  ShieldCheckIcon,
-  LocationMarkerIcon,
-} from "@heroicons/react/24/outline";
+import { MapIcon, XCircleIcon, UserIcon } from "@heroicons/react/24/outline";
 import SideMenu from "../components/SideMenu";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-
-// Dynamically import Leaflet components
-const DynamicMapContainer = dynamic(
-  () => import("react-leaflet").then((mod) => mod.MapContainer),
-  { ssr: false }
-);
-const DynamicTileLayer = dynamic(
-  () => import("react-leaflet").then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-const DynamicMarker = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Marker),
-  { ssr: false }
-);
-const DynamicPopup = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Popup),
-  { ssr: false }
-);
 
 // Dummy guide data (more guides, locations, verification)
 const dummyGuides = [
@@ -240,6 +214,9 @@ const statusSummary = [
   },
 ];
 
+// Dynamically import GuideMap (client-only)
+const GuideMap = dynamic(() => import("./GuideMap"), { ssr: false });
+
 export default function GuideDataPage() {
   const [activeMenuItem, setActiveMenuItem] = useState("Guide Data");
   const [selectedGuide, setSelectedGuide] = useState<any>(null);
@@ -311,58 +288,7 @@ export default function GuideDataPage() {
             Guide Current/Last Locations
           </h2>
           <div className="w-full h-72 rounded-lg overflow-hidden">
-            {isClient && (
-              <DynamicMapContainer
-                center={[26.2, 92.9]}
-                zoom={7}
-                scrollWheelZoom={false}
-                style={{ height: "100%", width: "100%" }}
-              >
-                <DynamicTileLayer
-                  attribution="&copy; OpenStreetMap contributors"
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {dummyGuides.map((g, idx) => (
-                  <DynamicMarker key={g.id} position={g.lastLocation}>
-                    <DynamicPopup>
-                      <div>
-                        <div className="font-bold text-orange-700 mb-1">
-                          {g.name}
-                        </div>
-                        <div className="text-xs text-gray-700 mb-1">
-                          <span className="font-semibold">Last Place:</span>{" "}
-                          {g.lastPlace}
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          <span className="font-semibold">Status:</span>{" "}
-                          <span
-                            className={
-                              g.status === "Active"
-                                ? "text-green-700"
-                                : "text-gray-700"
-                            }
-                          >
-                            {g.status}
-                          </span>
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          <span className="font-semibold">ID Verified:</span>{" "}
-                          <span
-                            className={
-                              g.idVerified
-                                ? "text-green-700"
-                                : "text-yellow-700"
-                            }
-                          >
-                            {g.idVerified ? "Yes" : "No"}
-                          </span>
-                        </div>
-                      </div>
-                    </DynamicPopup>
-                  </DynamicMarker>
-                ))}
-              </DynamicMapContainer>
-            )}
+            {isClient && <GuideMap guides={dummyGuides} />}
           </div>
         </div>
         {/* Guide Table */}

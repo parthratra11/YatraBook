@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9b49f6ff31b04789f83ab4461ca15c10 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9b49f6ff31b04789f83ab4461ca15c10" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9b49f6ff31b04789f83ab4461ca15c10 = L.map(
+                "map_9b49f6ff31b04789f83ab4461ca15c10",
+                {
+                    center: [26.2, 92.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_51dcb8646ad0e851d7b8807fb8126651 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_51dcb8646ad0e851d7b8807fb8126651.addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+            var circle_0f6399808e5b9b5459e8d9f2feff3153 = L.circle(
+                [26.1445, 91.7362],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_296d87d858c3f0f35b0dd512f3e86fb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e35feb7348fa3ff0ea921522c0a698b = $(`<div id="html_6e35feb7348fa3ff0ea921522c0a698b" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Guwahati City Center         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Low crime rate, high police presence, well-lit streets.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-08         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_296d87d858c3f0f35b0dd512f3e86fb6.setContent(html_6e35feb7348fa3ff0ea921522c0a698b);
+            
+        
+
+        circle_0f6399808e5b9b5459e8d9f2feff3153.bindPopup(popup_296d87d858c3f0f35b0dd512f3e86fb6)
+        ;
+
+        
+    
+    
+            circle_0f6399808e5b9b5459e8d9f2feff3153.bindTooltip(
+                `<div>
+                     Guwahati City Center (Safe) - Plotted: 2025-01-08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_cd207a4fe0569a3800e46ff608ff50ff = L.circle(
+                [26.5775, 93.1711],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_d8427669b2ce8d8c7aeae78937192561 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70b33b8243d81915ebcb44fdbb41239d = $(`<div id="html_70b33b8243d81915ebcb44fdbb41239d" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Kaziranga National Park         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Protected wildlife zone, regular patrols, tourist-friendly.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-07         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 18.0 km         </p>     </div>     </div>`)[0];
+                popup_d8427669b2ce8d8c7aeae78937192561.setContent(html_70b33b8243d81915ebcb44fdbb41239d);
+            
+        
+
+        circle_cd207a4fe0569a3800e46ff608ff50ff.bindPopup(popup_d8427669b2ce8d8c7aeae78937192561)
+        ;
+
+        
+    
+    
+            circle_cd207a4fe0569a3800e46ff608ff50ff.bindTooltip(
+                `<div>
+                     Kaziranga National Park (Safe) - Plotted: 2025-01-07
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_29add145c21642914b79376b372d3203 = L.circle(
+                [26.6593, 90.9391],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_ccd83ae00039561888cbd6956da88ed5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_11989324737c25d6894439fbcd74083e = $(`<div id="html_11989324737c25d6894439fbcd74083e" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Manas National Park         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Recent wildlife incidents, limited emergency access.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-06         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 16.0 km         </p>     </div>     </div>`)[0];
+                popup_ccd83ae00039561888cbd6956da88ed5.setContent(html_11989324737c25d6894439fbcd74083e);
+            
+        
+
+        circle_29add145c21642914b79376b372d3203.bindPopup(popup_ccd83ae00039561888cbd6956da88ed5)
+        ;
+
+        
+    
+    
+            circle_29add145c21642914b79376b372d3203.bindTooltip(
+                `<div>
+                     Manas National Park (Unsafe) - Plotted: 2025-01-06
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_255dd2f18bced141a8faf774f5540126 = L.circle(
+                [26.9821, 94.6426],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_8774dc5190e03e390fa3f4710539345d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a048668b6e22e033ea1177eb9e559467 = $(`<div id="html_a048668b6e22e033ea1177eb9e559467" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Sivasagar Heritage Zone         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Tourist zone, monitored by local authorities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-05         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_8774dc5190e03e390fa3f4710539345d.setContent(html_a048668b6e22e033ea1177eb9e559467);
+            
+        
+
+        circle_255dd2f18bced141a8faf774f5540126.bindPopup(popup_8774dc5190e03e390fa3f4710539345d)
+        ;
+
+        
+    
+    
+            circle_255dd2f18bced141a8faf774f5540126.bindTooltip(
+                `<div>
+                     Sivasagar Heritage Zone (Safe) - Plotted: 2025-01-05
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e40f1ed2bc65354bfd84f76659dbb7ad = L.circle(
+                [25.9, 92.5],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_3379b5cac8465e3f4f414e5c6b9d3a02 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_93960ffec4b43ca6b689d86fb2dec2f9 = $(`<div id="html_93960ffec4b43ca6b689d86fb2dec2f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Border Area (Assam-Meghalaya)         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Reported trespassing and cross-border incidents.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-04         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 20.0 km         </p>     </div>     </div>`)[0];
+                popup_3379b5cac8465e3f4f414e5c6b9d3a02.setContent(html_93960ffec4b43ca6b689d86fb2dec2f9);
+            
+        
+
+        circle_e40f1ed2bc65354bfd84f76659dbb7ad.bindPopup(popup_3379b5cac8465e3f4f414e5c6b9d3a02)
+        ;
+
+        
+    
+    
+            circle_e40f1ed2bc65354bfd84f76659dbb7ad.bindTooltip(
+                `<div>
+                     Border Area (Assam-Meghalaya) (Unsafe) - Plotted: 2025-01-04
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_880a8ed677e9329db2fc8dc2dedaa5a3 = L.circle(
+                [24.8333, 92.7789],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_6743db3bb4d9ab5c2720d6b63721c116 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17c2fe3dfb2b5881644c5ea592c1f10d = $(`<div id="html_17c2fe3dfb2b5881644c5ea592c1f10d" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Silchar Urban Area         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Urban center, good medical and police facilities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-03         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 13.0 km         </p>     </div>     </div>`)[0];
+                popup_6743db3bb4d9ab5c2720d6b63721c116.setContent(html_17c2fe3dfb2b5881644c5ea592c1f10d);
+            
+        
+
+        circle_880a8ed677e9329db2fc8dc2dedaa5a3.bindPopup(popup_6743db3bb4d9ab5c2720d6b63721c116)
+        ;
+
+        
+    
+    
+            circle_880a8ed677e9329db2fc8dc2dedaa5a3.bindTooltip(
+                `<div>
+                     Silchar Urban Area (Safe) - Plotted: 2025-01-03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9406272d4c45d845013743ab18a72d82 = L.circle(
+                [25.5, 93.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_6f735ef2019adda40a49fc69470a0a09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b7540b597b1cd0dbe4ff2dd53983754 = $(`<div id="html_5b7540b597b1cd0dbe4ff2dd53983754" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             North Cachar Hills         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Remote region, limited connectivity, recent landslides.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-02         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 17.0 km         </p>     </div>     </div>`)[0];
+                popup_6f735ef2019adda40a49fc69470a0a09.setContent(html_5b7540b597b1cd0dbe4ff2dd53983754);
+            
+        
+
+        circle_9406272d4c45d845013743ab18a72d82.bindPopup(popup_6f735ef2019adda40a49fc69470a0a09)
+        ;
+
+        
+    
+    
+            circle_9406272d4c45d845013743ab18a72d82.bindTooltip(
+                `<div>
+                     North Cachar Hills (Unsafe) - Plotted: 2025-01-02
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5f8acc7de551c6b38e67bf7879a3fdfc = L.circle(
+                [26.1833, 90.6167],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_225c2cbdb1afa5f255a72d1bd9f537fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3f9436cb2fcda521b7e7cb82af87ac9 = $(`<div id="html_f3f9436cb2fcda521b7e7cb82af87ac9" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Goalpara Wetlands         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Eco-tourism zone, regular monitoring, safe for visitors.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-01         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 14.0 km         </p>     </div>     </div>`)[0];
+                popup_225c2cbdb1afa5f255a72d1bd9f537fb.setContent(html_f3f9436cb2fcda521b7e7cb82af87ac9);
+            
+        
+
+        circle_5f8acc7de551c6b38e67bf7879a3fdfc.bindPopup(popup_225c2cbdb1afa5f255a72d1bd9f537fb)
+        ;
+
+        
+    
+    
+            circle_5f8acc7de551c6b38e67bf7879a3fdfc.bindTooltip(
+                `<div>
+                     Goalpara Wetlands (Safe) - Plotted: 2025-01-01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bb7a627ef5a6b3cdd1798abb34cd3afd = L.circle(
+                [26.75, 94.2167],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_b81503d53364bda25119a31d7b606d7d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_baffd36250b00c1d943e22a2b0dae5a6 = $(`<div id="html_baffd36250b00c1d943e22a2b0dae5a6" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Jorhat Tea Gardens         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Well-managed tea estates, regular security patrols.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-08         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 10.0 km         </p>     </div>     </div>`)[0];
+                popup_b81503d53364bda25119a31d7b606d7d.setContent(html_baffd36250b00c1d943e22a2b0dae5a6);
+            
+        
+
+        circle_bb7a627ef5a6b3cdd1798abb34cd3afd.bindPopup(popup_b81503d53364bda25119a31d7b606d7d)
+        ;
+
+        
+    
+    
+            circle_bb7a627ef5a6b3cdd1798abb34cd3afd.bindTooltip(
+                `<div>
+                     Jorhat Tea Gardens (Safe) - Plotted: 2025-01-08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_48cf196153f1a0d453e842500cdf7797 = L.circle(
+                [24.8333, 92.8333],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_7502629b199b3bf6cfeeb8b53644c327 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b19e4e9a4604e3a7dcdde46dc10cc718 = $(`<div id="html_b19e4e9a4604e3a7dcdde46dc10cc718" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Barak Valley         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Scenic region, moderate population, low incident rate.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-07         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 15.0 km         </p>     </div>     </div>`)[0];
+                popup_7502629b199b3bf6cfeeb8b53644c327.setContent(html_b19e4e9a4604e3a7dcdde46dc10cc718);
+            
+        
+
+        circle_48cf196153f1a0d453e842500cdf7797.bindPopup(popup_7502629b199b3bf6cfeeb8b53644c327)
+        ;
+
+        
+    
+    
+            circle_48cf196153f1a0d453e842500cdf7797.bindTooltip(
+                `<div>
+                     Barak Valley (Safe) - Plotted: 2025-01-07
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_303bd229648f4bcf46f908265e612bed = L.circle(
+                [25.84, 93.43],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_18222db75e4fe67da76c550231ef4d05 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2a4ce8999960000fce05b5f395564e11 = $(`<div id="html_2a4ce8999960000fce05b5f395564e11" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Diphu Eco Zone         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Eco-tourism, active local monitoring, safe for families.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-06         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_18222db75e4fe67da76c550231ef4d05.setContent(html_2a4ce8999960000fce05b5f395564e11);
+            
+        
+
+        circle_303bd229648f4bcf46f908265e612bed.bindPopup(popup_18222db75e4fe67da76c550231ef4d05)
+        ;
+
+        
+    
+    
+            circle_303bd229648f4bcf46f908265e612bed.bindTooltip(
+                `<div>
+                     Diphu Eco Zone (Safe) - Plotted: 2025-01-06
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c967739e4219e636b69e791f09454fae = L.circle(
+                [27.4728, 94.912],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_abdcc7cbc710a6199670d52954198572 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0b77f801e75b0f6cd9bbc3857b0a0b8 = $(`<div id="html_d0b77f801e75b0f6cd9bbc3857b0a0b8" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Dibrugarh Riverside         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Flood-prone area, recent thefts reported.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-05         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 17.0 km         </p>     </div>     </div>`)[0];
+                popup_abdcc7cbc710a6199670d52954198572.setContent(html_d0b77f801e75b0f6cd9bbc3857b0a0b8);
+            
+        
+
+        circle_c967739e4219e636b69e791f09454fae.bindPopup(popup_abdcc7cbc710a6199670d52954198572)
+        ;
+
+        
+    
+    
+            circle_c967739e4219e636b69e791f09454fae.bindTooltip(
+                `<div>
+                     Dibrugarh Riverside (Unsafe) - Plotted: 2025-01-05
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_852796c8b89fd1fa02a753465d5e2e41 = L.circle(
+                [26.6338, 92.8],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_f04b192fe430becd449e7bc6c29c5d49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b08f40f0cd7fc5a91b2b89dc64bbe4ee = $(`<div id="html_b08f40f0cd7fc5a91b2b89dc64bbe4ee" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Tezpur Cultural Zone         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Cultural hub, frequent events, good emergency response.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-04         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_f04b192fe430becd449e7bc6c29c5d49.setContent(html_b08f40f0cd7fc5a91b2b89dc64bbe4ee);
+            
+        
+
+        circle_852796c8b89fd1fa02a753465d5e2e41.bindPopup(popup_f04b192fe430becd449e7bc6c29c5d49)
+        ;
+
+        
+    
+    
+            circle_852796c8b89fd1fa02a753465d5e2e41.bindTooltip(
+                `<div>
+                     Tezpur Cultural Zone (Safe) - Plotted: 2025-01-04
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_588fb72452d6490a57005f5af6f616e4 = L.circle(
+                [25.1706, 93.0176],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_cc27644313bca4a506842c7235ff4eca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0400f7dca1130fb3e59ce411601c7cc = $(`<div id="html_b0400f7dca1130fb3e59ce411601c7cc" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Haflong Hill Station         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Hill station, tourist-friendly, regular police patrols.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-03         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 13.0 km         </p>     </div>     </div>`)[0];
+                popup_cc27644313bca4a506842c7235ff4eca.setContent(html_b0400f7dca1130fb3e59ce411601c7cc);
+            
+        
+
+        circle_588fb72452d6490a57005f5af6f616e4.bindPopup(popup_cc27644313bca4a506842c7235ff4eca)
+        ;
+
+        
+    
+    
+            circle_588fb72452d6490a57005f5af6f616e4.bindTooltip(
+                `<div>
+                     Haflong Hill Station (Safe) - Plotted: 2025-01-03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_aecc18f977436bcce5433dd89f92ac39 = L.circle(
+                [26.4826, 90.561],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_b56ce9916c078cd4cb15f351510a630d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_84bd18bfad70b30049e5fc94fc59a87d = $(`<div id="html_84bd18bfad70b30049e5fc94fc59a87d" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Bongaigaon Urban Zone         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Urban center, moderate crime, active community watch.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-02         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_b56ce9916c078cd4cb15f351510a630d.setContent(html_84bd18bfad70b30049e5fc94fc59a87d);
+            
+        
+
+        circle_aecc18f977436bcce5433dd89f92ac39.bindPopup(popup_b56ce9916c078cd4cb15f351510a630d)
+        ;
+
+        
+    
+    
+            circle_aecc18f977436bcce5433dd89f92ac39.bindTooltip(
+                `<div>
+                     Bongaigaon Urban Zone (Safe) - Plotted: 2025-01-02
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9cb9f7ab03bbb228184aa70285ebf17f = L.circle(
+                [27.4861, 94.6167],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_744e105beb6de003d56ed3ca72728950 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f72c4b6c6a6ccd3d6ce94f058eeddde = $(`<div id="html_9f72c4b6c6a6ccd3d6ce94f058eeddde" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Dhemaji Riverside         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Flooding risk, limited medical facilities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-01         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 18.0 km         </p>     </div>     </div>`)[0];
+                popup_744e105beb6de003d56ed3ca72728950.setContent(html_9f72c4b6c6a6ccd3d6ce94f058eeddde);
+            
+        
+
+        circle_9cb9f7ab03bbb228184aa70285ebf17f.bindPopup(popup_744e105beb6de003d56ed3ca72728950)
+        ;
+
+        
+    
+    
+            circle_9cb9f7ab03bbb228184aa70285ebf17f.bindTooltip(
+                `<div>
+                     Dhemaji Riverside (Unsafe) - Plotted: 2025-01-01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_88d03c3f8fffe973d4a0613dd7cbbeea = L.circle(
+                [27.4922, 95.3537],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_eafa969d476fa4302d6a119384b1cb89 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d3c089d6403cb5a43504268cc9be0f62 = $(`<div id="html_d3c089d6403cb5a43504268cc9be0f62" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Tinsukia Eco Park         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Nature park, regular staff patrols, safe for visitors.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-08         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 10.0 km         </p>     </div>     </div>`)[0];
+                popup_eafa969d476fa4302d6a119384b1cb89.setContent(html_d3c089d6403cb5a43504268cc9be0f62);
+            
+        
+
+        circle_88d03c3f8fffe973d4a0613dd7cbbeea.bindPopup(popup_eafa969d476fa4302d6a119384b1cb89)
+        ;
+
+        
+    
+    
+            circle_88d03c3f8fffe973d4a0613dd7cbbeea.bindTooltip(
+                `<div>
+                     Tinsukia Eco Park (Safe) - Plotted: 2025-01-08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ed8e4c577fb6c6e1ea4636da89dc6c67 = L.circle(
+                [26.9546, 94.203],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_ffa109cd1af2c764cb8a85c3dd1b8a35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45fd78f6ee7aeb02e564cabb513ee308 = $(`<div id="html_45fd78f6ee7aeb02e564cabb513ee308" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Majuli Island         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Seasonal flooding, ferry delays, limited emergency access.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-07         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 16.0 km         </p>     </div>     </div>`)[0];
+                popup_ffa109cd1af2c764cb8a85c3dd1b8a35.setContent(html_45fd78f6ee7aeb02e564cabb513ee308);
+            
+        
+
+        circle_ed8e4c577fb6c6e1ea4636da89dc6c67.bindPopup(popup_ffa109cd1af2c764cb8a85c3dd1b8a35)
+        ;
+
+        
+    
+    
+            circle_ed8e4c577fb6c6e1ea4636da89dc6c67.bindTooltip(
+                `<div>
+                     Majuli Island (Unsafe) - Plotted: 2025-01-07
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_e89bd3fb5e6d8b076b66fc504b47326a = L.circle(
+                [26.35, 92.6833],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_5733a1054bdb8161f9de54a537a21aa9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5149c80bd483d2fccf88512abc0f9628 = $(`<div id="html_5149c80bd483d2fccf88512abc0f9628" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Nagaon Heritage Zone         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Heritage sites, local authority monitoring.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-06         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_5733a1054bdb8161f9de54a537a21aa9.setContent(html_5149c80bd483d2fccf88512abc0f9628);
+            
+        
+
+        circle_e89bd3fb5e6d8b076b66fc504b47326a.bindPopup(popup_5733a1054bdb8161f9de54a537a21aa9)
+        ;
+
+        
+    
+    
+            circle_e89bd3fb5e6d8b076b66fc504b47326a.bindTooltip(
+                `<div>
+                     Nagaon Heritage Zone (Safe) - Plotted: 2025-01-06
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ea471e2b26da2a8db1b9f9535d951915 = L.circle(
+                [26.7, 92.9],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_f5b96500bf68796b9bed6714d0320a95 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b45f982f760a0087af03ddc7fd100d5 = $(`<div id="html_3b45f982f760a0087af03ddc7fd100d5" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Sonitpur Forest Area         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Wildlife movement, restricted access, recent incidents.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-05         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 20.0 km         </p>     </div>     </div>`)[0];
+                popup_f5b96500bf68796b9bed6714d0320a95.setContent(html_3b45f982f760a0087af03ddc7fd100d5);
+            
+        
+
+        circle_ea471e2b26da2a8db1b9f9535d951915.bindPopup(popup_f5b96500bf68796b9bed6714d0320a95)
+        ;
+
+        
+    
+    
+            circle_ea471e2b26da2a8db1b9f9535d951915.bindTooltip(
+                `<div>
+                     Sonitpur Forest Area (Unsafe) - Plotted: 2025-01-05
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0e56059a7e0e641f6555f5e1c794b8d2 = L.circle(
+                [24.86, 92.36],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_8a164c09571d1f5b3e69419bbd4ac5c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5121f23473aac5c753b198137277d31 = $(`<div id="html_e5121f23473aac5c753b198137277d31" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Karimganj Border         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Border zone, recent trespassing, limited security.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-04         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 17.0 km         </p>     </div>     </div>`)[0];
+                popup_8a164c09571d1f5b3e69419bbd4ac5c6.setContent(html_e5121f23473aac5c753b198137277d31);
+            
+        
+
+        circle_0e56059a7e0e641f6555f5e1c794b8d2.bindPopup(popup_8a164c09571d1f5b3e69419bbd4ac5c6)
+        ;
+
+        
+    
+    
+            circle_0e56059a7e0e641f6555f5e1c794b8d2.bindTooltip(
+                `<div>
+                     Karimganj Border (Unsafe) - Plotted: 2025-01-04
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_52854603dfa5f15e53790f4d52b9d7c3 = L.circle(
+                [26.25, 92.34],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_b0addc2b86e880e68c4f8746d2f8575e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca10b628de29c8cc1f1aef330472874e = $(`<div id="html_ca10b628de29c8cc1f1aef330472874e" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Morigaon Town         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Town area, active police, low incident rate.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-03         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_b0addc2b86e880e68c4f8746d2f8575e.setContent(html_ca10b628de29c8cc1f1aef330472874e);
+            
+        
+
+        circle_52854603dfa5f15e53790f4d52b9d7c3.bindPopup(popup_b0addc2b86e880e68c4f8746d2f8575e)
+        ;
+
+        
+    
+    
+            circle_52854603dfa5f15e53790f4d52b9d7c3.bindTooltip(
+                `<div>
+                     Morigaon Town (Safe) - Plotted: 2025-01-03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3b1661ef20cbd072f0c89ac80cdd99ef = L.circle(
+                [27.2, 94.1],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_10dfcf972bdeecb4fe1d62d18fe6a1ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aeb07103603156ac57a46c14c656e43d = $(`<div id="html_aeb07103603156ac57a46c14c656e43d" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Lakhimpur Riverside         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Flood-prone, recent evacuation, limited access.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-02         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 18.0 km         </p>     </div>     </div>`)[0];
+                popup_10dfcf972bdeecb4fe1d62d18fe6a1ec.setContent(html_aeb07103603156ac57a46c14c656e43d);
+            
+        
+
+        circle_3b1661ef20cbd072f0c89ac80cdd99ef.bindPopup(popup_10dfcf972bdeecb4fe1d62d18fe6a1ec)
+        ;
+
+        
+    
+    
+            circle_3b1661ef20cbd072f0c89ac80cdd99ef.bindTooltip(
+                `<div>
+                     Lakhimpur Riverside (Unsafe) - Plotted: 2025-01-02
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_09efb33a1a01797bea0cc1018afe2662 = L.circle(
+                [25.5, 93.2],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_117bd061b97bf4ec54f6c5ad9c56ce87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e6dbe711b43bae37a9b9ff666d898775 = $(`<div id="html_e6dbe711b43bae37a9b9ff666d898775" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Dima Hasao Hills         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Hill region, eco-tourism, regular monitoring.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-01         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 13.0 km         </p>     </div>     </div>`)[0];
+                popup_117bd061b97bf4ec54f6c5ad9c56ce87.setContent(html_e6dbe711b43bae37a9b9ff666d898775);
+            
+        
+
+        circle_09efb33a1a01797bea0cc1018afe2662.bindPopup(popup_117bd061b97bf4ec54f6c5ad9c56ce87)
+        ;
+
+        
+    
+    
+            circle_09efb33a1a01797bea0cc1018afe2662.bindTooltip(
+                `<div>
+                     Dima Hasao Hills (Safe) - Plotted: 2025-01-01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f4867f4a1111f4080782d33488e556cc = L.circle(
+                [26.44, 91.45],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_a0f5ee2099b672d7a0a76658d673c8f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4aca748d89a83960076c8863c846f556 = $(`<div id="html_4aca748d89a83960076c8863c846f556" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Nalbari Town         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Town area, good civic amenities, low crime.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-08         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_a0f5ee2099b672d7a0a76658d673c8f6.setContent(html_4aca748d89a83960076c8863c846f556);
+            
+        
+
+        circle_f4867f4a1111f4080782d33488e556cc.bindPopup(popup_a0f5ee2099b672d7a0a76658d673c8f6)
+        ;
+
+        
+    
+    
+            circle_f4867f4a1111f4080782d33488e556cc.bindTooltip(
+                `<div>
+                     Nalbari Town (Safe) - Plotted: 2025-01-08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f8222c70eb22835a846de3ac2aabcf23 = L.circle(
+                [26.65, 91.15],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_c1396081ac7304a62947974a59c138ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_358484270afd84932fc306ac428e58a6 = $(`<div id="html_358484270afd84932fc306ac428e58a6" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Baksa Forest         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Dense forest, wildlife movement, restricted entry.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-07         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 19.0 km         </p>     </div>     </div>`)[0];
+                popup_c1396081ac7304a62947974a59c138ea.setContent(html_358484270afd84932fc306ac428e58a6);
+            
+        
+
+        circle_f8222c70eb22835a846de3ac2aabcf23.bindPopup(popup_c1396081ac7304a62947974a59c138ea)
+        ;
+
+        
+    
+    
+            circle_f8222c70eb22835a846de3ac2aabcf23.bindTooltip(
+                `<div>
+                     Baksa Forest (Unsafe) - Plotted: 2025-01-07
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0649498acb056f75196cf8fad78371d2 = L.circle(
+                [27.83, 95.6],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_8814c604ed93350b11eda5d75e520400 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53b573914cce4152b41fded6200bd1d9 = $(`<div id="html_53b573914cce4152b41fded6200bd1d9" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Sadiya Border         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Border zone, recent security incidents.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-06         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 17.0 km         </p>     </div>     </div>`)[0];
+                popup_8814c604ed93350b11eda5d75e520400.setContent(html_53b573914cce4152b41fded6200bd1d9);
+            
+        
+
+        circle_0649498acb056f75196cf8fad78371d2.bindPopup(popup_8814c604ed93350b11eda5d75e520400)
+        ;
+
+        
+    
+    
+            circle_0649498acb056f75196cf8fad78371d2.bindTooltip(
+                `<div>
+                     Sadiya Border (Unsafe) - Plotted: 2025-01-06
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_f7a92b9d9a8f09ae50f6066d4c182648 = L.circle(
+                [26.02, 89.97],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_61c9b2c80e35f5773eef536f265cbf52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_35b0936e91fe3f3536cbfa0746d421a4 = $(`<div id="html_35b0936e91fe3f3536cbfa0746d421a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Dhubri Riverside         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Flood-prone, limited rescue access.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-05         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 18.0 km         </p>     </div>     </div>`)[0];
+                popup_61c9b2c80e35f5773eef536f265cbf52.setContent(html_35b0936e91fe3f3536cbfa0746d421a4);
+            
+        
+
+        circle_f7a92b9d9a8f09ae50f6066d4c182648.bindPopup(popup_61c9b2c80e35f5773eef536f265cbf52)
+        ;
+
+        
+    
+    
+            circle_f7a92b9d9a8f09ae50f6066d4c182648.bindTooltip(
+                `<div>
+                     Dhubri Riverside (Unsafe) - Plotted: 2025-01-05
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_3ca0438a8598712f06228c3880d6644c = L.circle(
+                [26.43, 92.03],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_06e023da3ce3e2ef5f90f82d61aad2d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e0d8e5374c2ab5712be2f5c7efaf598 = $(`<div id="html_8e0d8e5374c2ab5712be2f5c7efaf598" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Mangaldoi Town         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Town area, active police, safe for tourists.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-04         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_06e023da3ce3e2ef5f90f82d61aad2d7.setContent(html_8e0d8e5374c2ab5712be2f5c7efaf598);
+            
+        
+
+        circle_3ca0438a8598712f06228c3880d6644c.bindPopup(popup_06e023da3ce3e2ef5f90f82d61aad2d7)
+        ;
+
+        
+    
+    
+            circle_3ca0438a8598712f06228c3880d6644c.bindTooltip(
+                `<div>
+                     Mangaldoi Town (Safe) - Plotted: 2025-01-04
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6a544cf2adac21285a5e31bf6d762af8 = L.circle(
+                [26.0, 92.85],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_81e11fe5bf9b0c109cb488ff370f026a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d2d69cc23e7b7256cb43318e7565516 = $(`<div id="html_3d2d69cc23e7b7256cb43318e7565516" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Hojai Urban Area         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Urban center, good medical facilities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-03         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_81e11fe5bf9b0c109cb488ff370f026a.setContent(html_3d2d69cc23e7b7256cb43318e7565516);
+            
+        
+
+        circle_6a544cf2adac21285a5e31bf6d762af8.bindPopup(popup_81e11fe5bf9b0c109cb488ff370f026a)
+        ;
+
+        
+    
+    
+            circle_6a544cf2adac21285a5e31bf6d762af8.bindTooltip(
+                `<div>
+                     Hojai Urban Area (Safe) - Plotted: 2025-01-03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9b37d7d733e5176dc8eb8cdda1b89054 = L.circle(
+                [26.75, 92.13],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_ae8823ab0eb6d2aa0ed50ac9e4c89fba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_926141036c2cd5c8173136c28c2bb82c = $(`<div id="html_926141036c2cd5c8173136c28c2bb82c" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Udalguri Forest         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Forest zone, recent wildlife incidents.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-02         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 20.0 km         </p>     </div>     </div>`)[0];
+                popup_ae8823ab0eb6d2aa0ed50ac9e4c89fba.setContent(html_926141036c2cd5c8173136c28c2bb82c);
+            
+        
+
+        circle_9b37d7d733e5176dc8eb8cdda1b89054.bindPopup(popup_ae8823ab0eb6d2aa0ed50ac9e4c89fba)
+        ;
+
+        
+    
+    
+            circle_9b37d7d733e5176dc8eb8cdda1b89054.bindTooltip(
+                `<div>
+                     Udalguri Forest (Unsafe) - Plotted: 2025-01-02
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7cd0abda436390318ceefd8724df6d13 = L.circle(
+                [26.73, 93.13],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_3907c9cb83dcd60b9913d03bfdd5f5b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b6a35f6bb7000e75a9c1b38ac18f3f1 = $(`<div id="html_3b6a35f6bb7000e75a9c1b38ac18f3f1" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Biswanath Chariali         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Town area, regular patrols, safe for families.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-01         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_3907c9cb83dcd60b9913d03bfdd5f5b9.setContent(html_3b6a35f6bb7000e75a9c1b38ac18f3f1);
+            
+        
+
+        circle_7cd0abda436390318ceefd8724df6d13.bindPopup(popup_3907c9cb83dcd60b9913d03bfdd5f5b9)
+        ;
+
+        
+    
+    
+            circle_7cd0abda436390318ceefd8724df6d13.bindTooltip(
+                `<div>
+                     Biswanath Chariali (Safe) - Plotted: 2025-01-01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ec8195612eaf57972c37bcb3ee6510cf = L.circle(
+                [27.1, 94.9],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_84cec495d1dbfdab0daa35832f9d2deb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7541d0b2564477104a10a600e79b8c8f = $(`<div id="html_7541d0b2564477104a10a600e79b8c8f" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Moranhat         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Small town, low incident rate.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-08         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 10.0 km         </p>     </div>     </div>`)[0];
+                popup_84cec495d1dbfdab0daa35832f9d2deb.setContent(html_7541d0b2564477104a10a600e79b8c8f);
+            
+        
+
+        circle_ec8195612eaf57972c37bcb3ee6510cf.bindPopup(popup_84cec495d1dbfdab0daa35832f9d2deb)
+        ;
+
+        
+    
+    
+            circle_ec8195612eaf57972c37bcb3ee6510cf.bindTooltip(
+                `<div>
+                     Moranhat (Safe) - Plotted: 2025-01-08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_68ce728a277956340b3a50bf93de398f = L.circle(
+                [26.7, 92.5],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_efeddd62d3b9a8e5de1e2b7c08414215 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_107f041dd9b65a9cc62fef795b136c2f = $(`<div id="html_107f041dd9b65a9cc62fef795b136c2f" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Dhekiajuli         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Town area, active community watch.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-07         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_efeddd62d3b9a8e5de1e2b7c08414215.setContent(html_107f041dd9b65a9cc62fef795b136c2f);
+            
+        
+
+        circle_68ce728a277956340b3a50bf93de398f.bindPopup(popup_efeddd62d3b9a8e5de1e2b7c08414215)
+        ;
+
+        
+    
+    
+            circle_68ce728a277956340b3a50bf93de398f.bindTooltip(
+                `<div>
+                     Dhekiajuli (Safe) - Plotted: 2025-01-07
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_15dd6f928f4d99013523bf589a450bb2 = L.circle(
+                [26.88, 93.63],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_1fb6b94cefdb992b769d43d705b6fc9c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03f465d77843f215cb53283664f059b4 = $(`<div id="html_03f465d77843f215cb53283664f059b4" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Gohpur         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Town area, good emergency response.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-06         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_1fb6b94cefdb992b769d43d705b6fc9c.setContent(html_03f465d77843f215cb53283664f059b4);
+            
+        
+
+        circle_15dd6f928f4d99013523bf589a450bb2.bindPopup(popup_1fb6b94cefdb992b769d43d705b6fc9c)
+        ;
+
+        
+    
+    
+            circle_15dd6f928f4d99013523bf589a450bb2.bindTooltip(
+                `<div>
+                     Gohpur (Safe) - Plotted: 2025-01-06
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c417b9f76f7fdb41aef8717a1a4c8122 = L.circle(
+                [26.23, 90.23],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_4acee31b627cadb43e6d2b7b0ed14a4f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e13651841f0916a4259c62442c81a98 = $(`<div id="html_8e13651841f0916a4259c62442c81a98" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:red; border-bottom: 2px solid red; padding-bottom: 5px;">             Bilasipara         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:red; font-weight: bold;">Unsafe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Flood-prone, limited medical facilities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-05         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 17.0 km         </p>     </div>     </div>`)[0];
+                popup_4acee31b627cadb43e6d2b7b0ed14a4f.setContent(html_8e13651841f0916a4259c62442c81a98);
+            
+        
+
+        circle_c417b9f76f7fdb41aef8717a1a4c8122.bindPopup(popup_4acee31b627cadb43e6d2b7b0ed14a4f)
+        ;
+
+        
+    
+    
+            circle_c417b9f76f7fdb41aef8717a1a4c8122.bindTooltip(
+                `<div>
+                     Bilasipara (Unsafe) - Plotted: 2025-01-05
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_dad32a6e9316f0115956b09b8ba70063 = L.circle(
+                [26.98, 94.63],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_4dd622fc64f0a05fe82ae12aacd34390 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5e9a03718756898649b7295e643fa7ea = $(`<div id="html_5e9a03718756898649b7295e643fa7ea" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Sibsagar         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Heritage town, monitored by authorities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-04         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_4dd622fc64f0a05fe82ae12aacd34390.setContent(html_5e9a03718756898649b7295e643fa7ea);
+            
+        
+
+        circle_dad32a6e9316f0115956b09b8ba70063.bindPopup(popup_4dd622fc64f0a05fe82ae12aacd34390)
+        ;
+
+        
+    
+    
+            circle_dad32a6e9316f0115956b09b8ba70063.bindTooltip(
+                `<div>
+                     Sibsagar (Safe) - Plotted: 2025-01-04
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ce36c35f9027e8a33d97c8291a84223a = L.circle(
+                [25.97, 91.89],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_0595ed49a46b4d3930fa624170597502 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec89c3edbb532e8b3bfd769ee9657b87 = $(`<div id="html_ec89c3edbb532e8b3bfd769ee9657b87" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Jorabat         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Entry point, high police presence.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-03         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 12.0 km         </p>     </div>     </div>`)[0];
+                popup_0595ed49a46b4d3930fa624170597502.setContent(html_ec89c3edbb532e8b3bfd769ee9657b87);
+            
+        
+
+        circle_ce36c35f9027e8a33d97c8291a84223a.bindPopup(popup_0595ed49a46b4d3930fa624170597502)
+        ;
+
+        
+    
+    
+            circle_ce36c35f9027e8a33d97c8291a84223a.bindTooltip(
+                `<div>
+                     Jorabat (Safe) - Plotted: 2025-01-03
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c6d9d50577bc8796501babd0c3c4f630 = L.circle(
+                [27.36, 95.32],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_8359182c645f881797743f0bd025512d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9aa4e97f8127e63e644ba244b74898b0 = $(`<div id="html_9aa4e97f8127e63e644ba244b74898b0" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Duliajan         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Oil town, regular security patrols.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-02         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 10.0 km         </p>     </div>     </div>`)[0];
+                popup_8359182c645f881797743f0bd025512d.setContent(html_9aa4e97f8127e63e644ba244b74898b0);
+            
+        
+
+        circle_c6d9d50577bc8796501babd0c3c4f630.bindPopup(popup_8359182c645f881797743f0bd025512d)
+        ;
+
+        
+    
+    
+            circle_c6d9d50577bc8796501babd0c3c4f630.bindTooltip(
+                `<div>
+                     Duliajan (Safe) - Plotted: 2025-01-02
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_95a694933e1b78444c46067b34bfda40 = L.circle(
+                [27.49, 95.36],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_30451c9d5c7744693762aca51dd3772e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76fe1b7dc47035092fda743de8dfd09a = $(`<div id="html_76fe1b7dc47035092fda743de8dfd09a" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:green; border-bottom: 2px solid green; padding-bottom: 5px;">             Tinsukia Town         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:green; font-weight: bold;">Safe</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Urban center, good civic amenities.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-01         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 11.0 km         </p>     </div>     </div>`)[0];
+                popup_30451c9d5c7744693762aca51dd3772e.setContent(html_76fe1b7dc47035092fda743de8dfd09a);
+            
+        
+
+        circle_95a694933e1b78444c46067b34bfda40.bindPopup(popup_30451c9d5c7744693762aca51dd3772e)
+        ;
+
+        
+    
+    
+            circle_95a694933e1b78444c46067b34bfda40.bindTooltip(
+                `<div>
+                     Tinsukia Town (Safe) - Plotted: 2025-01-01
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_4b33301fad0c57750db8d55676ca5496 = L.circle(
+                [24.25, 92.45],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_d6eb31424c247c125a70e48b2165a570 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13e6dc022d956dc8c879f29f3d35fbb8 = $(`<div id="html_13e6dc022d956dc8c879f29f3d35fbb8" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:purple; border-bottom: 2px solid purple; padding-bottom: 5px;">             Dampa Tiger Reserve         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:purple; font-weight: bold;">Restricted</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Tiger reserve, entry only with permit. Restricted for wildlife protection.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-09         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 22.0 km         </p>     </div>     </div>`)[0];
+                popup_d6eb31424c247c125a70e48b2165a570.setContent(html_13e6dc022d956dc8c879f29f3d35fbb8);
+            
+        
+
+        circle_4b33301fad0c57750db8d55676ca5496.bindPopup(popup_d6eb31424c247c125a70e48b2165a570)
+        ;
+
+        
+    
+    
+            circle_4b33301fad0c57750db8d55676ca5496.bindTooltip(
+                `<div>
+                     Dampa Tiger Reserve (Restricted) - Plotted: 2025-01-09
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_0b6a7c29cbccbc1b0d3a118474d8d47e = L.circle(
+                [26.94, 92.85],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_dc8478cfc714f76e74a968e28a8d0b09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_464200d41018c53d1686e70b5bc198a8 = $(`<div id="html_464200d41018c53d1686e70b5bc198a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:purple; border-bottom: 2px solid purple; padding-bottom: 5px;">             Nameri National Park         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:purple; font-weight: bold;">Restricted</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Sensitive forest area, restricted for conservation. Entry only for research.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-08         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 20.0 km         </p>     </div>     </div>`)[0];
+                popup_dc8478cfc714f76e74a968e28a8d0b09.setContent(html_464200d41018c53d1686e70b5bc198a8);
+            
+        
+
+        circle_0b6a7c29cbccbc1b0d3a118474d8d47e.bindPopup(popup_dc8478cfc714f76e74a968e28a8d0b09)
+        ;
+
+        
+    
+    
+            circle_0b6a7c29cbccbc1b0d3a118474d8d47e.bindTooltip(
+                `<div>
+                     Nameri National Park (Restricted) - Plotted: 2025-01-08
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_5bb55705f45f9918a2b5861046821aa9 = L.circle(
+                [27.15, 93.92],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_3dbbd95895d3aef4925d9f6d85418ac8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f3c6d8c7d364680feca0779fd9ba6ad = $(`<div id="html_2f3c6d8c7d364680feca0779fd9ba6ad" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:purple; border-bottom: 2px solid purple; padding-bottom: 5px;">             Assam-Arunachal Border Forest         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:purple; font-weight: bold;">Restricted</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Border forest, restricted due to security and wildlife movement.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-07         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 21.0 km         </p>     </div>     </div>`)[0];
+                popup_3dbbd95895d3aef4925d9f6d85418ac8.setContent(html_2f3c6d8c7d364680feca0779fd9ba6ad);
+            
+        
+
+        circle_5bb55705f45f9918a2b5861046821aa9.bindPopup(popup_3dbbd95895d3aef4925d9f6d85418ac8)
+        ;
+
+        
+    
+    
+            circle_5bb55705f45f9918a2b5861046821aa9.bindTooltip(
+                `<div>
+                     Assam-Arunachal Border Forest (Restricted) - Plotted: 2025-01-07
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_21281126582e46a0c52ee4b0ab512646 = L.circle(
+                [26.65, 92.45],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_c04c0c4eb7401ae4a378c7dc044476f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6747cdd1a019f1d1060f89f18b7f0b1c = $(`<div id="html_6747cdd1a019f1d1060f89f18b7f0b1c" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:purple; border-bottom: 2px solid purple; padding-bottom: 5px;">             Burachapori Wildlife Sanctuary         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:purple; font-weight: bold;">Restricted</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Wildlife sanctuary, restricted for habitat protection.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-06         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 18.0 km         </p>     </div>     </div>`)[0];
+                popup_c04c0c4eb7401ae4a378c7dc044476f7.setContent(html_6747cdd1a019f1d1060f89f18b7f0b1c);
+            
+        
+
+        circle_21281126582e46a0c52ee4b0ab512646.bindPopup(popup_c04c0c4eb7401ae4a378c7dc044476f7)
+        ;
+
+        
+    
+    
+            circle_21281126582e46a0c52ee4b0ab512646.bindTooltip(
+                `<div>
+                     Burachapori Wildlife Sanctuary (Restricted) - Plotted: 2025-01-06
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_8f7c6a72121c95304f85e0e93720f148 = L.circle(
+                [26.25, 90.25],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_268a7da81a4d9a8813b236382246899e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67156902f4fba8316adb8fefedf79036 = $(`<div id="html_67156902f4fba8316adb8fefedf79036" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:purple; border-bottom: 2px solid purple; padding-bottom: 5px;">             Chakrashila Wildlife Sanctuary         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:purple; font-weight: bold;">Restricted</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Restricted for Golden Langur conservation.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-05         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 17.0 km         </p>     </div>     </div>`)[0];
+                popup_268a7da81a4d9a8813b236382246899e.setContent(html_67156902f4fba8316adb8fefedf79036);
+            
+        
+
+        circle_8f7c6a72121c95304f85e0e93720f148.bindPopup(popup_268a7da81a4d9a8813b236382246899e)
+        ;
+
+        
+    
+    
+            circle_8f7c6a72121c95304f85e0e93720f148.bindTooltip(
+                `<div>
+                     Chakrashila Wildlife Sanctuary (Restricted) - Plotted: 2025-01-05
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9cb299f488321d556556c4dd7dd41aea = L.circle(
+                [26.0, 94.0],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 2}
+            ).addTo(map_9b49f6ff31b04789f83ab4461ca15c10);
+        
+    
+        var popup_760772fedd61ce640fcb8c51d440ed50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f0dc9cfc951827c718430a78330f3a6 = $(`<div id="html_1f0dc9cfc951827c718430a78330f3a6" style="width: 100.0%; height: 100.0%;">     <div style="width: 280px; font-family: Arial, sans-serif;">         <h4 style="margin:0 0 10px 0; color:purple; border-bottom: 2px solid purple; padding-bottom: 5px;">             Border Area (Assam-Nagaland)         </h4>         <p style="margin: 5px 0;">             <b>Status:</b> <span style="color:purple; font-weight: bold;">Restricted</span>         </p>         <p style="margin: 5px 0;">             <b>Reason for Classification:</b><br>             <em>Border zone, restricted due to cross-border security.</em>         </p>         <p style="margin: 5px 0;">             <b>Date Plotted:</b> 2025-01-04         </p>         <p style="margin: 5px 0; font-size: 11px; color: #666;">             <b>Coverage Radius:</b> 20.0 km         </p>     </div>     </div>`)[0];
+                popup_760772fedd61ce640fcb8c51d440ed50.setContent(html_1f0dc9cfc951827c718430a78330f3a6);
+            
+        
+
+        circle_9cb299f488321d556556c4dd7dd41aea.bindPopup(popup_760772fedd61ce640fcb8c51d440ed50)
+        ;
+
+        
+    
+    
+            circle_9cb299f488321d556556c4dd7dd41aea.bindTooltip(
+                `<div>
+                     Border Area (Assam-Nagaland) (Restricted) - Plotted: 2025-01-04
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
