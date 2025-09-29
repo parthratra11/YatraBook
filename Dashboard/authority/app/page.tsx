@@ -693,21 +693,14 @@ const DemoSection = () => {
 
         <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl">
           <div className="relative w-full aspect-video">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl flex items-center justify-center">
-              <div className="text-center text-white">
-                <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-3 sm:mb-4">
-                  ▶️
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 font-sans">
-                  Platform Demo
-                </h3>
-                <p className="text-sm sm:text-base opacity-90 font-sans">
-                  YatraBook Complete Solution Overview
-                </p>
-              </div>
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/sFFtz8VnTRc?autoplay=1&loop=1&playlist=sFFtz8VnTRc"
+              title="YatraBook Platform Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-xl"
+            />
           </div>
-
           <div className="mt-6 sm:mt-8 text-center">
             <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
               Experience the Future of Safe Travel
