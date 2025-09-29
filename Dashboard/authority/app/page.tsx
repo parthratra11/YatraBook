@@ -694,11 +694,12 @@ const DemoSection = () => {
         <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl">
           <div className="relative w-full aspect-video">
             <iframe
-              src="https://www.youtube.com/embed/sFFtz8VnTRc?autoplay=1&loop=1&playlist=sFFtz8VnTRc"
+              src="https://www.youtube.com/embed/sFFtz8VnTRc?autoplay=1&loop=1&playlist=sFFtz8VnTRc&controls=0&modestbranding=1&rel=0&showinfo=0"
               title="YatraBook Platform Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               className="absolute inset-0 w-full h-full rounded-xl"
+              style={{ border: 0 }}
             />
           </div>
           <div className="mt-6 sm:mt-8 text-center">
