@@ -323,16 +323,51 @@ const AboutSection = () => {
           </div>
 
           <div className="relative">
-            <div className="bg-gray-100 rounded-2xl p-4 sm:p-6 shadow-xl">
-              <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl mb-3 sm:mb-4 flex items-center justify-center">
-                <span className="text-white font-semibold text-sm sm:text-base lg:text-lg font-sans">
-                  📱 Role-Adaptive Mobile App
-                </span>
+            <div className="bg-gradient-to-br from-orange-500 to-gray-900 rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="w-full mb-3 sm:mb-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+                  <div className="flex items-center justify-center h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl overflow-hidden">
+                    <Image
+                      src="/appSS/app1.jpg"
+                      alt="Packages Screen"
+                      width={180}
+                      height={320}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl overflow-hidden">
+                    <Image
+                      src="/appSS/app2.jpg"
+                      alt="YatraGuide AI Screen"
+                      width={180}
+                      height={320}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl overflow-hidden">
+                    <Image
+                      src="/appSS/app3.jpg"
+                      alt="Safety Report Screen"
+                      width={180}
+                      height={320}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-orange-500 to-gray-900 rounded-xl overflow-hidden">
+                    <Image
+                      src="/appSS/app4.jpg"
+                      alt="LoRa Status Screen"
+                      width={180}
+                      height={320}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </div>
               </div>
-              <h3 className="font-bold text-gray-900 text-center text-base sm:text-lg font-sans">
+              <h3 className="font-bold text-gray-100 text-center text-base sm:text-lg font-sans">
                 Smart Travel Companion
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2 text-center font-sans">
+              <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2 text-center font-sans">
                 Switches to Tourist Mode with enhanced safety features
               </p>
             </div>
